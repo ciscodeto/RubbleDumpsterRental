@@ -1,4 +1,11 @@
 package model.entities.valueObjects;
 
-public class Telefone {
+public class Phone {
+    private String phone;
+
+    public Phone(String phone) {
+        this.phone = phone;
+    }
+
+    public void isValid() {}
 }
