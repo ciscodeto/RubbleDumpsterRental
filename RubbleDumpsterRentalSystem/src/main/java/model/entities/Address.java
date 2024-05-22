@@ -1,4 +1,4 @@
 package model.entities;
 
-public class Client {
+public class Address {
 }
