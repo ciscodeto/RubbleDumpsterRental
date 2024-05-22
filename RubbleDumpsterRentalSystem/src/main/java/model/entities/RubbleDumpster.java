@@ -1,2 +1,4 @@
-package model.entities;public class RubbleDumpster {
+package model.entities;
+
+public class RubbleDumpster {
 }

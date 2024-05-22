@@ -1,2 +1,4 @@
-package model.entities;public class Rental {
+package model.entities;
+
+public class Rental {
 }

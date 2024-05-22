@@ -1,4 +1,4 @@
-package model.entities.cliente;
+package model.entities;
 
 public class Client {
 }
