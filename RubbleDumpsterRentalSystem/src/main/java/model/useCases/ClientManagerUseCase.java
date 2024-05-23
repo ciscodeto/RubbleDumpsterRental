@@ -1,4 +1,4 @@
 package model.useCases;
 
-public class UCClientManager {
+public class ClientManagerUseCase {
 }

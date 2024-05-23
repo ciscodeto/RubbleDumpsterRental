@@ -1,18 +1,16 @@
 package model.useCases.Rental;
 
-import model.Validator;
 import model.entities.Rental;
-import persistence.dao.DAORental;
+import persistence.dao.RentalDAO;
 
-public class UCCreateRental {
-    DAORental daoRental;
+public class CreateRentalUsecase {
+    RentalDAO rentalDAO;
 
-    public UCCreateRental(DAORental daoRental) {
-        this.daoRental = daoRental;
+    public CreateRentalUsecase(RentalDAO rentalDAO) {
+        this.rentalDAO = rentalDAO;
     }
 
     public Integer insert(Rental rental) {
-        Validator<>
-        return daoRental.create(rental);
+        return rentalDAO.create(rental);
     }
 }

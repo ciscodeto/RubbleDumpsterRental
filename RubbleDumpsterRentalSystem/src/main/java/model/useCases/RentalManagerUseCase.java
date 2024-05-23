@@ -1,7 +1,7 @@
 package model.useCases;
 
-import persistence.dao.DAORental;
+import persistence.dao.RentalDAO;
 
-public class UCRentalManager {
-    private DAORental daoRental;
+public class RentalManagerUseCase {
+    private RentalDAO rentalDAO;
 }
