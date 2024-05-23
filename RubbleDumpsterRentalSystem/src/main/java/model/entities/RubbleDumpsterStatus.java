@@ -1,8 +1,8 @@
 package model.entities;
 
-public enum Status {
+public enum RubbleDumpsterStatus {
     AVAILABLE,
     RENTED,
-    WITHDRAWAL,
-    DISABLED,
+    WITHDRAWAL_ORDER,
+    DISABLED
 }
