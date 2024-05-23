@@ -3,10 +3,10 @@ package model.useCases.Rental;
 import model.entities.Rental;
 import persistence.dao.RentalDAO;
 
-public class CreateRentalUsecase {
+public class CreateRentalUseCase {
     RentalDAO rentalDAO;
 
-    public CreateRentalUsecase(RentalDAO rentalDAO) {
+    public CreateRentalUseCase(RentalDAO rentalDAO) {
         this.rentalDAO = rentalDAO;
     }
 
