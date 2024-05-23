@@ -13,6 +13,7 @@ public class Client {
     private String name;
     private Address address;
     private Cpf cpf;
+    private Phone phone1;
+    private Phone phone2;
     private List<Email> emailList = new ArrayList<Email>();
-    private List<Phone> phoneList = new ArrayList<Phone>();
 }
