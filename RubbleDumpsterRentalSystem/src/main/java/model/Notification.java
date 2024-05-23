@@ -2,6 +2,7 @@ package model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Notification {
 
@@ -33,7 +34,9 @@ public class Notification {
         }
     }
 
-    public String errormessage() {
-        return
+    public String errorMessage(){
+        return errors.stream()
+                .map(e -> e.message)
+                .collect(Collectors.joining(" ,"));
     }
 }
