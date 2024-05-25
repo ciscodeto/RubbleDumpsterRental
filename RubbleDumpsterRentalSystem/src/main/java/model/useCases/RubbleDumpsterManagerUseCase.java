@@ -1,4 +1,4 @@
 package model.useCases;
 
-public class UCRubbleDumpsterManager {
+public class RubbleDumpsterManagerUseCase {
 }
