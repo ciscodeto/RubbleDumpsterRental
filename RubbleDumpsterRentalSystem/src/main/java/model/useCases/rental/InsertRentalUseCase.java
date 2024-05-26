@@ -1,6 +1,7 @@
 package model.useCases.rental;
 
 import model.entities.Rental;
+import model.useCases.client.FindClientUseCase;
 import persistence.dao.RentalDAO;
 
 public class InsertRentalUseCase {

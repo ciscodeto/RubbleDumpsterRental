@@ -1,4 +1,4 @@
 package model.useCases.rubbleDumpster;
 
-public class activateRubbleDumpster {
+public class ActivateRubbleDumpster {
 }

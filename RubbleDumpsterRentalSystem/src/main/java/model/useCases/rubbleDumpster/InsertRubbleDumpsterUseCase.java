@@ -3,7 +3,7 @@ package model.useCases.rubbleDumpster;
 import model.entities.Rental;
 import persistence.dao.RentalDAO;
 
-public class insertRubbleDumpsterUseCase {
+public class InsertRubbleDumpsterUseCase {
     public class InsertRentalUseCase {
         RentalDAO rentalDAO;
         Rental newRental;
