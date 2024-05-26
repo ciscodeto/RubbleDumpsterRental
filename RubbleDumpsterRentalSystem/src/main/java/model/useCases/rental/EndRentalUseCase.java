@@ -1,4 +1,4 @@
-package model.useCases.Rental;
+package model.useCases.rental;
 
 public class EndRentalUseCase {
 }
