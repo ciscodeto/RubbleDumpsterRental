@@ -1,17 +1,16 @@
 package model.useCases.rental;
 
-import model.entities.Rental;
+import model.useCases.client.FindClientUseCase;
+import model.useCases.rubbleDumpster.FindRubbleDumpsterUseCase;
 import persistence.dao.RentalDAO;
 
 public class InsertRentalUseCase {
-    RentalDAO rentalDAO;
-    Rental newRental;
+    private RentalDAO rentalDAO;
+    private FindClientUseCase findClientUseCase;
+    private FindRubbleDumpsterUseCase findBookUseCase;
+    private up
 
     public InsertRentalUseCase(RentalDAO rentalDAO) {
         this.rentalDAO = rentalDAO;
-    }
-
-    public Integer insert(Rental rental) {
-        return rentalDAO.create(rental);
     }
 }
