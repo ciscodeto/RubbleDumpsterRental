@@ -43,7 +43,6 @@ public class RubbleDumpster {
     }
 
 
-
     public Rental getRentel() {
         return rental;
     }
@@ -54,15 +53,18 @@ public class RubbleDumpster {
 
     public RubbleDumpster() {
     }
+
     public RubbleDumpster(Double minAmount, Double monthlyAmount, RubbleDumpsterStatus status) {
-        this( null, minAmount,monthlyAmount, status);
+        this(null, minAmount, monthlyAmount, status);
     }
+
     public RubbleDumpster(Integer serialNumber, Double minAmount, Double monthlyAmount, RubbleDumpsterStatus status) {
         this.serialNumber = serialNumber;
         this.minAmount = minAmount;
         this.monthlyAmount = monthlyAmount;
         this.status = status;
     }
+
     public RubbleDumpster(Integer serialNumber, Double minAmount, Double monthlyAmount, RubbleDumpsterStatus status, Rental rental) {
         this.serialNumber = serialNumber;
         this.minAmount = minAmount;
@@ -79,15 +81,15 @@ public class RubbleDumpster {
                 ", status: " + this.getStatus();
     }
 
-    public void rentRubbleDumpster() {}
+    public void rentRubbleDumpster() {
+    }
 
 
-
-    public void withdrawalRequest( double withdrawalAmount)  {
-        if (withdrawalAmount <= 0){
+    public void withdrawalRequest(double withdrawalAmount) {
+        if (withdrawalAmount <= 0) {
             throw new IllegalArgumentException("O valor da ordem de retirada deve ser um valor positivo!");
         }
-        if (withdrawalAmount > this.rental.getFinalAmount()){
+        if (withdrawalAmount > this.rental.getFinalAmount()) {
             try {
                 throw new InsufficientResourcesException("O valor da ordem de retirada excede o balanço disponível!");
             } catch (InsufficientResourcesException e) {
@@ -105,8 +107,7 @@ public class RubbleDumpster {
     public void inactivateRubbleDumpster() {
         if (this.status == RENTED && this.rental.getEndDate().isBefore(LocalDate.now())) {
             this.status = DISABLED;
-        }
-        else
+        } else
             System.out.println("Não é possível realizar a desativação pois a caçamba não está alugada");
     }
 
