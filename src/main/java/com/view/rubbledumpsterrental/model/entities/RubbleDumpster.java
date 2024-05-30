@@ -43,12 +43,12 @@ public class RubbleDumpster {
     }
 
 
-    public Rental getRentel() {
+    public Rental getRental() {
         return rental;
     }
 
-    public void setRentel(Rental rentel) {
-        this.rental = rentel;
+    public void setRental(Rental rental) {
+        this.rental = rental;
     }
 
     public RubbleDumpster() {
