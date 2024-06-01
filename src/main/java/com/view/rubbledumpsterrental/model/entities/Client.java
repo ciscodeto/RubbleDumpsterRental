@@ -25,40 +25,18 @@ public class Client {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public Address getAddress() {
         return address;
     }
 
-    public void setAddress(Address address) {
-        this.address = address;
-    }
-
-    public Cpf getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(Cpf cpf) {
-        this.cpf = cpf;
-    }
+    public Cpf getCpf() { return cpf; }
 
     public Phone getPhone1() {
         return phone1;
     }
 
-    public void setPhone1(Phone phone1) {
-        this.phone1 = phone1;
-    }
-
     public Phone getPhone2() {
         return phone2;
-    }
-
-    public void setPhone2(Phone phone2) {
-        this.phone2 = phone2;
     }
 
     public List<Email> getEmailList() {
@@ -67,5 +45,24 @@ public class Client {
 
 
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public void setCpf(Cpf cpf) {
+        this.cpf = cpf;
+    }
+
+    public void setPhone1(Phone phone1) {
+        this.phone1 = phone1;
+    }
+
+    public void setPhone2(Phone phone2) {
+        this.phone2 = phone2;
+    }
 
 }
