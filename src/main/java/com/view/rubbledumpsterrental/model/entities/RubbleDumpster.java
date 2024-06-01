@@ -43,28 +43,26 @@ public class RubbleDumpster {
     }
 
 
-    public Rental getRental() {
+
+    public Rental getRentel() {
         return rental;
     }
 
-    public void setRental(Rental rental) {
-        this.rental = rental;
+    public void setRentel(Rental rentel) {
+        this.rental = rentel;
     }
 
     public RubbleDumpster() {
     }
-
     public RubbleDumpster(Double minAmount, Double monthlyAmount, RubbleDumpsterStatus status) {
-        this(null, minAmount, monthlyAmount, status);
+        this( null, minAmount,monthlyAmount, status);
     }
-
     public RubbleDumpster(Integer serialNumber, Double minAmount, Double monthlyAmount, RubbleDumpsterStatus status) {
         this.serialNumber = serialNumber;
         this.minAmount = minAmount;
         this.monthlyAmount = monthlyAmount;
         this.status = status;
     }
-
     public RubbleDumpster(Integer serialNumber, Double minAmount, Double monthlyAmount, RubbleDumpsterStatus status, Rental rental) {
         this.serialNumber = serialNumber;
         this.minAmount = minAmount;
@@ -81,35 +79,15 @@ public class RubbleDumpster {
                 ", status: " + this.getStatus();
     }
 
-
-    public void calculateFinalAmount(int rentalDurationInDays) {
-        double monthlyFee = this.getMonthlyAmount();
-        int numberOfMonths = rentalDurationInDays / 30;
-        int remaingDays = rentalDurationInDays % 30;
-
-        if (remaingDays > 0) {
-            numberOfMonths++;
-            this.getRental().setFinalAmount(monthlyFee * numberOfMonths);
-        }
-        else
-            this.getRental().setFinalAmount(monthlyFee * numberOfMonths);
-    }
-
-    public void rentRubbleDumpster(int rentalDurationInDays) {
-        if (this.getStatus() == AVAILABLE){
-            calculateFinalAmount(rentalDurationInDays);
-            setStatus(RENTED);
-        }
-        else
-            System.out.println("A caçamba não está disponível para locação!");
-    }
+    public void rentRubbleDumpster() {}
 
 
-    public void withdrawalRequest(double withdrawalAmount) {
-        if (withdrawalAmount <= 0) {
+
+    public void withdrawalRequest( double withdrawalAmount)  {
+        if (withdrawalAmount <= 0){
             throw new IllegalArgumentException("O valor da ordem de retirada deve ser um valor positivo!");
         }
-        if (withdrawalAmount > this.rental.getFinalAmount()) {
+        if (withdrawalAmount > this.rental.getFinalAmount()){
             try {
                 throw new InsufficientResourcesException("O valor da ordem de retirada excede o balanço disponível!");
             } catch (InsufficientResourcesException e) {
@@ -127,7 +105,8 @@ public class RubbleDumpster {
     public void inactivateRubbleDumpster() {
         if (this.status == RENTED && this.rental.getEndDate().isBefore(LocalDate.now())) {
             this.status = DISABLED;
-        } else
+        }
+        else
             System.out.println("Não é possível realizar a desativação pois a caçamba não está alugada");
     }
 
