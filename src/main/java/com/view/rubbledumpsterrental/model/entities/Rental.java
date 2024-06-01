@@ -14,7 +14,13 @@ public class Rental {
     private Enum<RentalStatus> rentalStatus;
     private Address address;
     private Client client;
+    private RubbleDumpster rubbleDumpster;
     private RentalStatus status;
+
+    public Rental(RubbleDumpster dumpster, Client client) {
+        this.client = client;
+        this.rubbleDumpster = dumpster;
+    }
 
     public Integer getId() {
         return id;
