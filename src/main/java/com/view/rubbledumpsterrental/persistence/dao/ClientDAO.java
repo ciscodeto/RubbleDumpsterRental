@@ -7,7 +7,7 @@ import com.view.rubbledumpsterrental.persistence.utils.DAO;
 
 import java.util.Optional;
 
-public interface ClientDAO extends DAO<Client, Cpf> {
+public interface ClientDAO extends DAO<Client, Integer> {
     Optional<Client> findByCpf(Cpf cpf);
 
 }

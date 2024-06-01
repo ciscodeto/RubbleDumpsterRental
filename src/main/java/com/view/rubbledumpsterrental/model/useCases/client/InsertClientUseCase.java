@@ -31,8 +31,6 @@ public class InsertClientUseCase {
         if (clientDAO.findOne(cpf).isPresent())
             throw new EntityAlreadyExistsException("This entity already exists");
 
-        client.setStatus(RubbleDumpsterStatus.AVAILABLE);
-
-        return rubbleDumbsterDAO.create(client);
+        return clientDAO.create(client);
     }
 }
