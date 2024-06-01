@@ -15,5 +15,7 @@ public class Address {
         this.cep = cep;
     }
 
-    public void isValid() {}
+    public boolean isValid() {
+
+    }
 }

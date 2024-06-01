@@ -17,7 +17,11 @@ public class ClientInsertValidator extends Validator<Client>{
             notification.addError("Client name is null or empty");
 
         if (!client.getCpf().isValid())
-            notification.addError("Cpf invalido");
+            notification.addError("Client cpf is invalid");
+
+        if (!client.getAddress().isValid()){
+            notification.addError("Client address is invalid");
+        }
 
 
         return notification;
