@@ -5,6 +5,7 @@ import com.view.rubbledumpsterrental.model.entities.RubbleDumpster;
 import com.view.rubbledumpsterrental.model.entities.RubbleDumpsterStatus;
 import com.view.rubbledumpsterrental.persistence.dao.RubbleDumpsterDAO;
 import com.view.rubbledumpsterrental.persistence.utils.EntityAlreadyExistsException;
+import com.view.rubbledumpsterrental.persistence.utils.EntityNotFoundException;
 
 import java.util.List;
 import java.util.Optional;
@@ -34,7 +35,7 @@ public class FindRubbleDumpsterUseCase {
             throw new IllegalArgumentException("Status cannot be null!");
 
         if (rubbleDumbsterDAO.findAll(status).isEmpty())
-            throw new EntityAlreadyExistsException("Nenhum elemento com este status foi encontrado!");
+            throw new EntityNotFoundException("Nenhum elemento com este status foi encontrado!");
 
         return rubbleDumbsterDAO.findAll(status);
     }
