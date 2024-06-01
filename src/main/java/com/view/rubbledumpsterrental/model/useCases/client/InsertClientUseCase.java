@@ -28,8 +28,9 @@ public class InsertClientUseCase {
             throw new IllegalArgumentException(notification.errorMessage());
 
         Cpf cpf = client.getCpf();
-        if (clientDAO.findOne(cpf).isPresent())
-            throw new EntityAlreadyExistsException("This entity already exists");
+        if (clientDAO.findByCpf(cpf).isPresent())
+            throw new EntityAlreadyExistsException("This CPF already exists");
+
 
         return clientDAO.create(client);
     }
