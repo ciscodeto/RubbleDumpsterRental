@@ -16,6 +16,14 @@ public class Address {
     }
 
     public boolean isValid() {
+        return isNotEmpty(street) &&
+                isNotEmpty(district) &&
+                isNotEmpty(number) &&
+                isNotEmpty(city) &&
+                cep != null && cep.isValid();
+    }
 
+    private boolean isNotEmpty(String field) {
+        return field != null && !field.trim().isEmpty();
     }
 }
