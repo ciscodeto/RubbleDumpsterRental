@@ -31,6 +31,12 @@ public class FindClientUseCase {
         return clientDAO.findByCpf(cpf);
     }
 
+    public Optional<Client> findClientByName(String name) {
+        if (Validator.nullOrEmpty(name))
+            throw new IllegalArgumentException("Name cannot be null or empty");
+        return clientDAO.findByName(name);
+    }
+
     public List<Client> findAll() { return clientDAO.findAll(); }
 
 }
