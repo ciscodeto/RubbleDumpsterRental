@@ -41,6 +41,6 @@ public class FindRubbleDumpsterUseCase {
     public List<RubbleDumpster> findAll () {
         return rubbleDumbsterDAO.findAll();
     }
-    
+
 }
 
