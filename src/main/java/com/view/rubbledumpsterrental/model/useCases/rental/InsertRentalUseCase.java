@@ -42,7 +42,7 @@ public class InsertRentalUseCase {
         if (clientId == null || rubbleDumpsterId == null) {
             throw new IllegalArgumentException("Client ID and / or Dumpster ID are / is null.");
         }
-        RubbleDumpster rubbleDumpster = rubbleDumpsterDAO.findOne(RubbleDumpsterStatus.AVAILABLE)
+        RubbleDumpster rubbleDumpster = rubbleDumpsterDAO.findOne(RubbleDumpsterStatus.AVAILABLE.ordinal())
                 .orElseThrow(() -> new EntityNotFoundException("Cannot find Rubble Dumpster with id " + rubbleDumpsterId));
 
         Client client = findClientUseCase.findOne(clientId)

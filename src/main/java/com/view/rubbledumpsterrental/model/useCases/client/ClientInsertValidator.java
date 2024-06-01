@@ -23,6 +23,14 @@ public class ClientInsertValidator extends Validator<Client>{
             notification.addError("Client address is invalid");
         }
 
+        if (client.getEmailList().isEmpty())
+            notification.addError("Client email list is empty");
+
+        if (!client.getPhone1().isValid())
+            notification.addError("Client phone is invalid");
+
+        if (!client.getPhone2().isValid())
+            notification.addError("Client phone is invalid");
 
         return notification;
     }
