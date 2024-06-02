@@ -18,8 +18,6 @@ public class InsertRentalUseCase {
     private RubbleDumpsterDAO rubbleDumpsterDAO;
     private FindRubbleDumpsterUseCase findRubbleDumpsterUseCase;
     private FindClientUseCase findClientUseCase;
-    private UpdateRubbleDumpsterRentalPriceUseCase updateRubbleDumpsterRentalPriceUseCase;
-    private UpdateClientUseCase clientUseCase;
 
     public InsertRentalUseCase(RentalDAO rentalDAO,
                                FindRubbleDumpsterUseCase findRubbleDumpsterUseCase,
@@ -30,8 +28,6 @@ public class InsertRentalUseCase {
         this.rentalDAO = rentalDAO;
         this.findRubbleDumpsterUseCase = findRubbleDumpsterUseCase;
         this.findClientUseCase = findClientUseCase;
-        this.updateRubbleDumpsterRentalPriceUseCase = updateRubbleDumpsterRentalPriceUseCase;
-        this.clientUseCase = clientUseCase;
     }
 
     public Rental insertRental(Integer clientId) {
@@ -41,8 +37,7 @@ public class InsertRentalUseCase {
         Client client = findClientUseCase.findOne(clientId)
                 .orElseThrow(() -> new EntityNotFoundException("Cannot find Client with id " + clientId));
 
-        RubbleDumpster rubbleDumpster = rubbleDumpsterDAO.findOne(RubbleDumpsterStatus.AVAILABLE.ordinal())
-                .orElseThrow(() -> new EntityNotFoundException("No Rubble Dumpster Available for renting."));
+        RubbleDumpster rubbleDumpster = findRubbleDumpsterUseCase.findAvailableUnit();
 
         Rental rental = new Rental(rubbleDumpster, client, LocalDate.now());
         Integer rentalId = rentalDAO.create(rental);

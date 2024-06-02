@@ -29,6 +29,7 @@ public class FindRubbleDumpsterUseCase {
 
         return rubbleDumpsterDAO.findOne(serialNumber);
     }
+
     public List<RubbleDumpster> findAll (RubbleDumpsterStatus status) {
         if (status == null)
             throw new IllegalArgumentException("Status cannot be null!");
@@ -42,5 +43,15 @@ public class FindRubbleDumpsterUseCase {
         return rubbleDumpsterDAO.findAll();
     }
 
+    public RubbleDumpster findAvailableUnit() {
+
+        List<RubbleDumpster> availableDumpsters = rubbleDumpsterDAO.findAll(RubbleDumpsterStatus.AVAILABLE);
+
+        if (availableDumpsters.isEmpty()) {
+            throw new EntityNotFoundException("Nenhuma caçamba disponível foi encontrada!");
+        }
+
+        return availableDumpsters.getFirst();
+    }
 }
 

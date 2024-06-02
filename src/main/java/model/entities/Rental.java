@@ -7,8 +7,8 @@ import java.time.LocalDate;
 public class Rental {
     private Integer id;
     private LocalDate initialDate;
-    private LocalDate dateRequestWithdrawal;
-    private LocalDate dataWithdrawal;
+    private LocalDate withdrawalRequestDate;
+    private LocalDate withdrawalDate;
     private LocalDate endDate;
     private Double finalAmount;
     private Enum<RentalStatus> rentalStatus;
@@ -46,20 +46,20 @@ public class Rental {
         this.initialDate = initialDate;
     }
 
-    public LocalDate getDateRequestWithdrawal() {
-        return dateRequestWithdrawal;
+    public LocalDate getWithdrawalRequestDate() {
+        return withdrawalRequestDate;
     }
 
-    public void setDateRequestWithdrawal(LocalDate dateRequestWithdrawal) {
-        this.dateRequestWithdrawal = dateRequestWithdrawal;
+    public void setWithdrawalRequestDate(LocalDate withdrawalRequestDate) {
+        this.withdrawalRequestDate = withdrawalRequestDate;
     }
 
-    public LocalDate getDataWithdrawal() {
-        return dataWithdrawal;
+    public LocalDate getWithdrawalDate() {
+        return withdrawalDate;
     }
 
-    public void setDataWithdrawal(LocalDate dataWithdrawal) {
-        this.dataWithdrawal = dataWithdrawal;
+    public void setWithdrawalDate(LocalDate withdrawalDate) {
+        this.withdrawalDate = withdrawalDate;
     }
 
     public LocalDate getEndDate() {
