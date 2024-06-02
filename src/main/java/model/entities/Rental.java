@@ -23,6 +23,13 @@ public class Rental {
         this.initialDate = initialDate;
     }
 
+    public void setStatus(RentalStatus status) {
+        this.status = status;
+    }
+    public void withdrawalRequest() {}
+    public void endRental() {}
+    public void calculateFinalAmount() {}
+
     public Integer getId() {
         return id;
     }
@@ -99,11 +106,11 @@ public class Rental {
         return status;
     }
 
-    public void setStatus(RentalStatus status) {
-        this.status = status;
+    public RubbleDumpster getRubbleDumpster() {
+        return rubbleDumpster;
     }
 
-    public void withdrawalRequest() {}
-    public void endRental() {}
-    public void calculateFinalAmount() {}
+    public void setRubbleDumpster(RubbleDumpster rubbleDumpster) {
+        this.rubbleDumpster = rubbleDumpster;
+    }
 }

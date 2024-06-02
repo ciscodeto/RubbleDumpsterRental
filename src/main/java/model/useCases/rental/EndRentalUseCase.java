@@ -1,5 +1,6 @@
 package model.useCases.rental;
 
+import model.entities.*;
 import model.useCases.client.FindClientUseCase;
 import model.useCases.client.UpdateClientUseCase;
 import model.useCases.rubbleDumpster.FindRubbleDumpsterUseCase;
@@ -7,6 +8,10 @@ import model.useCases.rubbleDumpster.UpdateRubbleDumpsterRentalPriceUseCase;
 import persistence.dao.ClientDAO;
 import persistence.dao.RentalDAO;
 import persistence.dao.RubbleDumpsterDAO;
+import persistence.utils.EntityNotFoundException;
+
+import java.time.LocalDate;
+import java.util.Optional;
 
 public class EndRentalUseCase {
     private RentalDAO rentalDAO;
@@ -28,5 +33,23 @@ public class EndRentalUseCase {
         this.findClientUseCase = findClientUseCase;
         this.updateRubbleDumpsterRentalPriceUseCase = updateRubbleDumpsterRentalPriceUseCase;
         this.clientUseCase = clientUseCase;
+    }
+
+    public void endRental(Integer rentalId) {
+        if (rentalId == null) {
+            throw new IllegalArgumentException("ID is null.");
+        }
+
+        Rental rental = rentalDAO.findOne(rentalId)
+                .orElseThrow(() -> new EntityNotFoundException("Cannot find Rental for ID " + rentalId));
+
+        rental.setEndDate(LocalDate.now());
+        rental.setRentalStatus(RentalStatus.CLOSED);
+        rentalDAO.update(rental);
+
+        Integer serialNumber = rental.getRubbleDumpster().getSerialNumber();
+        RubbleDumpster rubbleDumpster = findRubbleDumpsterUseCase.findOne(serialNumber).get();
+        rubbleDumpster.setStatus(RubbleDumpsterStatus.AVAILABLE);
+        rubbleDumpsterDAO.update(rubbleDumpster);
     }
 }

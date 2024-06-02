@@ -12,18 +12,16 @@ import model.entities.RubbleDumpsterStatus;
 import persistence.dao.RubbleDumpsterDAO;
 import persistence.utils.EntityAlreadyExistsException;
 
-import javax.management.NotificationBroadcaster;
-
 public class InsertRubbleDumpsterUseCase {
 
-    private RubbleDumpsterDAO rubbleDumbsterDAO;
+    private RubbleDumpsterDAO rubbleDumpsterDAO;
 
-    public InsertRubbleDumpsterUseCase(RubbleDumpsterDAO rubbleDumbsterDAO) {
-        this.rubbleDumbsterDAO = rubbleDumbsterDAO;
+    public InsertRubbleDumpsterUseCase(RubbleDumpsterDAO rubbleDumpsterDAO) {
+        this.rubbleDumpsterDAO = rubbleDumpsterDAO;
     }
 
     public Integer insert(RubbleDumpster rubbleDumpster) {
-        Validator<RubbleDumpster> validator = new RubbleDumbsterInsertValidator();
+        Validator<RubbleDumpster> validator = new RubbleDumpsterInsertValidator();
 
         Notification notification = validator.validate(rubbleDumpster);
 
@@ -32,12 +30,12 @@ public class InsertRubbleDumpsterUseCase {
 
         Integer serialNumber = rubbleDumpster.getSerialNumber();
 
-        if (rubbleDumbsterDAO.findOne(serialNumber).isPresent())
+        if (rubbleDumpsterDAO.findOne(serialNumber).isPresent())
             throw new EntityAlreadyExistsException("Este Serial Number já existe");
 
         rubbleDumpster.setStatus(RubbleDumpsterStatus.AVAILABLE);
 
-        return rubbleDumbsterDAO.create(rubbleDumpster);
+        return rubbleDumpsterDAO.create(rubbleDumpster);
     }
 
 }

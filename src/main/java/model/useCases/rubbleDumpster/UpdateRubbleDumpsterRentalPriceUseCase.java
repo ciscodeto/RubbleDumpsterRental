@@ -3,21 +3,20 @@ package model.useCases.rubbleDumpster;
 import model.Notification;
 import model.Validator;
 import model.entities.RubbleDumpster;
-import model.entities.RubbleDumpsterStatus;
 import persistence.dao.RubbleDumpsterDAO;
 import persistence.utils.EntityAlreadyExistsException;
 
 public class UpdateRubbleDumpsterRentalPriceUseCase {
 
 
-    private RubbleDumpsterDAO rubbleDumbsterDAO;
+    private RubbleDumpsterDAO rubbleDumpsterDAO;
 
-    public UpdateRubbleDumpsterRentalPriceUseCase(RubbleDumpsterDAO rubbleDumbsterDAO) {
-        this.rubbleDumbsterDAO = rubbleDumbsterDAO;
+    public UpdateRubbleDumpsterRentalPriceUseCase(RubbleDumpsterDAO rubbleDumpsterDAO) {
+        this.rubbleDumpsterDAO = rubbleDumpsterDAO;
     }
 
     public boolean update(RubbleDumpster rubbleDumpster, double newMonthlyAmount) {
-        Validator<RubbleDumpster> validator = new RubbleDumbsterInsertValidator();
+        Validator<RubbleDumpster> validator = new RubbleDumpsterInsertValidator();
 
         Notification notification = validator.validate(rubbleDumpster);
 
@@ -26,11 +25,11 @@ public class UpdateRubbleDumpsterRentalPriceUseCase {
 
         Integer serialNumber = rubbleDumpster.getSerialNumber();
 
-        if (rubbleDumbsterDAO.findOne(serialNumber).isEmpty())
+        if (rubbleDumpsterDAO.findOne(serialNumber).isEmpty())
             throw new EntityAlreadyExistsException("Caçamba não localizada.");
 
         rubbleDumpster.setMonthlyAmount(newMonthlyAmount);
 
-        return rubbleDumbsterDAO.update(rubbleDumpster);
+        return rubbleDumpsterDAO.update(rubbleDumpster);
     }
 }
