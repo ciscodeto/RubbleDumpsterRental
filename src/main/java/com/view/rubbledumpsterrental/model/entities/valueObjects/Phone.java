@@ -7,5 +7,13 @@ public class Phone {
         this.phone = phone;
     }
 
-    public void isValid() {}
+    public boolean isValid() {
+        if (phone == null || phone.isEmpty())  return false;
+
+        // Remove espaços, parênteses e traços
+        String cleanedPhone = phone.replaceAll("[\\s()-]", "");
+
+        // Verifica se o telefone tem 10 ou 11 dígitos e se todos os caracteres são numéricos
+        return (cleanedPhone.matches("\\d{10}") || cleanedPhone.matches("\\d{11}"));
+    }
 }

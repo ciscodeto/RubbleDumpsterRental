@@ -15,5 +15,15 @@ public class Address {
         this.cep = cep;
     }
 
-    public void isValid() {}
+    public boolean isValid() {
+        return isNotEmpty(street) &&
+                isNotEmpty(district) &&
+                isNotEmpty(number) &&
+                isNotEmpty(city) &&
+                cep != null && cep.isValid();
+    }
+
+    private boolean isNotEmpty(String field) {
+        return field != null && !field.trim().isEmpty();
+    }
 }

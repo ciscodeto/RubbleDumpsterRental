@@ -7,5 +7,13 @@ public class Email {
         this.email = email;
     }
 
-    public void isValid() {}
-}
+    public boolean isValid() {
+        if (email == null || email.isEmpty()) {
+            return false;
+        }
+
+        // Expressão regular para validar e-mails
+        String emailRegex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$";
+
+        return email.matches(emailRegex);
+    }}
