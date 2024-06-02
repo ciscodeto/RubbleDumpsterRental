@@ -17,9 +17,10 @@ public class Rental {
     private RubbleDumpster rubbleDumpster;
     private RentalStatus status;
 
-    public Rental(RubbleDumpster dumpster, Client client) {
+    public Rental(RubbleDumpster dumpster, Client client, LocalDate initialDate) {
         this.client = client;
         this.rubbleDumpster = dumpster;
+        this.initialDate = initialDate;
     }
 
     public Integer getId() {
