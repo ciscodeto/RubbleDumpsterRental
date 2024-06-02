@@ -4,7 +4,6 @@ import model.Validator;
 import model.entities.RubbleDumpster;
 import model.entities.RubbleDumpsterStatus;
 import persistence.dao.RubbleDumpsterDAO;
-import persistence.utils.EntityAlreadyExistsException;
 import persistence.utils.EntityNotFoundException;
 
 import java.util.List;
@@ -12,35 +11,35 @@ import java.util.Optional;
 
 public class FindRubbleDumpsterUseCase {
 
-    private RubbleDumpsterDAO rubbleDumbsterDAO;
+    private RubbleDumpsterDAO rubbleDumpsterDAO;
 
-    public FindRubbleDumpsterUseCase(RubbleDumpsterDAO rubbleDumbsterDAO) {
-        this.rubbleDumbsterDAO = rubbleDumbsterDAO;
+    public FindRubbleDumpsterUseCase(RubbleDumpsterDAO rubbleDumpsterDAO) {
+        this.rubbleDumpsterDAO = rubbleDumpsterDAO;
     }
 
-    Validator<RubbleDumpster> validator = new RubbleDumbsterInsertValidator();
+    Validator<RubbleDumpster> validator = new RubbleDumpsterInsertValidator();
 
 
     public Optional<RubbleDumpster> findOne (Integer serialNumber) {
         if (serialNumber == null)
             throw new IllegalArgumentException("Serial number cannot be null!");
 
-        if (rubbleDumbsterDAO.findOne(serialNumber).isEmpty())
-            throw new EntityAlreadyExistsException("Caçamba não localizada.");
+        if (rubbleDumpsterDAO.findOne(serialNumber).isEmpty())
+            throw new EntityNotFoundException("Caçamba não localizada.");
 
-        return rubbleDumbsterDAO.findOne(serialNumber);
+        return rubbleDumpsterDAO.findOne(serialNumber);
     }
     public List<RubbleDumpster> findAll (RubbleDumpsterStatus status) {
         if (status == null)
             throw new IllegalArgumentException("Status cannot be null!");
 
-        if (rubbleDumbsterDAO.findAll(status).isEmpty())
+        if (rubbleDumpsterDAO.findAll(status).isEmpty())
             throw new EntityNotFoundException("Nenhum elemento com este status foi encontrado!");
 
-        return rubbleDumbsterDAO.findAll(status);
+        return rubbleDumpsterDAO.findAll(status);
     }
     public List<RubbleDumpster> findAll () {
-        return rubbleDumbsterDAO.findAll();
+        return rubbleDumpsterDAO.findAll();
     }
 
 }

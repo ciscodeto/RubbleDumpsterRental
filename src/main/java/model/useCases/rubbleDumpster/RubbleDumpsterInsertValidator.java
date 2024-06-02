@@ -2,11 +2,9 @@ package model.useCases.rubbleDumpster;
 
 import model.Notification;
 import model.Validator;
-import model.entities.Rental;
 import model.entities.RubbleDumpster;
-import model.entities.RubbleDumpsterStatus;
 
-public class RubbleDumbsterInsertValidator extends Validator<RubbleDumpster> {
+public class RubbleDumpsterInsertValidator extends Validator<RubbleDumpster> {
     @Override
     public Notification validate(RubbleDumpster rubbleDumpster) {
         Notification notification = new Notification();

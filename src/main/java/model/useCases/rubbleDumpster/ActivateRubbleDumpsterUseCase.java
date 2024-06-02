@@ -8,14 +8,14 @@ import persistence.dao.RubbleDumpsterDAO;
 import persistence.utils.EntityAlreadyExistsException;
 
 public class ActivateRubbleDumpsterUseCase {
-    private RubbleDumpsterDAO rubbleDumbsterDAO;
+    private RubbleDumpsterDAO rubbleDumpsterDAO;
 
-    public ActivateRubbleDumpsterUseCase(RubbleDumpsterDAO rubbleDumbsterDAO) {
-        this.rubbleDumbsterDAO = rubbleDumbsterDAO;
+    public ActivateRubbleDumpsterUseCase(RubbleDumpsterDAO rubbleDumpsterDAO) {
+        this.rubbleDumpsterDAO = rubbleDumpsterDAO;
     }
 
     public boolean inactivate(RubbleDumpster rubbleDumpster) {
-        Validator<RubbleDumpster> validator = new RubbleDumbsterInsertValidator();
+        Validator<RubbleDumpster> validator = new RubbleDumpsterInsertValidator();
 
         Notification notification = validator.validate(rubbleDumpster);
 
@@ -24,11 +24,11 @@ public class ActivateRubbleDumpsterUseCase {
 
         Integer serialNumber = rubbleDumpster.getSerialNumber();
 
-        if (rubbleDumbsterDAO.findOne(serialNumber).isEmpty() && rubbleDumpster.getStatus() != RubbleDumpsterStatus.DISABLED)
+        if (rubbleDumpsterDAO.findOne(serialNumber).isEmpty() && rubbleDumpster.getStatus() != RubbleDumpsterStatus.DISABLED)
             throw new EntityAlreadyExistsException("Caçamba não localizada ou encontra-se com status diferente de desabilitado");
 
         rubbleDumpster.setStatus(RubbleDumpsterStatus.AVAILABLE);
 
-        return rubbleDumbsterDAO.update(rubbleDumpster);
+        return rubbleDumpsterDAO.update(rubbleDumpster);
     }
 }

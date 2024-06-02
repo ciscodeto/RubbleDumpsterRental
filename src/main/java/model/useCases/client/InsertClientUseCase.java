@@ -3,12 +3,8 @@ package model.useCases.client;
 import model.Notification;
 import model.Validator;
 import model.entities.Client;
-import model.entities.RubbleDumpster;
-import model.entities.RubbleDumpsterStatus;
 import model.entities.valueObjects.Cpf;
-import model.useCases.rubbleDumpster.RubbleDumbsterInsertValidator;
 import persistence.dao.ClientDAO;
-import persistence.dao.RubbleDumpsterDAO;
 import persistence.utils.EntityAlreadyExistsException;
 
 public class InsertClientUseCase {
