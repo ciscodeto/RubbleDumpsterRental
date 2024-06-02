@@ -1,11 +1,11 @@
-package com.view.rubbledumpsterrental.main;
+package main;
 
 
-import com.view.rubbledumpsterrental.model.entities.RubbleDumpster;
-import com.view.rubbledumpsterrental.model.entities.valueObjects.Address;
-import com.view.rubbledumpsterrental.model.entities.valueObjects.Cep;
+import model.entities.RubbleDumpster;
+import model.entities.valueObjects.Address;
+import model.entities.valueObjects.Cep;
 
-import static com.view.rubbledumpsterrental.model.entities.RubbleDumpsterStatus.*;
+import static model.entities.RubbleDumpsterStatus.*;
 
 
 public class Main {

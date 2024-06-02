@@ -1,4 +1,4 @@
-package com.view.rubbledumpsterrental.model.entities.valueObjects;
+package model.entities.valueObjects;
 
 public class Phone {
     private String phone;

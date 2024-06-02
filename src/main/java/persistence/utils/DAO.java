@@ -1,4 +1,4 @@
-package com.view.rubbledumpsterrental.persistence.utils;
+package persistence.utils;
 
 import java.util.List;
 import java.util.Optional;

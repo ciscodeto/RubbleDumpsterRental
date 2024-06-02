@@ -1,12 +1,12 @@
-package com.view.rubbledumpsterrental.model.useCases.rental;
+package model.useCases.rental;
 
-import com.view.rubbledumpsterrental.model.useCases.client.FindClientUseCase;
-import com.view.rubbledumpsterrental.model.useCases.client.UpdateClientUseCase;
-import com.view.rubbledumpsterrental.model.useCases.rubbleDumpster.FindRubbleDumpsterUseCase;
-import com.view.rubbledumpsterrental.model.useCases.rubbleDumpster.UpdateRubbleDumpsterRentalPriceUseCase;
-import com.view.rubbledumpsterrental.persistence.dao.ClientDAO;
-import com.view.rubbledumpsterrental.persistence.dao.RentalDAO;
-import com.view.rubbledumpsterrental.persistence.dao.RubbleDumpsterDAO;
+import model.useCases.client.FindClientUseCase;
+import model.useCases.client.UpdateClientUseCase;
+import model.useCases.rubbleDumpster.FindRubbleDumpsterUseCase;
+import model.useCases.rubbleDumpster.UpdateRubbleDumpsterRentalPriceUseCase;
+import persistence.dao.ClientDAO;
+import persistence.dao.RentalDAO;
+import persistence.dao.RubbleDumpsterDAO;
 
 public class EndRentalUseCase {
     private RentalDAO rentalDAO;

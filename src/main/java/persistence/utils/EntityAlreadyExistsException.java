@@ -1,4 +1,4 @@
-package com.view.rubbledumpsterrental.persistence.utils;
+package persistence.utils;
 
 public class EntityAlreadyExistsException extends  RuntimeException {
     public EntityAlreadyExistsException(String message) {

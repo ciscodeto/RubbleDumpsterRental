@@ -1,9 +1,9 @@
-package com.view.rubbledumpsterrental.model.entities;
+package model.entities;
 
-import com.view.rubbledumpsterrental.model.entities.valueObjects.Address;
-import com.view.rubbledumpsterrental.model.entities.valueObjects.Cpf;
-import com.view.rubbledumpsterrental.model.entities.valueObjects.Email;
-import com.view.rubbledumpsterrental.model.entities.valueObjects.Phone;
+import model.entities.valueObjects.Address;
+import model.entities.valueObjects.Cpf;
+import model.entities.valueObjects.Email;
+import model.entities.valueObjects.Phone;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,7 +1,7 @@
-package com.view.rubbledumpsterrental.persistence.dao;
+package persistence.dao;
 
-import com.view.rubbledumpsterrental.model.entities.*;
-import com.view.rubbledumpsterrental.persistence.utils.DAO;
+import model.entities.*;
+import persistence.utils.DAO;
 
 import java.time.LocalDate;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.view.rubbledumpsterrental.persistence.utils;
+package persistence.utils;
 
 public class ConnectionFactory {
 }

@@ -1,10 +1,10 @@
-package com.view.rubbledumpsterrental.model.entities;
+package model.entities;
 
 import javax.naming.InsufficientResourcesException;
 import java.lang.ref.SoftReference;
 import java.time.LocalDate;
 
-import static com.view.rubbledumpsterrental.model.entities.RubbleDumpsterStatus.*;
+import static model.entities.RubbleDumpsterStatus.*;
 
 public class RubbleDumpster {
     private Integer serialNumber;

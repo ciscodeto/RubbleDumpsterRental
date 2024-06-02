@@ -1,4 +1,4 @@
-package com.view.rubbledumpsterrental.model.useCases.rental;
+package model.useCases.rental;
 
 public class WithdrawalRequestUseCase {
 }

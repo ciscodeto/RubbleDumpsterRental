@@ -1,11 +1,11 @@
-package com.view.rubbledumpsterrental.model.useCases.rubbleDumpster;
+package model.useCases.rubbleDumpster;
 
-import com.view.rubbledumpsterrental.model.Validator;
-import com.view.rubbledumpsterrental.model.entities.RubbleDumpster;
-import com.view.rubbledumpsterrental.model.entities.RubbleDumpsterStatus;
-import com.view.rubbledumpsterrental.persistence.dao.RubbleDumpsterDAO;
-import com.view.rubbledumpsterrental.persistence.utils.EntityAlreadyExistsException;
-import com.view.rubbledumpsterrental.persistence.utils.EntityNotFoundException;
+import model.Validator;
+import model.entities.RubbleDumpster;
+import model.entities.RubbleDumpsterStatus;
+import persistence.dao.RubbleDumpsterDAO;
+import persistence.utils.EntityAlreadyExistsException;
+import persistence.utils.EntityNotFoundException;
 
 import java.util.List;
 import java.util.Optional;

@@ -1,4 +1,4 @@
-package com.view.rubbledumpsterrental.model.entities.valueObjects;
+package model.entities.valueObjects;
 
 public class Address {
     private String street;

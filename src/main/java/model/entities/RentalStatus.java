@@ -1,4 +1,4 @@
-package com.view.rubbledumpsterrental.model.entities;
+package model.entities;
 
 public enum RentalStatus {
     OPEN("Aberto"),

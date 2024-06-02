@@ -1,9 +1,9 @@
-package com.view.rubbledumpsterrental.persistence.dao;
+package persistence.dao;
 
-import com.view.rubbledumpsterrental.model.entities.Client;
-import com.view.rubbledumpsterrental.model.entities.Rental;
-import com.view.rubbledumpsterrental.model.entities.valueObjects.Cpf;
-import com.view.rubbledumpsterrental.persistence.utils.DAO;
+import model.entities.Client;
+import model.entities.Rental;
+import model.entities.valueObjects.Cpf;
+import persistence.utils.DAO;
 
 import java.util.Optional;
 

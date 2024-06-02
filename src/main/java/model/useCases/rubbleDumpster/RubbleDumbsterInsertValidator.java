@@ -1,10 +1,10 @@
-package com.view.rubbledumpsterrental.model.useCases.rubbleDumpster;
+package model.useCases.rubbleDumpster;
 
-import com.view.rubbledumpsterrental.model.Notification;
-import com.view.rubbledumpsterrental.model.Validator;
-import com.view.rubbledumpsterrental.model.entities.Rental;
-import com.view.rubbledumpsterrental.model.entities.RubbleDumpster;
-import com.view.rubbledumpsterrental.model.entities.RubbleDumpsterStatus;
+import model.Notification;
+import model.Validator;
+import model.entities.Rental;
+import model.entities.RubbleDumpster;
+import model.entities.RubbleDumpsterStatus;
 
 public class RubbleDumbsterInsertValidator extends Validator<RubbleDumpster> {
     @Override

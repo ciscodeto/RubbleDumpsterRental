@@ -1,4 +1,4 @@
-package com.view.rubbledumpsterrental.model;
+package model;
 
 import java.util.ArrayList;
 import java.util.List;

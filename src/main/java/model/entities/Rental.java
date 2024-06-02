@@ -1,6 +1,6 @@
-package com.view.rubbledumpsterrental.model.entities;
+package model.entities;
 
-import com.view.rubbledumpsterrental.model.entities.valueObjects.Address;
+import model.entities.valueObjects.Address;
 
 import java.time.LocalDate;
 

@@ -1,4 +1,4 @@
-package com.view.rubbledumpsterrental.model.entities.valueObjects;
+package model.entities.valueObjects;
 
 public class Email {
     private String email;

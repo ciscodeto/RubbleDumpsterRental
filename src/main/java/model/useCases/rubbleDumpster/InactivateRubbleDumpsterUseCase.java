@@ -1,11 +1,11 @@
-package com.view.rubbledumpsterrental.model.useCases.rubbleDumpster;
+package model.useCases.rubbleDumpster;
 
-import com.view.rubbledumpsterrental.model.Notification;
-import com.view.rubbledumpsterrental.model.Validator;
-import com.view.rubbledumpsterrental.model.entities.RubbleDumpster;
-import com.view.rubbledumpsterrental.model.entities.RubbleDumpsterStatus;
-import com.view.rubbledumpsterrental.persistence.dao.RubbleDumpsterDAO;
-import com.view.rubbledumpsterrental.persistence.utils.EntityAlreadyExistsException;
+import model.Notification;
+import model.Validator;
+import model.entities.RubbleDumpster;
+import model.entities.RubbleDumpsterStatus;
+import persistence.dao.RubbleDumpsterDAO;
+import persistence.utils.EntityAlreadyExistsException;
 
 public class InactivateRubbleDumpsterUseCase {
     private RubbleDumpsterDAO rubbleDumbsterDAO;

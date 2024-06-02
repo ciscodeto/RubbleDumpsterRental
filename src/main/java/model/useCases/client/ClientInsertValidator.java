@@ -1,8 +1,8 @@
-package com.view.rubbledumpsterrental.model.useCases.client;
+package model.useCases.client;
 
-import com.view.rubbledumpsterrental.model.Notification;
-import com.view.rubbledumpsterrental.model.Validator;
-import com.view.rubbledumpsterrental.model.entities.Client;
+import model.Notification;
+import model.Validator;
+import model.entities.Client;
 
 public class ClientInsertValidator extends Validator<Client>{
 

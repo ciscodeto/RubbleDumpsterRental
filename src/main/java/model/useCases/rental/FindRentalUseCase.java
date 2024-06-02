@@ -1,12 +1,12 @@
-package com.view.rubbledumpsterrental.model.useCases.rental;
+package model.useCases.rental;
 
-import com.view.rubbledumpsterrental.model.Validator;
-import com.view.rubbledumpsterrental.model.entities.Client;
-import com.view.rubbledumpsterrental.model.entities.Rental;
-import com.view.rubbledumpsterrental.model.entities.RentalStatus;
-import com.view.rubbledumpsterrental.model.entities.RubbleDumpster;
-import com.view.rubbledumpsterrental.model.entities.valueObjects.Cpf;
-import com.view.rubbledumpsterrental.persistence.dao.RentalDAO;
+import model.Validator;
+import model.entities.Client;
+import model.entities.Rental;
+import model.entities.RentalStatus;
+import model.entities.RubbleDumpster;
+import model.entities.valueObjects.Cpf;
+import persistence.dao.RentalDAO;
 
 import java.time.LocalDate;
 import java.util.List;

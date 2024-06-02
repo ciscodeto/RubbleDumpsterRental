@@ -1,7 +1,7 @@
-package com.view.rubbledumpsterrental.model;
+package model;
 
-import com.view.rubbledumpsterrental.model.entities.Rental;
-import com.view.rubbledumpsterrental.model.entities.RubbleDumpsterStatus;
+import model.entities.Rental;
+import model.entities.RubbleDumpsterStatus;
 
 import java.util.Collection;
 import java.util.Map;
