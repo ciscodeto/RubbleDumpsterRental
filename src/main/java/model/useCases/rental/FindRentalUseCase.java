@@ -1,15 +1,14 @@
 package model.useCases.rental;
 
-import model.Validator;
 import model.entities.Client;
 import model.entities.Rental;
 import model.entities.RentalStatus;
 import model.entities.RubbleDumpster;
-import model.entities.valueObjects.Cpf;
 import persistence.dao.RentalDAO;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 public class FindRentalUseCase {
     private RentalDAO rentalDAO;
@@ -35,4 +34,6 @@ public class FindRentalUseCase {
     }
 
     public List<Rental> findAll() { return rentalDAO.findAll(); }
+
+    public Optional<Rental> findOne(Integer rentalId) { return rentalDAO.findOne(rentalId); }
 }

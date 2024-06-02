@@ -1,7 +1,6 @@
 package model.useCases.rental;
 
-import model.entities.Rental;
-import model.entities.RubbleDumpster;
+import model.entities.*;
 import model.useCases.client.FindClientUseCase;
 import model.useCases.client.UpdateClientUseCase;
 import model.useCases.rubbleDumpster.FindRubbleDumpsterUseCase;
@@ -45,8 +44,12 @@ public class EndRentalUseCase {
                 .orElseThrow(() -> new EntityNotFoundException("Cannot find Rental for ID " + rentalId));
 
         rental.setEndDate(LocalDate.now());
+        rental.setRentalStatus(RentalStatus.CLOSED);
         rentalDAO.update(rental);
 
-        Optional<RubbleDumpster> rubbleDumpster = findRubbleDumpsterUseCase.findOne(rental.getRubbleDumpster().getSerialNumber());
+        Integer serialNumber = rental.getRubbleDumpster().getSerialNumber();
+        RubbleDumpster rubbleDumpster = findRubbleDumpsterUseCase.findOne(serialNumber).get();
+        rubbleDumpster.setStatus(RubbleDumpsterStatus.AVAILABLE);
+        rubbleDumpsterDAO.update(rubbleDumpster);
     }
 }
