@@ -24,6 +24,9 @@ public class Rental {
         this.initialDate = initialDate;
     }
 
+    public void setStatus(RentalStatus status) {
+        this.status = status;
+    }
     public void withdrawalRequest() {}
     public void endRental() {}
 
