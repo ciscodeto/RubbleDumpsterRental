@@ -3,6 +3,7 @@ package model.entities;
 import model.entities.valueObjects.Address;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 public class Rental {
     private Integer id;
@@ -23,12 +24,16 @@ public class Rental {
         this.initialDate = initialDate;
     }
 
-    public void setStatus(RentalStatus status) {
-        this.status = status;
-    }
     public void withdrawalRequest() {}
     public void endRental() {}
-    public void calculateFinalAmount() {}
+
+    public double calculateFinalAmount() {
+        double differenceInDays = ChronoUnit.DAYS.between(this.initialDate, this.endDate);
+        double differenceInMonths = Math.ceil(differenceInDays/30.0);
+        return differenceInMonths > 1 ?
+                differenceInMonths * rubbleDumpster.getMonthlyAmount() :
+                rubbleDumpster.getMinAmount();
+    }
 
     public Integer getId() {
         return id;

@@ -25,7 +25,7 @@ public class FindRubbleDumpsterUseCase {
             throw new IllegalArgumentException("Serial number cannot be null!");
 
         if (rubbleDumpsterDAO.findOne(serialNumber).isEmpty())
-            throw new EntityNotFoundException("Caçamba não localizada.");
+            throw new EntityNotFoundException("Rubble Dumpster not found.");
 
         return rubbleDumpsterDAO.findOne(serialNumber);
     }
@@ -34,7 +34,7 @@ public class FindRubbleDumpsterUseCase {
             throw new IllegalArgumentException("Status cannot be null!");
 
         if (rubbleDumpsterDAO.findAll(status).isEmpty())
-            throw new EntityNotFoundException("Nenhum elemento com este status foi encontrado!");
+            throw new EntityNotFoundException("No such element has been found!");
 
         return rubbleDumpsterDAO.findAll(status);
     }
