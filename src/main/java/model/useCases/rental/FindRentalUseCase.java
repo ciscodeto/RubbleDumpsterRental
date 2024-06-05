@@ -2,8 +2,6 @@ package model.useCases.rental;
 
 import model.entities.Client;
 import model.entities.Rental;
-import model.entities.RentalStatus;
-import model.entities.RubbleDumpster;
 import model.exceptions.DataAccessException;
 import persistence.dao.RentalDAO;
 
