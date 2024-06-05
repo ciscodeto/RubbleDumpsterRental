@@ -32,6 +32,6 @@ public class EntryExitReportUseCase {
                 .collect(Collectors.toList());
         return new EntryExitReport(reports);
     }
-    public record EntryExitReport(List<Report> reports) {
+    public static record EntryExitReport(List<Report> reports) {
     }
 }

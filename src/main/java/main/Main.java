@@ -134,6 +134,10 @@ public class Main {
         endRentalUseCase.endRental(rental1.getId());
         System.out.println(findRentalUseCase.findOne(rental1.getId()).toString());
 
+        EntryExitReportUseCase.EntryExitReport  entryExitReport = entryExitReportUseCase.generateReport(LocalDate.MIN, LocalDate.MAX);
+        IncomeReportUseCase.IncomeReport        incomeReport = incomeReportUseCase.generateReport(LocalDate.MIN, LocalDate.MAX);
+
+
     }
 
     private static void configureInjection() {
