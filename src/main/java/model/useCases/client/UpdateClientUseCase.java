@@ -24,6 +24,7 @@ public class UpdateClientUseCase {
             throw new IllegalArgumentException(notification.errorMessage());
 
         Cpf cpf = client.getCpf();
+        System.out.println("UPDATECPF: " + cpf.toString());
         if (clientDAO.findByCpf(cpf).isEmpty())
             throw new EntityAlreadyExistsException("This CPF isn't in the database");
 

@@ -82,4 +82,17 @@ public class Client {
     public void setEmailList(List<Email> emailList) {
         this.emailList = emailList;
     }
+
+    @Override
+    public String toString() {
+        return "Client{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", address=" + address.toString() +
+                ", cpf=" + cpf.toString() +
+                ", phone1=" + phone1.toString() +
+                ", phone2=" + phone2.toString() +
+                ", emailList=" + emailList.toString() +
+                '}';
+    }
 }

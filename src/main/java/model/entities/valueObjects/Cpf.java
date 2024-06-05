@@ -49,4 +49,9 @@ public class Cpf {
         return cpfNumeros.charAt(9) - '0' == primeiroDigitoVerificador &&
                 cpfNumeros.charAt(10) - '0' == segundoDigitoVerificador;
     }
+
+    @Override
+    public String toString() {
+        return cpf;
+    }
 }

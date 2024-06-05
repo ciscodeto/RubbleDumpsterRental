@@ -26,4 +26,15 @@ public class Address {
     private boolean isNotEmpty(String field) {
         return field != null && !field.trim().isEmpty();
     }
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "street='" + street + '\'' +
+                ", district='" + district + '\'' +
+                ", number='" + number + '\'' +
+                ", city='" + city + '\'' +
+                ", cep=" + cep +
+                '}';
+    }
 }

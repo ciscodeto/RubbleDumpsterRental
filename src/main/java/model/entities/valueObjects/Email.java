@@ -16,4 +16,10 @@ public class Email {
         String emailRegex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$";
 
         return email.matches(emailRegex);
-    }}
+    }
+
+    @Override
+    public String toString() {
+        return  email ;
+    }
+}
