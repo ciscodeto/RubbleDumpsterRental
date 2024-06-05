@@ -3,11 +3,16 @@ package model.useCases.rental;
 import model.Notification;
 import model.Validator;
 import model.entities.Rental;
+import model.entities.Report;
 
 import java.time.LocalDate;
 
-public class EntryAndReportValidator {
-    public Notification validate(LocalDate initialDate, LocalDate endDate) {
+public class EntryAndReportValidator extends Validator<Report> {
+    @Override
+    public Notification validate(Report report) {
+        LocalDate initialDate = report.initialDate();
+        LocalDate endDate = report.withdrawalDate();
+
         Notification notification = new Notification();
 
         if (initialDate == null) {
