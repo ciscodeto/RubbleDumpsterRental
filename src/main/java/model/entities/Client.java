@@ -74,4 +74,12 @@ public class Client {
         this.emailList = emailList;
         this.id = id;
     }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setEmailList(List<Email> emailList) {
+        this.emailList = emailList;
+    }
 }

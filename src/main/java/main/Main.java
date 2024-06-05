@@ -7,7 +7,7 @@ import model.entities.RubbleDumpster;
 import model.entities.valueObjects.*;
 import model.useCases.rubbleDumpster.*;
 import persistence.dao.RubbleDumpsterDAO;
-import repository.inMemoryRubbleDumpsterDAO;
+import repository.InMemoryRubbleDumpsterDAO;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -82,7 +82,7 @@ public class Main {
     }
 
     private static void configureInjection() {
-        RubbleDumpsterDAO rubbleDumpsterDAO = new inMemoryRubbleDumpsterDAO();
+        RubbleDumpsterDAO rubbleDumpsterDAO = new InMemoryRubbleDumpsterDAO();
         activateRubbleDumpsterUseCase = new ActivateRubbleDumpsterUseCase(rubbleDumpsterDAO);
         findRubbleDumpsterUseCase = new FindRubbleDumpsterUseCase(rubbleDumpsterDAO);
         inactivateRubbleDumpsterUseCase = new InactivateRubbleDumpsterUseCase(rubbleDumpsterDAO);
