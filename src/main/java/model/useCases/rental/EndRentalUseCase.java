@@ -11,7 +11,7 @@ import persistence.dao.RubbleDumpsterDAO;
 import persistence.utils.EntityNotFoundException;
 
 import java.time.LocalDate;
-import java.util.Optional;
+import java.time.temporal.ChronoUnit;
 
 public class EndRentalUseCase {
     private RentalDAO rentalDAO;
