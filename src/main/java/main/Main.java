@@ -102,11 +102,11 @@ public class Main {
     }
 
     private static void configureInjection() {
-        RubbleDumpsterDAO rubbleDumpsterDAO =   new InMemoryRubbleDumpsterDAO();
-        activateRubbleDumpsterUseCase =         new ActivateRubbleDumpsterUseCase(rubbleDumpsterDAO);
-        findRubbleDumpsterUseCase =             new FindRubbleDumpsterUseCase(rubbleDumpsterDAO);
-        inactivateRubbleDumpsterUseCase =       new InactivateRubbleDumpsterUseCase(rubbleDumpsterDAO);
-        insertRubbleDumpsterUseCase =           new InsertRubbleDumpsterUseCase(rubbleDumpsterDAO);
+        RubbleDumpsterDAO rubbleDumpsterDAO =    new InMemoryRubbleDumpsterDAO();
+        activateRubbleDumpsterUseCase =          new ActivateRubbleDumpsterUseCase(rubbleDumpsterDAO);
+        findRubbleDumpsterUseCase =              new FindRubbleDumpsterUseCase(rubbleDumpsterDAO);
+        inactivateRubbleDumpsterUseCase =        new InactivateRubbleDumpsterUseCase(rubbleDumpsterDAO);
+        insertRubbleDumpsterUseCase =            new InsertRubbleDumpsterUseCase(rubbleDumpsterDAO);
         updateRubbleDumpsterRentalPriceUseCase = new UpdateRubbleDumpsterRentalPriceUseCase(rubbleDumpsterDAO);
 
         ClientDAO clientDAO =   new InMemoryClientDAO();
@@ -116,11 +116,11 @@ public class Main {
 
         RentalDAO rentalDAO = new InMemoryRentalDAO();
         insertRentalUseCase = new InsertRentalUseCase(rentalDAO,findRubbleDumpsterUseCase,findClientUseCase);
-        findRentalUseCase = new FindRentalUseCase(rentalDAO);
-        endRentalUseCase = new EndRentalUseCase(rentalDAO,rubbleDumpsterDAO,findRubbleDumpsterUseCase);
+        findRentalUseCase =   new FindRentalUseCase(rentalDAO);
+        endRentalUseCase =    new EndRentalUseCase(rentalDAO,rubbleDumpsterDAO,findRubbleDumpsterUseCase);
 
         entryExitReportUseCase = new EntryExitReportUseCase(rentalDAO);
-        incomeReportUseCase = new IncomeReportUseCase(rentalDAO);
-        exportCSVUseCase = new ExportCSVUseCase();
+        incomeReportUseCase =    new IncomeReportUseCase(rentalDAO);
+        exportCSVUseCase =       new ExportCSVUseCase();
     }
 }
