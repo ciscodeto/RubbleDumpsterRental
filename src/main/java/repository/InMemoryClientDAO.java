@@ -56,7 +56,9 @@ public class InMemoryClientDAO implements ClientDAO {
 
     @Override
     public Optional<Client> findByCpf(Cpf cpf) {
-        return Optional.empty();
+        return db.values().stream()
+                .filter(client -> client.getCpf().equals(cpf))
+                .findAny();
     }
 
     @Override

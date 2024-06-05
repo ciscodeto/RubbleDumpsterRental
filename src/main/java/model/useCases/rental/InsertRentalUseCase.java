@@ -24,11 +24,13 @@ public class InsertRentalUseCase {
 
     public InsertRentalUseCase(RentalDAO rentalDAO,
                                FindRubbleDumpsterUseCase findRubbleDumpsterUseCase,
-                               FindClientUseCase findClientUseCase) {
+                               FindClientUseCase findClientUseCase,
+                               RubbleDumpsterDAO rubbleDumpsterDAO) {
 
         this.rentalDAO = rentalDAO;
         this.findRubbleDumpsterUseCase = findRubbleDumpsterUseCase;
         this.findClientUseCase = findClientUseCase;
+        this.rubbleDumpsterDAO = rubbleDumpsterDAO;
     }
 
     public Rental insertRental(Integer clientId) {

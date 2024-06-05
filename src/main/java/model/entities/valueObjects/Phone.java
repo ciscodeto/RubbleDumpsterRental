@@ -16,4 +16,9 @@ public class Phone {
         // Verifica se o telefone tem 10 ou 11 dígitos e se todos os caracteres são numéricos
         return (cleanedPhone.matches("\\d{10}") || cleanedPhone.matches("\\d{11}"));
     }
+
+    @Override
+    public String toString() {
+        return phone ;
+    }
 }
