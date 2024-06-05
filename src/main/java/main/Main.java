@@ -144,6 +144,32 @@ public class Main {
         for (Report report : incomeReport.reports()) {
             System.out.println(report);
         }
+
+        String entryExitCsvFileName = "entry_exit_report.csv";
+        String[] entryExitHeaders = {"Serial Number", "Client Name", "Initial Date", "Withdrawal Date", "Final Amount"};
+        List<String[]> entryExitData = entryExitReport.reports().stream()
+                .map(report -> new String[]{
+                        report.serialNumber(),
+                        report.clientName() != null ? report.clientName() : "",
+                        report.initialDate() != null ? report.initialDate().toString() : "",
+                        report.withdrawalDate() != null ? report.withdrawalDate().toString() : "",
+                        report.finalAmount() != null ? report.finalAmount().toString() : ""
+                })
+                .toList();
+        exportCSVUseCase.export(entryExitCsvFileName, entryExitHeaders, entryExitData);
+
+        String incomeCsvFileName = "income_report.csv";
+        String[] incomeHeaders = {"Serial Number", "Client Name", "Initial Date", "Withdrawal Date", "Final Amount"};
+        List<String[]> incomeData = incomeReport.reports().stream()
+                .map(report -> new String[]{
+                        report.serialNumber(),
+                        report.clientName() != null ? report.clientName() : "",
+                        report.initialDate() != null ? report.initialDate().toString() : "",
+                        report.withdrawalDate() != null ? report.withdrawalDate().toString() : "",
+                        report.finalAmount() != null ? report.finalAmount().toString() : ""
+                })
+                .toList();
+        exportCSVUseCase.export(incomeCsvFileName, incomeHeaders, incomeData);
     }
 
     private static void configureInjection() {
