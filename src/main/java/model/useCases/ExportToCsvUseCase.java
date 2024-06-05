@@ -1,4 +1,4 @@
-package model.useCases.rental;
+package model.useCases;
 
 public class ExportToCsvUseCase {
 }
