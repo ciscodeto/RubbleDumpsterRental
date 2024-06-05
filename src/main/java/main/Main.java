@@ -5,8 +5,15 @@ import model.entities.Client;
 import model.entities.Rental;
 import model.entities.RubbleDumpster;
 import model.entities.valueObjects.*;
+import model.useCases.client.*;
+import model.useCases.export.ExportCSVUseCase;
+import model.useCases.rental.*;
 import model.useCases.rubbleDumpster.*;
+import persistence.dao.ClientDAO;
+import persistence.dao.RentalDAO;
 import persistence.dao.RubbleDumpsterDAO;
+import repository.InMemoryClientDAO;
+import repository.InMemoryRentalDAO;
 import repository.InMemoryRubbleDumpsterDAO;
 
 import java.time.LocalDate;
@@ -23,6 +30,19 @@ public class Main {
     private static InactivateRubbleDumpsterUseCase inactivateRubbleDumpsterUseCase;
     private static InsertRubbleDumpsterUseCase insertRubbleDumpsterUseCase;
     private static UpdateRubbleDumpsterRentalPriceUseCase updateRubbleDumpsterRentalPriceUseCase;
+
+    private static FindClientUseCase findClientUseCase;
+    private static InsertClientUseCase insertClientUseCase;
+    private static UpdateClientUseCase updateClientUseCase;
+
+    private static InsertRentalUseCase insertRentalUseCase;
+    private static EndRentalUseCase endRentalUseCase;
+    private static FindRentalUseCase findRentalUseCase;
+    private static WithdrawalRequestUseCase withdrawalRequestUseCase;
+
+    private static ExportCSVUseCase exportCSVUseCase;
+    private static IncomeReportUseCase incomeReportUseCase;
+    private static EntryExitReportUseCase entryExitReportUseCase;
 
     public static void main(String[] args) {
         Cep cep = new Cep("12345-678");
@@ -82,14 +102,25 @@ public class Main {
     }
 
     private static void configureInjection() {
-        RubbleDumpsterDAO rubbleDumpsterDAO = new InMemoryRubbleDumpsterDAO();
-        activateRubbleDumpsterUseCase = new ActivateRubbleDumpsterUseCase(rubbleDumpsterDAO);
-        findRubbleDumpsterUseCase = new FindRubbleDumpsterUseCase(rubbleDumpsterDAO);
-        inactivateRubbleDumpsterUseCase = new InactivateRubbleDumpsterUseCase(rubbleDumpsterDAO);
-        insertRubbleDumpsterUseCase = new InsertRubbleDumpsterUseCase(rubbleDumpsterDAO);
+        RubbleDumpsterDAO rubbleDumpsterDAO =    new InMemoryRubbleDumpsterDAO();
+        activateRubbleDumpsterUseCase =          new ActivateRubbleDumpsterUseCase(rubbleDumpsterDAO);
+        findRubbleDumpsterUseCase =              new FindRubbleDumpsterUseCase(rubbleDumpsterDAO);
+        inactivateRubbleDumpsterUseCase =        new InactivateRubbleDumpsterUseCase(rubbleDumpsterDAO);
+        insertRubbleDumpsterUseCase =            new InsertRubbleDumpsterUseCase(rubbleDumpsterDAO);
         updateRubbleDumpsterRentalPriceUseCase = new UpdateRubbleDumpsterRentalPriceUseCase(rubbleDumpsterDAO);
 
+        ClientDAO clientDAO =   new InMemoryClientDAO();
+        insertClientUseCase =   new InsertClientUseCase(clientDAO);
+        findClientUseCase =     new FindClientUseCase(clientDAO);
+        updateClientUseCase =   new UpdateClientUseCase(clientDAO);
 
+        RentalDAO rentalDAO = new InMemoryRentalDAO();
+        insertRentalUseCase = new InsertRentalUseCase(rentalDAO,findRubbleDumpsterUseCase,findClientUseCase);
+        findRentalUseCase =   new FindRentalUseCase(rentalDAO);
+        endRentalUseCase =    new EndRentalUseCase(rentalDAO,rubbleDumpsterDAO,findRubbleDumpsterUseCase);
 
+        entryExitReportUseCase = new EntryExitReportUseCase(rentalDAO);
+        incomeReportUseCase =    new IncomeReportUseCase(rentalDAO);
+        exportCSVUseCase =       new ExportCSVUseCase();
     }
 }
