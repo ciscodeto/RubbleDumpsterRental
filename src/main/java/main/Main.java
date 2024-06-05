@@ -163,7 +163,6 @@ public class Main {
         List<String[]> incomeData = incomeReport.reports().stream()
                 .map(report -> new String[]{
                         report.serialNumber(),
-                        report.clientName() != null ? report.clientName() : "",
                         report.initialDate() != null ? report.initialDate().toString() : "",
                         report.withdrawalDate() != null ? report.withdrawalDate().toString() : "",
                         report.finalAmount() != null ? report.finalAmount().toString() : ""
