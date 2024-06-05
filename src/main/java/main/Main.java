@@ -6,6 +6,7 @@ import model.entities.Rental;
 import model.entities.RubbleDumpster;
 import model.entities.valueObjects.*;
 import model.useCases.client.*;
+import model.useCases.export.ExportCSVUseCase;
 import model.useCases.rental.*;
 import model.useCases.rubbleDumpster.*;
 import persistence.dao.RubbleDumpsterDAO;
@@ -25,17 +26,19 @@ public class Main {
     private static InactivateRubbleDumpsterUseCase inactivateRubbleDumpsterUseCase;
     private static InsertRubbleDumpsterUseCase insertRubbleDumpsterUseCase;
     private static UpdateRubbleDumpsterRentalPriceUseCase updateRubbleDumpsterRentalPriceUseCase;
+
     private static FindClientUseCase findClientUseCase;
     private static InsertClientUseCase insertClientUseCase;
     private static UpdateClientUseCase updateClientUseCase;
+
+    private static InsertRentalUseCase insertRentalUseCase;
     private static EndRentalUseCase endRentalUseCase;
-    private static FindRentalUseCase
-    private static
-    private static
-    private static
-    private static
-    private static
-    private static
+    private static FindRentalUseCase findRentalUseCase;
+    private static WithdrawalRequestUseCase withdrawalRequestUseCase;
+
+    private static ExportCSVUseCase exportCSVUseCase;
+    private static IncomeReportUseCase incomeReportUseCase;
+    private static EntryExitReportUseCase entryExitReportUseCase;
 
     public static void main(String[] args) {
         Cep cep = new Cep("12345-678");
