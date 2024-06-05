@@ -130,6 +130,9 @@ public class Main {
         System.out.println(findRentalUseCase.findRentalByClient(client).toString());
         System.out.println(findRentalUseCase.findOne(rental1.getId()).toString());
         withdrawalRequestUseCase.requestWithdrawal(rental1.getId(), LocalDate.now());
+        System.out.println(findRentalUseCase.findOne(rental1.getId()).toString());
+        endRentalUseCase.endRental(rental1.getId());
+        System.out.println(findRentalUseCase.findOne(rental1.getId()).toString());
 
     }
 
