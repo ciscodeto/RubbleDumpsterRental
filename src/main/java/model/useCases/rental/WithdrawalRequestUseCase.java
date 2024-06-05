@@ -1,5 +1,7 @@
 package model.useCases.rental;
 
+import model.Notification;
+import model.Validator;
 import model.entities.Rental;
 import model.entities.RentalStatus;
 import model.entities.RubbleDumpster;
@@ -35,12 +37,16 @@ public class WithdrawalRequestUseCase {
         Rental rental = findRentalUseCase.findOne(rentalId)
                 .orElseThrow(() -> new EntityNotFoundException("Cannot find Rental with id " + rentalId));
 
+        rental.setWithdrawalRequestDate(LocalDate.now());
+
+        Validator<Rental> validator = new RentalInsertValidator();
+        Notification notification = validator.validate(rental);
+
         RubbleDumpster rubbleDumpster = rental.getRubbleDumpster();
 
         rental.setRentalStatus(RentalStatus.WITHDRAWAL_ORDER);
         rubbleDumpster.setStatus(RubbleDumpsterStatus.WITHDRAWAL_ORDER);
 
-        rental.setWithdrawalRequestDate(LocalDate.now());
         rental.setWithdrawalDate(withdrawalDate);
 
         rentalDAO.update(rental);
