@@ -16,7 +16,6 @@ public class Rental {
     private Address address;
     private Client client;
     private RubbleDumpster rubbleDumpster;
-    private RentalStatus status;
 
     public Rental(RubbleDumpster dumpster, Client client, LocalDate initialDate) {
         this.client = client;
@@ -24,9 +23,14 @@ public class Rental {
         this.initialDate = initialDate;
     }
 
-    public void setStatus(RentalStatus status) {
-        this.status = status;
+    @Override
+    public String toString() {
+        return "Rental{" +
+                "id=" + id +
+                ", rentalStatus=" + rentalStatus +
+                '}';
     }
+
     public void withdrawalRequest() {}
     public void endRental() {}
 
@@ -108,10 +112,6 @@ public class Rental {
 
     public void setClient(Client client) {
         this.client = client;
-    }
-
-    public RentalStatus getStatus() {
-        return status;
     }
 
     public RubbleDumpster getRubbleDumpster() {

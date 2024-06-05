@@ -124,11 +124,12 @@ public class Main {
         updateClientUseCase.updateClient(client);
         System.out.println(client.toString());
 
-        activateRubbleDumpsterUseCase.activate(rubbleDumpster);
         //TESTE RENTAL
+        activateRubbleDumpsterUseCase.activate(rubbleDumpster);
         Rental rental1 = insertRentalUseCase.insertRental(client.getId());
         System.out.println(findRentalUseCase.findRentalByClient(client).toString());
         System.out.println(findRentalUseCase.findOne(rental1.getId()).toString());
+        withdrawalRequestUseCase.requestWithdrawal(rental1.getId(), LocalDate.now());
 
     }
 
@@ -150,6 +151,7 @@ public class Main {
         insertRentalUseCase = new InsertRentalUseCase(rentalDAO,findRubbleDumpsterUseCase,findClientUseCase,rubbleDumpsterDAO);
         findRentalUseCase =   new FindRentalUseCase(rentalDAO);
         endRentalUseCase =    new EndRentalUseCase(rentalDAO,rubbleDumpsterDAO,findRubbleDumpsterUseCase);
+        withdrawalRequestUseCase = new WithdrawalRequestUseCase(rentalDAO,rubbleDumpsterDAO,findRentalUseCase);
 
         entryExitReportUseCase = new EntryExitReportUseCase(rentalDAO);
         incomeReportUseCase =    new IncomeReportUseCase(rentalDAO);
