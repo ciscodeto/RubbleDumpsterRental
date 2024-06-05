@@ -93,8 +93,8 @@ public class Main {
         insertRubbleDumpsterUseCase.insert(rubbleDumpster);
         insertRubbleDumpsterUseCase.insert(rubbleDumpster1);
 
-        findRubbleDumpsterUseCase.findOne(1);
-        findRubbleDumpsterUseCase.findOne(2);
+        System.out.println(findRubbleDumpsterUseCase.findOne(1));
+        System.out.println(findRubbleDumpsterUseCase.findOne(2));
 
         inactivateRubbleDumpsterUseCase.inactivate(rubbleDumpster);
         inactivateRubbleDumpsterUseCase.inactivate(rubbleDumpster1);
