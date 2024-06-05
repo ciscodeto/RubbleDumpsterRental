@@ -8,6 +8,7 @@ import persistence.utils.EntityAlreadyExistsException;
 
 public class UpdateRubbleDumpsterRentalPriceUseCase {
 
+
     private RubbleDumpsterDAO rubbleDumpsterDAO;
 
     public UpdateRubbleDumpsterRentalPriceUseCase(RubbleDumpsterDAO rubbleDumpsterDAO) {
