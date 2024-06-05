@@ -4,10 +4,9 @@ import model.entities.RubbleDumpster;
 import model.entities.RubbleDumpsterStatus;
 import persistence.dao.RubbleDumpsterDAO;
 
-import java.io.Serial;
 import java.util.*;
 
-public class inMemoryRubbleDumpsterDAO implements RubbleDumpsterDAO {
+public class InMemoryRubbleDumpsterDAO implements RubbleDumpsterDAO {
 
     private static final Map<Integer, RubbleDumpster> db = new LinkedHashMap<>();
     private static int idcounter;
