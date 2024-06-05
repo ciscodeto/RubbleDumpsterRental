@@ -15,24 +15,15 @@ import java.time.temporal.ChronoUnit;
 
 public class EndRentalUseCase {
     private RentalDAO rentalDAO;
-    private ClientDAO clientDAO;
     private RubbleDumpsterDAO rubbleDumpsterDAO;
     private FindRubbleDumpsterUseCase findRubbleDumpsterUseCase;
-    private FindClientUseCase findClientUseCase;
-    private UpdateRubbleDumpsterRentalPriceUseCase updateRubbleDumpsterRentalPriceUseCase;
-    private UpdateClientUseCase clientUseCase;
 
     public EndRentalUseCase(RentalDAO rentalDAO,
-                               FindRubbleDumpsterUseCase findRubbleDumpsterUseCase,
-                               FindClientUseCase findClientUseCase,
-                               UpdateRubbleDumpsterRentalPriceUseCase updateRubbleDumpsterRentalPriceUseCase,
-                               UpdateClientUseCase clientUseCase) {
-
+                            RubbleDumpsterDAO rubbleDumpsterDAO,
+                            FindRubbleDumpsterUseCase findRubbleDumpsterUseCase) {
         this.rentalDAO = rentalDAO;
+        this.rubbleDumpsterDAO = rubbleDumpsterDAO;
         this.findRubbleDumpsterUseCase = findRubbleDumpsterUseCase;
-        this.findClientUseCase = findClientUseCase;
-        this.updateRubbleDumpsterRentalPriceUseCase = updateRubbleDumpsterRentalPriceUseCase;
-        this.clientUseCase = clientUseCase;
     }
 
     public void endRental(Integer rentalId) {
