@@ -7,10 +7,8 @@ import model.entities.RubbleDumpster;
 import persistence.dao.RentalDAO;
 
 import java.time.LocalDate;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class InMemoryRentalDAO implements RentalDAO {
 
@@ -35,41 +33,57 @@ public class InMemoryRentalDAO implements RentalDAO {
 
     @Override
     public List<Rental> findAll() {
-        return List.of();
+        return new ArrayList<>(db.values());
     }
 
     @Override
     public List<Rental> findRentalByPeriod(LocalDate initialDate, LocalDate endDate) {
-        return List.of();
+        return db.values().stream()
+                .filter(rental -> !rental.getInitialDate().isBefore(initialDate) && !rental.getWithdrawalDate().isAfter(endDate))
+                .collect(Collectors.toList());
     }
 
     @Override
     public List<Rental> findRentalByClient(Client client) {
-        return List.of();
+        return db.values().stream()
+                .filter(rental -> rental.getClient().equals(client))
+                .collect(Collectors.toList());
     }
 
     @Override
     public List<Rental> findRentalByRubbleDumpster(RubbleDumpster rubbleDumpster) {
-        return List.of();
+        return db.values().stream()
+                .filter(rental -> rental.getRubbleDumpster().equals(rubbleDumpster))
+                .collect(Collectors.toList());
     }
 
     @Override
     public List<Rental> findRentalByStatus(RentalStatus status) {
-        return List.of();
+        return db.values().stream()
+                .filter(rental -> rental.getRentalStatus().equals(status))
+                .collect(Collectors.toList());
     }
 
     @Override
-    public boolean update(Rental type) {
+    public boolean update(Rental rental) {
+        if (db.containsKey(rental.getId())) {
+            db.put(rental.getId(), rental);
+            return true;
+        }
         return false;
     }
 
     @Override
     public boolean deleteByKey(Integer key) {
+        if (db.containsKey(key)) {
+            db.remove(key);
+            return true;
+        }
         return false;
     }
 
     @Override
-    public boolean delete(Rental type) {
-        return false;
+    public boolean delete(Rental rental) {
+        return deleteByKey(rental.getId());
     }
 }
