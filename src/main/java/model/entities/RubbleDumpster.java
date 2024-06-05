@@ -88,7 +88,14 @@ public class RubbleDumpster {
                 ", status: " + this.getStatus();
     }
 
-    public void rentRubbleDumpster() {}
+    public void rentRubbleDumpster(Rental rental) {
+        if (rental == null)
+            throw new IllegalArgumentException("O objeto rental não pode ser nulo!");
+        this.setRental(rental);
+        this.setStatus(RENTED);
+
+        System.out.println("O status da caçamba foi alterado e a caçamba foi alugada!");
+    }
 
 
 
