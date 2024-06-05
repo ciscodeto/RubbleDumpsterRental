@@ -3,6 +3,7 @@ package main;
 
 import model.entities.Client;
 import model.entities.Rental;
+import model.entities.Report;
 import model.entities.RubbleDumpster;
 import model.entities.valueObjects.*;
 import model.useCases.client.*;
@@ -135,9 +136,14 @@ public class Main {
         System.out.println(findRentalUseCase.findOne(rental1.getId()).toString());
 
         EntryExitReportUseCase.EntryExitReport  entryExitReport = entryExitReportUseCase.generateReport(LocalDate.MIN, LocalDate.MAX);
+        for (Report report : entryExitReport.reports()) {
+            System.out.println(report);
+        }
+
         IncomeReportUseCase.IncomeReport        incomeReport = incomeReportUseCase.generateReport(LocalDate.MIN, LocalDate.MAX);
-
-
+        for (Report report : incomeReport.reports()) {
+            System.out.println(report);
+        }
     }
 
     private static void configureInjection() {
