@@ -14,11 +14,13 @@ import persistence.dao.RentalDAO;
 import persistence.dao.RubbleDumpsterDAO;
 import repository.InMemoryClientDAO;
 import repository.InMemoryRentalDAO;
-import repository.InMemoryRubbleDumpsterDAO;
+import repository.inMemoryRubbleDumpsterDAO;
+import repository.inMemoryRubbleDumpsterDAO;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static model.entities.RubbleDumpsterStatus.*;
 
@@ -68,52 +70,62 @@ public class Main {
         List<Email> emails = new ArrayList<>();
         Email email = new Email("neguito.juvenal@gmail.com");
         emails.add(email);
-        Client client = new Client("Kayky",address,cpf, phone2, phone1, emails,1);
+        Client client = new Client("Kayky",address,cpf, phone2, phone1, emails,1 );
         Client client2 = new Client("Pedro",address,cpf, phone3, phone4, emails,2 );
 
-
-        //Startando RUBLLEDUMPSTER
-        RubbleDumpster rubbleDumpster= new RubbleDumpster(1,50.0, 300.0, DISABLED);
-        RubbleDumpster rubbleDumpster1= new RubbleDumpster(2,60.0, 200.0, DISABLED);
+        RubbleDumpster rubbleDumpster= new RubbleDumpster(1,50.0, 300.0, WITHDRAWAL_ORDER);
+        RubbleDumpster rubbleDumpster1= new RubbleDumpster(2,60.0, 200.0, RENTED);
+        RubbleDumpster rubbleDumpster4= new RubbleDumpster(3,70.0, 300.0, RENTED);
         Rental rental = new Rental(rubbleDumpster,client, LocalDate.now());
 
         rubbleDumpster.setRental(rental);
         rubbleDumpster1.setRental(rental);
         rental.setFinalAmount(200.0);
 
-
         configureInjection();
 
-
-        // TESTE RUBBLEDUMPSTER
         activateRubbleDumpsterUseCase.activate(rubbleDumpster);
-        activateRubbleDumpsterUseCase.activate(rubbleDumpster1);
+        //activateRubbleDumpsterUseCase.activate(rubbleDumpster1);
+        System.out.println("Activates\n");
+        System.out.println(rubbleDumpster);
 
+        System.out.println("INSERTS\n");
         insertRubbleDumpsterUseCase.insert(rubbleDumpster);
         insertRubbleDumpsterUseCase.insert(rubbleDumpster1);
 
-        findRubbleDumpsterUseCase.findOne(1);
-        findRubbleDumpsterUseCase.findOne(2);
+        System.out.println("FINDS\n");
+        Optional<RubbleDumpster> rubbleDumpster2 = findRubbleDumpsterUseCase.findOne(1);
+        Optional<RubbleDumpster> rubbleDumpster3 = findRubbleDumpsterUseCase.findOne(2);
 
-        inactivateRubbleDumpsterUseCase.inactivate(rubbleDumpster);
+
+        System.out.println(rubbleDumpster2);
+        System.out.println(rubbleDumpster3);
+        rubbleDumpster1.setStatus(RENTED);
+        rubbleDumpster1.getRental().setEndDate(LocalDate.now());
+        //rubbleDumpster1.getRental().setEndDate(LocalDate.of(2025,  12,30));
+
+        System.out.println("Disabled\n");
+
+
+        //inactivateRubbleDumpsterUseCase.inactivate(rubbleDumpster);
         inactivateRubbleDumpsterUseCase.inactivate(rubbleDumpster1);
 
         updateRubbleDumpsterRentalPriceUseCase.update(rubbleDumpster,240.0);
         updateRubbleDumpsterRentalPriceUseCase.update(rubbleDumpster1, 280.0);
-
         System.out.println(rubbleDumpster);
         System.out.println(rubbleDumpster1);
 
-        rubbleDumpster.setRental(rental);
-        rubbleDumpster.activateRubbleDumpster();
 
+
+
+
+
+        rubbleDumpster.setRental(rental);
+        rental.calculateFinalAmount();
+        rubbleDumpster.activateRubbleDumpster();
         System.out.println(rubbleDumpster);
 
         rubbleDumpster.withdrawalRequest(120);
-
-
-        System.out.println(client.toString());
-        System.out.println(client2.toString());
 
         //TESTE CLIENT
         insertClientUseCase.insert(client);
@@ -142,7 +154,7 @@ public class Main {
 
     private static void configureInjection() {
 
-        RubbleDumpsterDAO rubbleDumpsterDAO =    new InMemoryRubbleDumpsterDAO();
+        RubbleDumpsterDAO rubbleDumpsterDAO =    new inMemoryRubbleDumpsterDAO();
         activateRubbleDumpsterUseCase =          new ActivateRubbleDumpsterUseCase(rubbleDumpsterDAO);
         findRubbleDumpsterUseCase =              new FindRubbleDumpsterUseCase(rubbleDumpsterDAO);
         inactivateRubbleDumpsterUseCase =        new InactivateRubbleDumpsterUseCase(rubbleDumpsterDAO);
