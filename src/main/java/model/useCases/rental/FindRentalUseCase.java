@@ -44,4 +44,8 @@ public class FindRentalUseCase {
             throw new RuntimeException("An error occurred while fetching rentals by client.", e);
         }
     }
+
+    public List<Rental> findAll() { return rentalDAO.findAll(); }
+
+    public Optional<Rental> findOne(Integer rentalId) { return rentalDAO.findOne(rentalId); }
 }
