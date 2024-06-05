@@ -5,6 +5,7 @@ import model.entities.RubbleDumpsterStatus;
 import persistence.dao.RubbleDumpsterDAO;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class InMemoryRubbleDumpsterDAO implements RubbleDumpsterDAO {
 
@@ -14,8 +15,9 @@ public class InMemoryRubbleDumpsterDAO implements RubbleDumpsterDAO {
 
     @Override
     public List<RubbleDumpster> findAll(RubbleDumpsterStatus status) {
-
-        return List.of();
+        return db.values().stream()
+                .filter(rubbleDumpster -> rubbleDumpster.getStatus().equals(status))
+                .collect(Collectors.toList());
     }
 
     @Override
