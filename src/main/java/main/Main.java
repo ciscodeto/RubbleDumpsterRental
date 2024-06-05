@@ -77,13 +77,7 @@ public class Main {
         System.out.println(rubbleDumpster);
         System.out.println(rubbleDumpster1);
 
-
-
-
-
-
         rubbleDumpster.setRental(rental);
-        rental.calculateFinalAmount();
         rubbleDumpster.activateRubbleDumpster();
         System.out.println(rubbleDumpster);
 

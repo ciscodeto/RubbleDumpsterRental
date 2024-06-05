@@ -3,12 +3,13 @@ package model.entities;
 import model.entities.valueObjects.Address;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 public class Rental {
     private Integer id;
     private LocalDate initialDate;
-    private LocalDate dateRequestWithdrawal;
-    private LocalDate dataWithdrawal;
+    private LocalDate withdrawalRequestDate;
+    private LocalDate withdrawalDate;
     private LocalDate endDate;
     private Double finalAmount;
     private Enum<RentalStatus> rentalStatus;
@@ -28,7 +29,14 @@ public class Rental {
     }
     public void withdrawalRequest() {}
     public void endRental() {}
-    public void calculateFinalAmount() {}
+
+    public double calculateFinalAmount() {
+        double differenceInDays = ChronoUnit.DAYS.between(this.initialDate, this.endDate);
+        double differenceInMonths = Math.ceil(differenceInDays/30.0);
+        return differenceInMonths > 1 ?
+                differenceInMonths * rubbleDumpster.getMonthlyAmount() :
+                rubbleDumpster.getMinAmount();
+    }
 
     public Integer getId() {
         return id;
@@ -46,20 +54,20 @@ public class Rental {
         this.initialDate = initialDate;
     }
 
-    public LocalDate getDateRequestWithdrawal() {
-        return dateRequestWithdrawal;
+    public LocalDate getWithdrawalRequestDate() {
+        return withdrawalRequestDate;
     }
 
-    public void setDateRequestWithdrawal(LocalDate dateRequestWithdrawal) {
-        this.dateRequestWithdrawal = dateRequestWithdrawal;
+    public void setWithdrawalRequestDate(LocalDate withdrawalRequestDate) {
+        this.withdrawalRequestDate = withdrawalRequestDate;
     }
 
-    public LocalDate getDataWithdrawal() {
-        return dataWithdrawal;
+    public LocalDate getWithdrawalDate() {
+        return withdrawalDate;
     }
 
-    public void setDataWithdrawal(LocalDate dataWithdrawal) {
-        this.dataWithdrawal = dataWithdrawal;
+    public void setWithdrawalDate(LocalDate withdrawalDate) {
+        this.withdrawalDate = withdrawalDate;
     }
 
     public LocalDate getEndDate() {

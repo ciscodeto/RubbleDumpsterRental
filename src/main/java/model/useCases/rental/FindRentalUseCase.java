@@ -4,9 +4,11 @@ import model.entities.Client;
 import model.entities.Rental;
 import model.entities.RentalStatus;
 import model.entities.RubbleDumpster;
+import model.exceptions.DataAccessException;
 import persistence.dao.RentalDAO;
 
 import java.time.LocalDate;
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,20 +19,30 @@ public class FindRentalUseCase {
         this.rentalDAO = rentalDAO;
     }
 
-    public List<Rental> findRentalByPeriod(LocalDate initialDate, LocalDate endDate) {
-        return rentalDAO.findRentalByPeriod(initialDate,endDate);
+    public Collection<Rental> findRentalByPeriod(LocalDate initialDate, LocalDate endDate) {
+        if (initialDate == null || endDate == null) {
+            throw new IllegalArgumentException("Initial date and end date must not be null.");
+        }
+        if (initialDate.isAfter(endDate)) {
+            throw new IllegalArgumentException("Initial date must not be after end date.");
+        }
+
+        try {
+            return rentalDAO.findRentalByPeriod(initialDate, endDate);
+        } catch (DataAccessException e) {
+            throw new RuntimeException("An error occurred while fetching rentals by period.", e);
+        }
     }
 
     public List<Rental> findRentalByClient(Client client) {
-        return rentalDAO.findRentalByClient(client);
-    }
-
-    public List<Rental> findRentalByRubbleDumpster(RubbleDumpster rubbleDumpster) {
-        return rentalDAO.findRentalByRubbleDumpster(rubbleDumpster);
-    }
-
-    public List<Rental> findRentalByStatus(RentalStatus status) {
-        return rentalDAO.findRentalByStatus(status);
+        if (client == null) {
+            throw new IllegalArgumentException("Client must not be null.");
+        }
+        try {
+            return rentalDAO.findRentalByClient(client);
+        } catch (DataAccessException e) {
+            throw new RuntimeException("An error occurred while fetching rentals by client.", e);
+        }
     }
 
     public List<Rental> findAll() { return rentalDAO.findAll(); }
