@@ -1,6 +1,9 @@
 package model.useCases.rental;
 
+import model.Notification;
+import model.Validator;
 import model.entities.*;
+import model.useCases.client.ClientInsertValidator;
 import model.useCases.client.FindClientUseCase;
 import model.useCases.client.UpdateClientUseCase;
 import model.useCases.rubbleDumpster.FindRubbleDumpsterUseCase;
@@ -18,20 +21,14 @@ public class InsertRentalUseCase {
     private RubbleDumpsterDAO rubbleDumpsterDAO;
     private FindRubbleDumpsterUseCase findRubbleDumpsterUseCase;
     private FindClientUseCase findClientUseCase;
-    private UpdateRubbleDumpsterRentalPriceUseCase updateRubbleDumpsterRentalPriceUseCase;
-    private UpdateClientUseCase clientUseCase;
 
     public InsertRentalUseCase(RentalDAO rentalDAO,
                                FindRubbleDumpsterUseCase findRubbleDumpsterUseCase,
-                               FindClientUseCase findClientUseCase,
-                               UpdateRubbleDumpsterRentalPriceUseCase updateRubbleDumpsterRentalPriceUseCase,
-                               UpdateClientUseCase clientUseCase) {
+                               FindClientUseCase findClientUseCase) {
 
         this.rentalDAO = rentalDAO;
         this.findRubbleDumpsterUseCase = findRubbleDumpsterUseCase;
         this.findClientUseCase = findClientUseCase;
-        this.updateRubbleDumpsterRentalPriceUseCase = updateRubbleDumpsterRentalPriceUseCase;
-        this.clientUseCase = clientUseCase;
     }
 
     public Rental insertRental(Integer clientId) {
@@ -41,14 +38,19 @@ public class InsertRentalUseCase {
         Client client = findClientUseCase.findOne(clientId)
                 .orElseThrow(() -> new EntityNotFoundException("Cannot find Client with id " + clientId));
 
-        RubbleDumpster rubbleDumpster = rubbleDumpsterDAO.findOne(RubbleDumpsterStatus.AVAILABLE.ordinal())
-                .orElseThrow(() -> new EntityNotFoundException("No Rubble Dumpster Available for renting."));
-
+        RubbleDumpster rubbleDumpster = findRubbleDumpsterUseCase.findAvailableUnit();
         Rental rental = new Rental(rubbleDumpster, client, LocalDate.now());
+        rental.setRentalStatus(RentalStatus.OPEN);
+
+        Validator<Rental> validator = new RentalInsertValidator();
+        Notification notification = validator.validate(rental);
+
+        if (notification.hasErrors())
+            throw new IllegalArgumentException(notification.errorMessage());
+
         Integer rentalId = rentalDAO.create(rental);
 
         rubbleDumpster.setStatus(RubbleDumpsterStatus.RENTED);
-        rental.setRentalStatus(RentalStatus.OPEN);
         rubbleDumpsterDAO.update(rubbleDumpster);
 
         return rentalDAO.findOne(rentalId).get();

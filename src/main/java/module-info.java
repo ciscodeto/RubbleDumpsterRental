@@ -5,6 +5,7 @@ module com.view.rubbledumpsterrental {
     requires java.naming;
     requires java.management;
     requires jdk.sctp;
+    requires commons.csv;
 
 
     opens com.view.rubbledumpsterrental to javafx.fxml;
