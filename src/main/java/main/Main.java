@@ -135,15 +135,6 @@ public class Main {
         endRentalUseCase.endRental(rental1.getId());
         System.out.println(findRentalUseCase.findOne(rental1.getId()).toString());
 
-        activateRubbleDumpsterUseCase.activate(rubbleDumpster);
-        Rental rental1 = insertRentalUseCase.insertRental(client.getId());
-        System.out.println(findRentalUseCase.findRentalByClient(client).toString());
-        System.out.println(findRentalUseCase.findOne(rental1.getId()).toString());
-        withdrawalRequestUseCase.requestWithdrawal(rental1.getId(), LocalDate.now());
-        System.out.println(findRentalUseCase.findOne(rental1.getId()).toString());
-        endRentalUseCase.endRental(rental1.getId());
-        System.out.println(findRentalUseCase.findOne(rental1.getId()).toString());
-
         EntryExitReportUseCase.EntryExitReport  entryExitReport = entryExitReportUseCase.generateReport(LocalDate.MIN, LocalDate.MAX);
         for (Report report : entryExitReport.reports()) {
             System.out.println(report);
