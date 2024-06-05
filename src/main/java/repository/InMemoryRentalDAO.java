@@ -67,7 +67,7 @@ public class InMemoryRentalDAO implements RentalDAO {
     @Override
     public boolean update(Rental rental) {
         if (db.containsKey(rental.getId())) {
-            db.put(rental.getId(), rental);
+            db.replace(rental.getId(), rental);
             return true;
         }
         return false;
