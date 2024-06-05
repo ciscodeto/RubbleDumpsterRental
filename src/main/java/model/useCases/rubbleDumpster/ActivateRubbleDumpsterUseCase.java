@@ -24,8 +24,8 @@ public class ActivateRubbleDumpsterUseCase {
 
         Integer serialNumber = rubbleDumpster.getSerialNumber();
 
-        if (rubbleDumpsterDAO.findOne(serialNumber).isEmpty() && rubbleDumpster.getStatus() != RubbleDumpsterStatus.DISABLED)
-            throw new EntityAlreadyExistsException("Caçamba não localizada ou encontra-se com status diferente de desabilitado");
+        if (rubbleDumpsterDAO.findOne(serialNumber).isEmpty() && rubbleDumpster.getStatus() != RubbleDumpsterStatus.WITHDRAWAL_ORDER)
+            throw new EntityAlreadyExistsException("Caçamba não localizada ou encontra-se com status diferente de ordem de retirada");
 
         rubbleDumpster.setStatus(RubbleDumpsterStatus.AVAILABLE);
 
