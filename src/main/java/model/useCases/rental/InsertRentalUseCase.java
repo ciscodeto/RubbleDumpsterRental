@@ -38,7 +38,7 @@ public class InsertRentalUseCase {
         Client client = findClientUseCase.findOne(clientId)
                 .orElseThrow(() -> new EntityNotFoundException("Cannot find Client with id " + clientId));
 
-        RubbleDumpster rubbleDumpster = findRubbleDumpsterUseCase.findAvailableUnit();
+        RubbleDumpster rubbleDumpster = findRubbleDumpsterUseCase.findAll(RubbleDumpsterStatus.AVAILABLE).getFirst();
         Rental rental = new Rental(rubbleDumpster, client, LocalDate.now());
         rental.setRentalStatus(RentalStatus.OPEN);
 
