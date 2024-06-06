@@ -41,7 +41,8 @@ public class WithdrawalRequestUseCase {
 
         Validator<Rental> validator = new RentalInsertValidator();
         Notification notification = validator.validate(rental);
-
+        if (notification.hasErrors())
+            throw new IllegalArgumentException(notification.errorMessage());
         RubbleDumpster rubbleDumpster = rental.getRubbleDumpster();
 
         rental.setRentalStatus(RentalStatus.WITHDRAWAL_ORDER);
