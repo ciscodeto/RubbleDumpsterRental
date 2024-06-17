@@ -1,10 +1,13 @@
-package com.model.useCases.rental;
+package dumpRents.model.useCases.rental;
 
-import com.model.entities.*;
-import com.model.useCases.rubbleDumpster.FindRubbleDumpsterUseCase;
-import com.persistence.dao.RentalDAO;
-import com.persistence.dao.RubbleDumpsterDAO;
-import com.persistence.utils.EntityNotFoundException;
+import dumpRents.model.entities.Rental;
+import dumpRents.model.entities.RentalStatus;
+import dumpRents.model.entities.RubbleDumpster;
+import dumpRents.model.entities.RubbleDumpsterStatus;
+import dumpRents.model.useCases.rubbleDumpster.FindRubbleDumpsterUseCase;
+import dumpRents.persistence.dao.RentalDAO;
+import dumpRents.persistence.dao.RubbleDumpsterDAO;
+import dumpRents.persistence.utils.EntityNotFoundException;
 
 public class EndRentalUseCase {
     private RentalDAO rentalDAO;

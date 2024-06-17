@@ -1,6 +1,5 @@
 package com.model.useCases.rental;
 
-import com.model.entities.*;
 import com.model.useCases.client.FindClientUseCase;
 import com.model.useCases.client.UpdateClientUseCase;
 import com.model.useCases.rubbleDumpster.FindRubbleDumpsterUseCase;

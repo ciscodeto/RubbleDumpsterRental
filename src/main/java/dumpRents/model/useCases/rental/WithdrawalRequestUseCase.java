@@ -1,14 +1,14 @@
-package com.model.useCases.rental;
+package dumpRents.model.useCases.rental;
 
-import com.model.Notification;
-import com.model.Validator;
-import com.model.entities.Rental;
-import com.model.entities.RentalStatus;
-import com.model.entities.RubbleDumpster;
-import com.model.entities.RubbleDumpsterStatus;
-import com.persistence.dao.RentalDAO;
-import com.persistence.dao.RubbleDumpsterDAO;
-import com.persistence.utils.EntityNotFoundException;
+import dumpRents.model.Notification;
+import dumpRents.model.Validator;
+import dumpRents.model.entities.Rental;
+import dumpRents.model.entities.RentalStatus;
+import dumpRents.model.entities.RubbleDumpster;
+import dumpRents.model.entities.RubbleDumpsterStatus;
+import dumpRents.persistence.dao.RentalDAO;
+import dumpRents.persistence.dao.RubbleDumpsterDAO;
+import dumpRents.persistence.utils.EntityNotFoundException;
 
 import java.time.LocalDate;
 

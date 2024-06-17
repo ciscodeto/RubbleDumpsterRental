@@ -1,4 +1,4 @@
-package com.model.entities.valueObjects;
+package dumpRents.model.entities.valueObjects;
 
 public class Email {
     private String email;

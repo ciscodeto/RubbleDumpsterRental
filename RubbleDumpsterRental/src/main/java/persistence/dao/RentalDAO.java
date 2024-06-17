@@ -1,6 +1,5 @@
 package com.persistence.dao;
 
-import com.model.entities.*;
 import com.persistence.utils.DAO;
 
 import java.time.LocalDate;

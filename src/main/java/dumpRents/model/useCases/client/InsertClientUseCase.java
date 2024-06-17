@@ -1,11 +1,11 @@
-package com.model.useCases.client;
+package dumpRents.model.useCases.client;
 
-import com.model.Notification;
-import com.model.Validator;
-import com.model.entities.Client;
-import com.model.entities.valueObjects.Cpf;
-import com.persistence.dao.ClientDAO;
-import com.persistence.utils.EntityAlreadyExistsException;
+import dumpRents.model.Notification;
+import dumpRents.model.Validator;
+import dumpRents.model.entities.Client;
+import dumpRents.model.entities.valueObjects.Cpf;
+import dumpRents.persistence.dao.ClientDAO;
+import dumpRents.persistence.utils.EntityAlreadyExistsException;
 
 public class InsertClientUseCase {
 

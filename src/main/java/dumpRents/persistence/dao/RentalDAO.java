@@ -1,7 +1,10 @@
-package com.persistence.dao;
+package dumpRents.persistence.dao;
 
-import com.model.entities.*;
-import com.persistence.utils.DAO;
+import dumpRents.persistence.utils.DAO;
+import dumpRents.model.entities.Client;
+import dumpRents.model.entities.Rental;
+import dumpRents.model.entities.RentalStatus;
+import dumpRents.model.entities.RubbleDumpster;
 
 import java.time.LocalDate;
 import java.util.List;

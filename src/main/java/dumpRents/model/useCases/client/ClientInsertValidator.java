@@ -1,8 +1,8 @@
-package com.model.useCases.client;
+package dumpRents.model.useCases.client;
 
-import com.model.Notification;
-import com.model.Validator;
-import com.model.entities.Client;
+import dumpRents.model.Notification;
+import dumpRents.model.Validator;
+import dumpRents.model.entities.Client;
 
 public class ClientInsertValidator extends Validator<Client>{
 

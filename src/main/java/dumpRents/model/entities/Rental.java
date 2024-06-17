@@ -1,6 +1,6 @@
-package com.model.entities;
+package dumpRents.model.entities;
 
-import com.model.entities.valueObjects.Address;
+import dumpRents.model.entities.valueObjects.Address;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;

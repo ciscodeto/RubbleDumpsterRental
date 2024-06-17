@@ -1,8 +1,8 @@
-package com.model.useCases.rental;
+package dumpRents.model.useCases.rental;
 
-import com.model.entities.Rental;
-import com.model.entities.Report;
-import com.persistence.dao.RentalDAO;
+import dumpRents.model.entities.Rental;
+import dumpRents.model.entities.Report;
+import dumpRents.persistence.dao.RentalDAO;
 
 import java.time.LocalDate;
 import java.util.List;
