@@ -84,7 +84,6 @@ public class Main {
 
         configureInjection();
 
-        activateRubbleDumpsterUseCase.activate(rubbleDumpster);
         //activateRubbleDumpsterUseCase.activate(rubbleDumpster1);
         System.out.println("Activates\n");
         System.out.println(rubbleDumpster);
