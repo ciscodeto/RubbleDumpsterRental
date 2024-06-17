@@ -1,7 +1,6 @@
-package persistence.dao;
+package com.persistence.dao;
 
-import model.entities.*;
-import persistence.utils.DAO;
+import com.persistence.utils.DAO;
 
 import java.time.LocalDate;
 import java.util.List;

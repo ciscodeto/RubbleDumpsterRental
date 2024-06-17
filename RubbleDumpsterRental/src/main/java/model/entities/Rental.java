@@ -1,6 +1,6 @@
-package model.entities;
+package com.model.entities;
 
-import model.entities.valueObjects.Address;
+import com.model.entities.valueObjects.Address;
 
 import java.time.LocalDate;
 

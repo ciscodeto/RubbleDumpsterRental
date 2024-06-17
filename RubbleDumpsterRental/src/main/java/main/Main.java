@@ -1,13 +1,11 @@
-package main;
+package com.main;
 
 
-import model.entities.Client;
-import model.entities.Rental;
-import model.entities.RubbleDumpster;
-import model.entities.valueObjects.*;
-import model.useCases.rubbleDumpster.*;
-import persistence.dao.RubbleDumpsterDAO;
-import repository.inMemoryRubbleDumpsterDAO;
+import com.model.entities.Client;
+import com.model.entities.Rental;
+import com.model.entities.RubbleDumpster;
+import com.persistence.dao.RubbleDumpsterDAO;
+import com.repository.inMemoryRubbleDumpsterDAO;
 
 import javax.crypto.Cipher;
 import javax.sound.midi.Soundbank;
@@ -16,8 +14,6 @@ import javax.xml.xpath.XPathFactory;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
-import static model.entities.RubbleDumpsterStatus.*;
 
 
 public class Main {

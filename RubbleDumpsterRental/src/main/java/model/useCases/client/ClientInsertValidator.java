@@ -1,8 +1,8 @@
-package model.useCases.client;
+package com.model.useCases.client;
 
-import model.Notification;
-import model.Validator;
-import model.entities.Client;
+import com.model.Notification;
+import com.model.Validator;
+import com.model.entities.Client;
 
 public class ClientInsertValidator extends Validator<Client>{
 

@@ -1,10 +1,10 @@
-package model.useCases.rubbleDumpster;
+package com.model.useCases.rubbleDumpster;
 
-import model.Notification;
-import model.Validator;
-import model.entities.RubbleDumpster;
-import persistence.dao.RubbleDumpsterDAO;
-import persistence.utils.EntityAlreadyExistsException;
+import com.model.Notification;
+import com.model.Validator;
+import com.model.entities.RubbleDumpster;
+import com.persistence.dao.RubbleDumpsterDAO;
+import com.persistence.utils.EntityAlreadyExistsException;
 
 public class UpdateRubbleDumpsterRentalPriceUseCase {
 
