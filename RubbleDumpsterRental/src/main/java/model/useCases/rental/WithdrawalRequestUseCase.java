@@ -1,4 +1,4 @@
-package model.useCases.rental;
+package com.model.useCases.rental;
 
 public class WithdrawalRequestUseCase {
 }

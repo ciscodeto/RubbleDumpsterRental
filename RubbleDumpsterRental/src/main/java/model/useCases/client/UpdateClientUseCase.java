@@ -1,11 +1,11 @@
-package model.useCases.client;
+package com.model.useCases.client;
 
-import model.Notification;
-import model.Validator;
-import model.entities.Client;
-import model.entities.valueObjects.Cpf;
-import persistence.dao.ClientDAO;
-import persistence.utils.EntityAlreadyExistsException;
+import com.model.Notification;
+import com.model.Validator;
+import com.model.entities.Client;
+import com.model.entities.valueObjects.Cpf;
+import com.persistence.dao.ClientDAO;
+import com.persistence.utils.EntityAlreadyExistsException;
 
 public class UpdateClientUseCase {
 

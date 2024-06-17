@@ -1,14 +1,14 @@
-package model.useCases.rental;
+package com.model.useCases.rental;
 
-import model.entities.*;
-import model.useCases.client.FindClientUseCase;
-import model.useCases.client.UpdateClientUseCase;
-import model.useCases.rubbleDumpster.FindRubbleDumpsterUseCase;
-import model.useCases.rubbleDumpster.UpdateRubbleDumpsterRentalPriceUseCase;
-import persistence.dao.ClientDAO;
-import persistence.dao.RentalDAO;
-import persistence.dao.RubbleDumpsterDAO;
-import persistence.utils.EntityNotFoundException;
+import com.model.entities.*;
+import com.model.useCases.client.FindClientUseCase;
+import com.model.useCases.client.UpdateClientUseCase;
+import com.model.useCases.rubbleDumpster.FindRubbleDumpsterUseCase;
+import com.model.useCases.rubbleDumpster.UpdateRubbleDumpsterRentalPriceUseCase;
+import com.persistence.dao.ClientDAO;
+import com.persistence.dao.RentalDAO;
+import com.persistence.dao.RubbleDumpsterDAO;
+import com.persistence.utils.EntityNotFoundException;
 
 import java.time.LocalDate;
 import java.util.Optional;

@@ -1,11 +1,11 @@
-package model.useCases.client;
+package com.model.useCases.client;
 
-import model.Validator;
-import model.entities.Client;
-import model.entities.RubbleDumpster;
-import model.entities.valueObjects.Cpf;
-import persistence.dao.ClientDAO;
-import persistence.utils.EntityAlreadyExistsException;
+import com.model.Validator;
+import com.model.entities.Client;
+import com.model.entities.RubbleDumpster;
+import com.model.entities.valueObjects.Cpf;
+import com.persistence.dao.ClientDAO;
+import com.persistence.utils.EntityAlreadyExistsException;
 
 import java.util.Collection;
 import java.util.List;

@@ -1,4 +1,4 @@
-package model.entities.valueObjects;
+package com.model.entities.valueObjects;
 
 public class Address {
     private String street;

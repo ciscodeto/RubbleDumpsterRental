@@ -1,4 +1,4 @@
-package persistence.utils;
+package com.persistence.utils;
 
 public class EntityNotFoundException extends  RuntimeException {
     public EntityNotFoundException(String message) {

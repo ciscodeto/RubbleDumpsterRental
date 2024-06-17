@@ -8,6 +8,6 @@ module com.view.rubbledumpsterrental {
     requires org.apache.commons.csv;
 
 
-    opens com.view.rubbledumpsterrental to javafx.fxml;
-    exports com.view.rubbledumpsterrental;
+    opens com.view to javafx.fxml;
+    exports com.view;
 }
