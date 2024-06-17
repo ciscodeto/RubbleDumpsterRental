@@ -1,7 +1,6 @@
 package com.model.entities;
 
 import javax.naming.InsufficientResourcesException;
-import java.lang.ref.SoftReference;
 import java.time.LocalDate;
 
 import static com.model.entities.RubbleDumpsterStatus.*;
