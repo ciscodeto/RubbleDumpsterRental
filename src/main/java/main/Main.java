@@ -49,7 +49,7 @@ public class Main {
     public static void main(String[] args) {
 
         // Validação de CEP
-        Cep cep = new Cep("12345-678");
+        Cep cep = new Cep("12345-673");
         Address address = new Address("Rua Exemplo", "Bairro Exemplo", "123", "Cidade Exemplo", cep);
 
         if (address.isValid()) {
