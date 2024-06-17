@@ -78,8 +78,8 @@ public class Rental {
         return endDate;
     }
 
-    public void setEndDate(LocalDate endDate) {
-        this.endDate = endDate;
+    public void conclude() {
+        this.endDate = LocalDate.now();
     }
 
     public Double getFinalAmount() {
