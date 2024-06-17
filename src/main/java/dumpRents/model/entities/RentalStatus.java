@@ -1,4 +1,4 @@
-package com.model.entities;
+package dumpRents.model.entities;
 
 public enum RentalStatus {
     OPEN("Aberto"),

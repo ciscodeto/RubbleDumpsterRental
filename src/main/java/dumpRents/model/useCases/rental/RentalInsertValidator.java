@@ -1,8 +1,8 @@
-package com.model.useCases.rental;
+package dumpRents.model.useCases.rental;
 
-import com.model.Notification;
-import com.model.Validator;
-import com.model.entities.Rental;
+import dumpRents.model.Notification;
+import dumpRents.model.Validator;
+import dumpRents.model.entities.Rental;
 
 import java.time.LocalDate;
 

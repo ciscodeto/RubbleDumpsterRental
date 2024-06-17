@@ -1,8 +1,8 @@
-package com.persistence.dao;
+package dumpRents.persistence.dao;
 
-import com.model.entities.RubbleDumpster;
-import com.model.entities.RubbleDumpsterStatus;
-import com.persistence.utils.DAO;
+import dumpRents.model.entities.RubbleDumpster;
+import dumpRents.model.entities.RubbleDumpsterStatus;
+import dumpRents.persistence.utils.DAO;
 
 import java.util.List;
 import java.util.Optional;

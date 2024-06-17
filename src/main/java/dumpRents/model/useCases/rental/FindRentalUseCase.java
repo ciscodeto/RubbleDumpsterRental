@@ -1,9 +1,9 @@
-package com.model.useCases.rental;
+package dumpRents.model.useCases.rental;
 
-import com.model.entities.Client;
-import com.model.entities.Rental;
-import com.model.exceptions.DataAccessException;
-import com.persistence.dao.RentalDAO;
+import dumpRents.model.entities.Client;
+import dumpRents.model.entities.Rental;
+import dumpRents.model.exceptions.DataAccessException;
+import dumpRents.persistence.dao.RentalDAO;
 
 import java.time.LocalDate;
 import java.util.Collection;

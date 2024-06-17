@@ -4,8 +4,6 @@ package com.main;
 import com.model.entities.Client;
 import com.model.entities.Rental;
 import com.model.entities.RubbleDumpster;
-import com.model.entities.valueObjects.*;
-import com.model.useCases.rubbleDumpster.*;
 import com.persistence.dao.RubbleDumpsterDAO;
 import com.repository.inMemoryRubbleDumpsterDAO;
 
@@ -16,8 +14,6 @@ import javax.xml.xpath.XPathFactory;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.model.entities.RubbleDumpsterStatus.*;
 
 
 public class Main {

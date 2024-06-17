@@ -1,8 +1,8 @@
-package com.model.useCases.rubbleDumpster;
+package dumpRents.model.useCases.rubbleDumpster;
 
-import com.model.Notification;
-import com.model.Validator;
-import com.model.entities.RubbleDumpster;
+import dumpRents.model.Notification;
+import dumpRents.model.Validator;
+import dumpRents.model.entities.RubbleDumpster;
 
 public class RubbleDumpsterInsertValidator extends Validator<RubbleDumpster> {
     @Override

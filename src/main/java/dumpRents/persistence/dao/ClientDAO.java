@@ -1,8 +1,8 @@
-package com.persistence.dao;
+package dumpRents.persistence.dao;
 
-import com.model.entities.Client;
-import com.model.entities.valueObjects.Cpf;
-import com.persistence.utils.DAO;
+import dumpRents.model.entities.Client;
+import dumpRents.model.entities.valueObjects.Cpf;
+import dumpRents.persistence.utils.DAO;
 
 import java.util.Optional;
 

@@ -1,7 +1,7 @@
-package com.model;
+package dumpRents.model;
 
-import com.model.entities.Rental;
-import com.model.entities.RubbleDumpsterStatus;
+import dumpRents.model.entities.Rental;
+import dumpRents.model.entities.RubbleDumpsterStatus;
 
 import java.util.Collection;
 

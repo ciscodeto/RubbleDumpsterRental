@@ -4,8 +4,6 @@ import javax.naming.InsufficientResourcesException;
 import java.lang.ref.SoftReference;
 import java.time.LocalDate;
 
-import static com.model.entities.RubbleDumpsterStatus.*;
-
 public class RubbleDumpster {
     private Integer serialNumber;
     private Double minAmount;

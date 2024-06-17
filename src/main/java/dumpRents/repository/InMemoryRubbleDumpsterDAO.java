@@ -1,8 +1,8 @@
-package com.repository;
+package dumpRents.repository;
 
-import com.model.entities.RubbleDumpster;
-import com.model.entities.RubbleDumpsterStatus;
-import com.persistence.dao.RubbleDumpsterDAO;
+import dumpRents.model.entities.RubbleDumpster;
+import dumpRents.model.entities.RubbleDumpsterStatus;
+import dumpRents.persistence.dao.RubbleDumpsterDAO;
 
 import java.util.*;
 import java.util.stream.Collectors;

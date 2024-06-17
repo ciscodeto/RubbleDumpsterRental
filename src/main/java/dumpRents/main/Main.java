@@ -1,28 +1,29 @@
-package com.main;
+package dumpRents.main;
 
 
-import com.model.entities.Client;
-import com.model.entities.Rental;
-import com.model.entities.Report;
-import com.model.entities.RubbleDumpster;
-import com.model.entities.valueObjects.*;
-import com.model.useCases.client.*;
-import com.model.useCases.export.ExportCSVUseCase;
-import com.model.useCases.rental.*;
-import com.model.useCases.rubbleDumpster.*;
-import com.persistence.dao.ClientDAO;
-import com.persistence.dao.RentalDAO;
-import com.persistence.dao.RubbleDumpsterDAO;
-import com.repository.InMemoryClientDAO;
-import com.repository.InMemoryRentalDAO;
-import com.repository.InMemoryRubbleDumpsterDAO;
+import dumpRents.model.entities.Client;
+import dumpRents.model.entities.Rental;
+import dumpRents.model.entities.Report;
+import dumpRents.model.entities.RubbleDumpster;
+import dumpRents.model.entities.valueObjects.*;
+import dumpRents.model.useCases.client.FindClientUseCase;
+import dumpRents.model.useCases.client.InsertClientUseCase;
+import dumpRents.model.useCases.client.UpdateClientUseCase;
+import dumpRents.model.useCases.export.ExportCSVUseCase;
+import dumpRents.model.useCases.rental.*;
+import dumpRents.model.useCases.rubbleDumpster.*;
+import dumpRents.persistence.dao.ClientDAO;
+import dumpRents.persistence.dao.RentalDAO;
+import dumpRents.persistence.dao.RubbleDumpsterDAO;
+import dumpRents.repository.InMemoryClientDAO;
+import dumpRents.repository.InMemoryRentalDAO;
+import dumpRents.repository.InMemoryRubbleDumpsterDAO;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
-import static com.model.entities.RubbleDumpsterStatus.*;
+import static dumpRents.model.entities.RubbleDumpsterStatus.*;
 
 
 public class Main {

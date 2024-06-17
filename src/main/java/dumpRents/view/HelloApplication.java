@@ -1,4 +1,4 @@
-package com.view;
+package dumpRents.view;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

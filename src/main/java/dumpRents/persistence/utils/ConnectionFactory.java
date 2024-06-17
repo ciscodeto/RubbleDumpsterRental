@@ -1,4 +1,4 @@
-package com.persistence.utils;
+package dumpRents.persistence.utils;
 
 public class ConnectionFactory {
 }
