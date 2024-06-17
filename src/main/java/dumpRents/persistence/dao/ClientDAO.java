@@ -1,7 +1,6 @@
 package com.persistence.dao;
 
 import com.model.entities.Client;
-import com.model.entities.Rental;
 import com.model.entities.valueObjects.Cpf;
 import com.persistence.utils.DAO;
 

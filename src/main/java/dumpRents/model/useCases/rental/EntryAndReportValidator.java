@@ -2,7 +2,6 @@ package com.model.useCases.rental;
 
 import com.model.Notification;
 import com.model.Validator;
-import com.model.entities.Rental;
 import com.model.entities.Report;
 
 import java.time.LocalDate;

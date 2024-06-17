@@ -4,7 +4,6 @@ import com.model.entities.Rental;
 import com.model.entities.RubbleDumpsterStatus;
 
 import java.util.Collection;
-import java.util.Map;
 
 public abstract class Validator<T> {
     public abstract Notification validate(T type);
