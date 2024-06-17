@@ -1,10 +1,10 @@
-package model.useCases.rental;
+package com.model.useCases.rental;
 
-import model.entities.Client;
-import model.entities.Rental;
-import model.entities.RentalStatus;
-import model.entities.RubbleDumpster;
-import persistence.dao.RentalDAO;
+import com.model.entities.Client;
+import com.model.entities.Rental;
+import com.model.entities.RentalStatus;
+import com.model.entities.RubbleDumpster;
+import com.persistence.dao.RentalDAO;
 
 import java.time.LocalDate;
 import java.util.List;

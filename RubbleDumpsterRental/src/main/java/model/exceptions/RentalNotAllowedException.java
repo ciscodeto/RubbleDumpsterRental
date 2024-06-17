@@ -1,4 +1,4 @@
-package model.exceptions;
+package com.model.exceptions;
 
 public class RentalNotAllowedException extends RuntimeException{
     public RentalNotAllowedException(String message) {

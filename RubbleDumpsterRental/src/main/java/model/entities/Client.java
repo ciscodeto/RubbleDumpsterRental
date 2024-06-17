@@ -1,9 +1,9 @@
-package model.entities;
+package com.model.entities;
 
-import model.entities.valueObjects.Address;
-import model.entities.valueObjects.Cpf;
-import model.entities.valueObjects.Email;
-import model.entities.valueObjects.Phone;
+import com.model.entities.valueObjects.Address;
+import com.model.entities.valueObjects.Cpf;
+import com.model.entities.valueObjects.Email;
+import com.model.entities.valueObjects.Phone;
 
 import java.util.ArrayList;
 import java.util.List;

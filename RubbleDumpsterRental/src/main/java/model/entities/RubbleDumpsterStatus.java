@@ -1,4 +1,4 @@
-package model.entities;
+package com.model.entities;
 
 import javax.swing.*;
 

@@ -1,9 +1,9 @@
-package persistence.dao;
+package com.persistence.dao;
 
-import model.entities.Client;
-import model.entities.Rental;
-import model.entities.valueObjects.Cpf;
-import persistence.utils.DAO;
+import com.model.entities.Client;
+import com.model.entities.Rental;
+import com.model.entities.valueObjects.Cpf;
+import com.persistence.utils.DAO;
 
 import java.util.Optional;
 

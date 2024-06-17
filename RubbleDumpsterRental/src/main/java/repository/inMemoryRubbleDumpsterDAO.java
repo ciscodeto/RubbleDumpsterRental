@@ -1,8 +1,8 @@
-package repository;
+package com.repository;
 
-import model.entities.RubbleDumpster;
-import model.entities.RubbleDumpsterStatus;
-import persistence.dao.RubbleDumpsterDAO;
+import com.model.entities.RubbleDumpster;
+import com.model.entities.RubbleDumpsterStatus;
+import com.persistence.dao.RubbleDumpsterDAO;
 
 import java.io.Serial;
 import java.util.*;

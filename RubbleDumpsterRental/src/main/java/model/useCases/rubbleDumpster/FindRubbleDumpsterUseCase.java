@@ -1,10 +1,10 @@
-package model.useCases.rubbleDumpster;
+package com.model.useCases.rubbleDumpster;
 
-import model.Validator;
-import model.entities.RubbleDumpster;
-import model.entities.RubbleDumpsterStatus;
-import persistence.dao.RubbleDumpsterDAO;
-import persistence.utils.EntityNotFoundException;
+import com.model.Validator;
+import com.model.entities.RubbleDumpster;
+import com.model.entities.RubbleDumpsterStatus;
+import com.persistence.dao.RubbleDumpsterDAO;
+import com.persistence.utils.EntityNotFoundException;
 
 import java.util.List;
 import java.util.Optional;
