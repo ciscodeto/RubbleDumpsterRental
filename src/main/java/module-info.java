@@ -9,5 +9,7 @@ module com.view.rubbledumpsterrental {
 
 
     opens com.dumpRents.view to javafx.fxml;
+    opens com.dumpRents.controller to javafx.fxml;
     exports com.dumpRents.view;
+    exports com.dumpRents.controller;
 }
