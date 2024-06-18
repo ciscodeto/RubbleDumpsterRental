@@ -1,6 +1,5 @@
 package com.dumpRents.main;
 
-
 import com.dumpRents.model.entities.Client;
 import com.dumpRents.model.entities.Rental;
 import com.dumpRents.model.entities.Report;
