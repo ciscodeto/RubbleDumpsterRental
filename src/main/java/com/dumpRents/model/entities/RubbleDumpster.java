@@ -127,7 +127,7 @@ public class RubbleDumpster {
         if (this.status == RubbleDumpsterStatus.WITHDRAWAL_ORDER) {
             this.status = RubbleDumpsterStatus.AVAILABLE;
         } else
-            System.out.println("Para ativar a caçamba, é necessário que ela possua ordem de retirada!");
+            System.out.println("Para ativar a caçamba, é necessário que ela possua o status de ordem de retirada!");
     }
 }
 
