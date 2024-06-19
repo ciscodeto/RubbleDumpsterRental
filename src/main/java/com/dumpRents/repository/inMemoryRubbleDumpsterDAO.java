@@ -56,7 +56,7 @@ public class InMemoryRubbleDumpsterDAO implements RubbleDumpsterDAO {
         Integer id = rubbleDumpster.getId();
         if (db.containsKey(id)){
             db.replace(id, rubbleDumpster);
-            return true;
+        return true;
         }
         return false;
     }
