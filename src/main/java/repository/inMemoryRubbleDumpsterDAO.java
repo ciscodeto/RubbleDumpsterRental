@@ -4,10 +4,10 @@ import model.entities.RubbleDumpster;
 import model.entities.RubbleDumpsterStatus;
 import persistence.dao.RubbleDumpsterDAO;
 
-import java.io.Serial;
 import java.util.*;
+import java.util.stream.Collectors;
 
-public class inMemoryRubbleDumpsterDAO implements RubbleDumpsterDAO {
+public class InMemoryRubbleDumpsterDAO implements RubbleDumpsterDAO {
 
     private static final Map<Integer, RubbleDumpster> db = new LinkedHashMap<>();
     private static int idcounter;
@@ -15,10 +15,10 @@ public class inMemoryRubbleDumpsterDAO implements RubbleDumpsterDAO {
 
     @Override
     public List<RubbleDumpster> findAll(RubbleDumpsterStatus status) {
-
-        return List.of();
+        return db.values().stream()
+                .filter(rubbleDumpster -> rubbleDumpster.getStatus().equals(status))
+                .collect(Collectors.toList());
     }
-
 
     @Override
     public Integer create(RubbleDumpster rubbleDumpster) {
@@ -34,13 +34,6 @@ public class inMemoryRubbleDumpsterDAO implements RubbleDumpsterDAO {
             return Optional.of(db.get(key));
         return Optional.empty();
     }
-    @Override
-    public Optional<RubbleDumpster> findById(Integer id) {
-        if (db.containsKey(id))
-            return Optional.of(db.get(id));
-        return Optional.empty();
-    }
-
 
     public Optional<RubbleDumpster> findOneBySerialNumber(Integer serialNumber) {
         return db.values().stream()
