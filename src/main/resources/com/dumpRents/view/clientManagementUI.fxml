@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.dumpRents.controller.ClientManagementUIController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="400.0" prefWidth="602.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dumpRents.controller.ClientManagementUIController">
+   <children>
+      <TableView layoutX="13.0" layoutY="14.0" prefHeight="323.0" prefWidth="575.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+      <Button layoutX="434.0" layoutY="350.0" mnemonicParsing="false" text="Editar" />
+      <Button layoutX="20.0" layoutY="350.0" mnemonicParsing="false" text="Voltar" />
+      <Button layoutX="506.0" layoutY="350.0" mnemonicParsing="false" text="Adicionar" />
+      <Button layoutX="344.0" layoutY="350.0" mnemonicParsing="false" text="Detalhar" />
+      <Button layoutX="262.0" layoutY="350.0" mnemonicParsing="false" text="Deletar" />
+   </children>
 </AnchorPane>

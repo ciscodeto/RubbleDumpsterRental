@@ -1,14 +1,109 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.dumpRents.controller.ClientUIController"
-            prefHeight="400.0" prefWidth="600.0">
+<!--<VBox prefHeight="394.0" prefWidth="424.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dumpRents.controller.ClientUIController">-->
+<!--<children>-->
+<!--    <GridPane hgap="10" prefHeight="450.0" prefWidth="424.0" vgap="10">-->
+<!--        <padding>-->
+<!--            <Insets bottom="20" left="20" right="20" top="20" />-->
+<!--        </padding>-->
+<!--        &lt;!&ndash; Nome &ndash;&gt;-->
+<!--        <Label text="Nome:" GridPane.rowIndex="1" />-->
+<!--        <TextField fx:id="nameField" GridPane.columnIndex="2" GridPane.rowIndex="1" />-->
+<!--        &lt;!&ndash; Endereço &ndash;&gt;-->
+<!--        <Label text="Rua:" GridPane.rowIndex="2" />-->
+<!--        <TextField fx:id="streetField" GridPane.columnIndex="2" GridPane.rowIndex="2" />-->
+<!--        <Label text="Bairro:" GridPane.rowIndex="3" />-->
+<!--        <TextField fx:id="districtField" GridPane.columnIndex="2" GridPane.rowIndex="3" />-->
+<!--        <Label text="Número:" GridPane.rowIndex="4" />-->
+<!--        <TextField fx:id="numberField" GridPane.columnIndex="2" GridPane.rowIndex="4" />-->
+<!--        <Label text="Cidade:" GridPane.rowIndex="5" />-->
+<!--        <TextField fx:id="cityField" GridPane.columnIndex="2" GridPane.rowIndex="5" />-->
+<!--        <Label text="CEP:" GridPane.rowIndex="6" />-->
+<!--        <TextField fx:id="cepField" GridPane.columnIndex="2" GridPane.rowIndex="6" />-->
+<!--        &lt;!&ndash; CPF &ndash;&gt;-->
+<!--        <Label text="CPF:" GridPane.rowIndex="7" />-->
+<!--        <TextField fx:id="cpfField" GridPane.columnIndex="2" GridPane.rowIndex="7" />-->
+<!--        &lt;!&ndash; Telefone 1 &ndash;&gt;-->
+<!--        <Label text="Telefone 1:" GridPane.rowIndex="8" />-->
+<!--        <TextField fx:id="phone1Field" GridPane.columnIndex="2" GridPane.rowIndex="8" />-->
+<!--        &lt;!&ndash; Telefone 2 &ndash;&gt;-->
+<!--        <Label text="Telefone 2:" GridPane.rowIndex="9" />-->
+<!--        <TextField fx:id="phone2Field" GridPane.columnIndex="2" GridPane.rowIndex="9" />-->
+<!--        &lt;!&ndash; Email &ndash;&gt;-->
+<!--        <Label text="Emails (separar por vírgula):" GridPane.rowIndex="10" />-->
+<!--        <TextField fx:id="emailField" GridPane.columnIndex="2" GridPane.rowIndex="10" />-->
+<!--        <Button onAction="#saveOrUpdate" prefHeight="24.0" prefWidth="203.0" text="Salvar" GridPane.rowIndex="11" />-->
+<!--        <Button onAction="#backToPreviousScene" prefHeight="24.0" prefWidth="171.0" text="Cancelar" GridPane.columnIndex="2" GridPane.rowIndex="11" />-->
+<!--         <columnConstraints>-->
+<!--            <ColumnConstraints />-->
+<!--            <ColumnConstraints />-->
+<!--            <ColumnConstraints />-->
+<!--         </columnConstraints>-->
+<!--         <rowConstraints>-->
+<!--            <RowConstraints />-->
+<!--            <RowConstraints />-->
+<!--            <RowConstraints />-->
+<!--            <RowConstraints />-->
+<!--            <RowConstraints />-->
+<!--            <RowConstraints />-->
+<!--            <RowConstraints />-->
+<!--            <RowConstraints />-->
+<!--            <RowConstraints />-->
+<!--            <RowConstraints />-->
+<!--            <RowConstraints />-->
+<!--            <RowConstraints />-->
+<!--         </rowConstraints>-->
+<!--    </GridPane>-->
+<!--    <HBox alignment="CENTER_RIGHT" prefHeight="9.0" prefWidth="424.0" spacing="10" />-->
+<!--</children>-->
+<!--</VBox>-->
 
+<AnchorPane prefHeight="495.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dumpRents.controller.ClientUIController">
+   <children>
+      <Label layoutX="54.0" layoutY="87.0" text="Nome:" />
+      <Label layoutX="380.0" layoutY="87.0" text="CPF:" />
+      <TextField fx:id="txtName" layoutX="104.0" layoutY="83.0" prefHeight="24.0" prefWidth="256.0" />
+      <TextField fx:id="txtCpf" layoutX="424.0" layoutY="83.0" prefHeight="24.0" prefWidth="165.0" />
+      <TextField fx:id="txtTelephone1" layoutX="141.0" layoutY="174.0" />
+      <TextField fx:id="txtTelephone2" layoutX="421.0" layoutY="174.0" prefHeight="24.0" prefWidth="151.0" />
+      <Label layoutX="57.0" layoutY="178.0" text="Telefone 1: " />
+      <Label layoutX="332.0" layoutY="178.0" text="Telefone 2: " />
+      <Label layoutX="242.0" layoutY="8.0" text="CLIENTE">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font></Label>
+      <Label layoutX="57.0" layoutY="215.0" text="Emails (separar por virgula): " />
+      <Label layoutX="13.0" layoutY="144.0" text="Contato ">
+         <font>
+            <Font name="Annapurna SIL Bold" size="20.0" />
+         </font></Label>
+      <Label layoutX="61.0" layoutY="309.0" text="Cidade:" />
+      <TextField fx:id="txtCity" layoutX="122.0" layoutY="305.0" prefHeight="24.0" prefWidth="456.0" />
+      <TextField fx:id="txtDistrict" layoutX="123.0" layoutY="372.0" prefHeight="24.0" prefWidth="158.0" />
+      <Label layoutX="63.0" layoutY="376.0" text="Distrito:" />
+      <Label layoutX="23.0" layoutY="322.0" />
+      <Label layoutX="63.0" layoutY="344.0" text="Rua" />
+      <Label layoutX="470.0" layoutY="344.0" text="Numero:" />
+      <Label layoutX="290.0" layoutY="376.0" text="CEP:" />
+      <Label layoutX="11.0" layoutY="276.0" text="Endereço">
+         <font>
+            <Font name="Annapurna SIL Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="15.0" layoutY="44.0" text="Informaçoes pessoais">
+         <font>
+            <Font name="Annapurna SIL Bold" size="20.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="txtEmails" layoutX="247.0" layoutY="215.0" prefHeight="48.0" prefWidth="327.0" />
+      <TextField fx:id="txtStreet" layoutX="123.0" layoutY="340.0" prefHeight="24.0" prefWidth="334.0" />
+      <TextField fx:id="txtNumber" layoutX="536.0" layoutY="340.0" prefHeight="24.0" prefWidth="43.0" />
+      <TextField fx:id="txtCep" layoutX="333.0" layoutY="372.0" prefHeight="24.0" prefWidth="247.0" />
+      <Button fx:id="btnSaveOrUpdate" layoutX="512.0" layoutY="447.0" mnemonicParsing="false" onAction="#saveOrUpdate" prefHeight="32.0" prefWidth="67.0" text="Salvar" />
+      <Button fx:id="btnCancel" layoutX="401.0" layoutY="447.0" mnemonicParsing="false" onAction="#backToPreviousScene" prefHeight="32.0" prefWidth="88.0" text="Cancelar" />
+   </children>
 </AnchorPane>
