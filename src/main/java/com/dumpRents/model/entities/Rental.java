@@ -81,4 +81,16 @@ public class Rental {
     public void setWithdrawalDate(LocalDate withdrawalDate) {
         this.withdrawalDate = withdrawalDate;
     }
+
+    public Enum<RentalStatus> getRentalStatus() {
+        return this.rentalStatus;
+    }
+
+    public Integer getId() {
+        return this.id;
+    }
+
+    public void setId(int idCounter) {
+        this.id = idCounter;
+    }
 }
