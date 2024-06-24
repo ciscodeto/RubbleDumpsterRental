@@ -41,7 +41,7 @@ public class FindRubbleDumpsterUseCase {
             throw new IllegalArgumentException("Status não pode ser nulo!");
 
         if (rubbleDumpsterDAO.findAll(status).isEmpty())
-            throw new EntityNotFoundException("Nenhum elemento com "+ status.toString() +" foi encontrado!");
+            throw new EntityNotFoundException("Nenhum elemento com este status foi encontrado!");
 
         return rubbleDumpsterDAO.findAll(status);
     }
@@ -50,4 +50,3 @@ public class FindRubbleDumpsterUseCase {
     }
 
 }
-
