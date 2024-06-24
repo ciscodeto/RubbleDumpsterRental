@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -18,7 +17,7 @@
       </AnchorPane>
       <AnchorPane layoutX="7.0" layoutY="90.0" prefHeight="35.0" prefWidth="576.0">
          <children>
-            <TextField fx:id="txtMonthlyAmount" layoutX="113.0" prefHeight="29.0" prefWidth="464.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
+            <TextField fx:id="txtStreet" layoutX="113.0" prefHeight="29.0" prefWidth="464.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
             <Label layoutY="3.0" text="Rua" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
          </children>
       </AnchorPane>
@@ -36,20 +35,20 @@
       </AnchorPane>
       <AnchorPane layoutX="7.0" layoutY="128.0" prefHeight="35.0" prefWidth="576.0">
          <children>
-            <TextField fx:id="txtMonthlyAmount1" layoutX="113.0" prefHeight="29.0" prefWidth="464.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
+            <TextField fx:id="txtNumber" layoutX="113.0" prefHeight="29.0" prefWidth="464.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
             <Label layoutY="3.0" text="Número" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="7.0" layoutY="166.0" prefHeight="35.0" prefWidth="576.0">
          <children>
-            <TextField fx:id="txtMonthlyAmount2" layoutX="113.0" prefHeight="29.0" prefWidth="464.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
+            <TextField fx:id="txtCity" layoutX="113.0" prefHeight="29.0" prefWidth="464.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
             <Label layoutY="3.0" text="Cidade" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="7.0" layoutY="204.0" prefHeight="35.0" prefWidth="576.0">
          <children>
-            <Label layoutY="3.0" text="Estado" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
-            <ComboBox layoutX="100.0" layoutY="8.0" prefWidth="150.0" promptText="Selecione" />
+            <TextField fx:id="txtDisctrict" layoutX="113.0" prefHeight="29.0" prefWidth="464.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
+            <Label layoutY="3.0" text="Distrito" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
          </children>
       </AnchorPane>
    </children>
