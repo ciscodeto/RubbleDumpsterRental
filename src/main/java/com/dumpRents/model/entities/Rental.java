@@ -17,11 +17,12 @@ public class Rental {
     private Client client;
     private RubbleDumpster rubbleDumpster;
 
-    public Rental(RubbleDumpster dumpster, Client client, LocalDate initialDate) {
+    public Rental(RubbleDumpster dumpster, Client client, LocalDate initialDate, Address address) {
         this.client = client;
         this.rubbleDumpster = dumpster;
         this.initialDate = initialDate;
         this.rentalStatus = RentalStatus.OPEN;
+        this.address = address;
     }
 
     @Override
