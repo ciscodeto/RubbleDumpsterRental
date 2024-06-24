@@ -11,6 +11,7 @@ import com.dumpRents.model.useCases.client.UpdateClientUseCase;
 import com.dumpRents.model.useCases.report.EntryExitReportUseCase;
 import com.dumpRents.model.useCases.report.ExportCSVUseCase;
 import com.dumpRents.model.useCases.rental.*;
+import com.dumpRents.model.useCases.report.IncomeReportUseCase;
 import com.dumpRents.model.useCases.rubbleDumpster.*;
 import com.dumpRents.persistence.dao.ClientDAO;
 import com.dumpRents.persistence.dao.RentalDAO;
