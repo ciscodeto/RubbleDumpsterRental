@@ -5,7 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
 
-public class MainUI {
+public class MainUIController {
     @FXML
     private TableView<Rental> tableView;
 
@@ -28,5 +28,8 @@ public class MainUI {
     }
 
     public void goToReportUI(ActionEvent actionEvent) {
+    }
+
+    public void setRentalStatus(ActionEvent actionEvent) {
     }
 }
