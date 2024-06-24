@@ -40,8 +40,7 @@
       </TableView>
       <AnchorPane layoutX="14.0" layoutY="435.0" prefWidth="572.0" AnchorPane.bottomAnchor="14.800000000000011" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.799999999999955">
          <children>
-            <Button fx:id="btnEndRental" layoutX="561.0" layoutY="5.0" mnemonicParsing="false" onAction="#endRental" text="Finalizar Locação" AnchorPane.bottomAnchor="4.600000000000001" AnchorPane.rightAnchor="116.60000000000005" AnchorPane.topAnchor="5.0" />
-            <Button fx:id="btnRentRubbleDumpster" layoutX="527.0" layoutY="5.0" mnemonicParsing="false" onAction="#rentRubbleDumpster" text="Alugar Caçamba" AnchorPane.bottomAnchor="4.600000000000001" AnchorPane.rightAnchor="0.20000000000004547" AnchorPane.topAnchor="5.0" />
+            <Button fx:id="btnRentRubbleDumpster" layoutX="527.0" layoutY="5.0" mnemonicParsing="false" onAction="#setRentalStatus" text="Alugar Caçamba" AnchorPane.bottomAnchor="4.600000000000001" AnchorPane.rightAnchor="0.20000000000004547" AnchorPane.topAnchor="5.0" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="13.0" layoutY="40.0" prefHeight="54.0" prefWidth="215.0">
