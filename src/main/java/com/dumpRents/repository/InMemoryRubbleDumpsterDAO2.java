@@ -7,7 +7,7 @@ import com.dumpRents.persistence.dao.RubbleDumpsterDAO;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class InMemoryRubbleDumpsterDAO implements RubbleDumpsterDAO {
+public class InMemoryRubbleDumpsterDAO2 implements RubbleDumpsterDAO {
 
     private static final Map<Integer, RubbleDumpster> db = new LinkedHashMap<>();
     private static int idcounter;

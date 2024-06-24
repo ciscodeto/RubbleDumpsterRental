@@ -8,14 +8,22 @@
    <children>
       <TableView layoutX="13.0" layoutY="14.0" prefHeight="323.0" prefWidth="575.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
+          <TableColumn fx:id="cName" prefWidth="75.0" text="Nome" />
+          <TableColumn fx:id="cCpf" prefWidth="104.0" text="Cpf" />
+            <TableColumn fx:id="cPhone1" prefWidth="90.0" text="Telefone 1" />
+            <TableColumn fx:id="cPhone2" prefWidth="103.0" text="Telefone 2" />
+            <TableColumn fx:id="cEmails" prefWidth="79.0" text="Emails" />
+            <TableColumn fx:id="cEndereco" prefWidth="123.0" text="Endereço" />
         </columns>
       </TableView>
-      <Button layoutX="434.0" layoutY="350.0" mnemonicParsing="false" text="Editar" />
-      <Button layoutX="20.0" layoutY="350.0" mnemonicParsing="false" text="Voltar" />
-      <Button layoutX="506.0" layoutY="350.0" mnemonicParsing="false" text="Adicionar" />
-      <Button layoutX="344.0" layoutY="350.0" mnemonicParsing="false" text="Detalhar" />
-      <Button layoutX="262.0" layoutY="350.0" mnemonicParsing="false" text="Deletar" />
+      <Pane layoutX="11.0" layoutY="344.0" prefHeight="46.0" prefWidth="581.0">
+         <children>
+            <Button layoutX="352.0" layoutY="11.0" mnemonicParsing="false" onAction="#updateClient" text="Editar" />
+            <Button layoutY="11.0" mnemonicParsing="false" onAction="#comeBack" text="Voltar" />
+            <Button layoutX="251.0" layoutY="11.0" mnemonicParsing="false" onAction="#addClient" text="Adicionar" />
+            <Button layoutX="427.0" layoutY="11.0" mnemonicParsing="false" onAction="#showClient" text="Detalhar" />
+            <Button layoutX="510.0" layoutY="11.0" mnemonicParsing="false" onAction="#deleteClient" text="Deletar" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
