@@ -17,7 +17,7 @@ public class Rental {
     private Client client;
     private RubbleDumpster rubbleDumpster;
 
-    public Rental(RubbleDumpster dumpster, Client client, LocalDate initialDate, Address address) {
+    public Rental(RubbleDumpster dumpster, Client client, LocalDate initialDate) {
         this.client = client;
         this.rubbleDumpster = dumpster;
         this.initialDate = initialDate;
