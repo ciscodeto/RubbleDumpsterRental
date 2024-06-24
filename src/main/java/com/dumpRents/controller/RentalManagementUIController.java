@@ -1,8 +1,14 @@
 package com.dumpRents.controller;
 
+import com.dumpRents.model.entities.Rental;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.TableView;
 
 public class RentalManagementUIController {
+    @FXML
+    private TableView<Rental> tableView;
+
     public void findByClient(ActionEvent actionEvent) {
     }
 
