@@ -6,7 +6,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dumpRents.controller.RubbleDumpsterManagementUIController">
    <children>
-      <TableView layoutX="11.2" layoutY="41.0" prefHeight="289.0" prefWidth="578.0" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="40.0">
+      <TableView fx:id="tableView" layoutX="11.2" layoutY="41.0" prefHeight="289.0" prefWidth="578.0" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="40.0">
         <columns>
           <TableColumn fx:id="cSerialNumber" prefWidth="118.40002286434174" text="Número de Série" />
           <TableColumn fx:id="cMinAmount" prefWidth="109.59998321533203" text="Valor da Diária" />

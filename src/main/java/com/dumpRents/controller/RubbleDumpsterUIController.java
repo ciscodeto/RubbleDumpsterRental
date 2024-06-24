@@ -7,5 +7,6 @@ public class RubbleDumpsterUIController {
     }
 
     public void backToPreviousScene(ActionEvent actionEvent) {
+
     }
 }

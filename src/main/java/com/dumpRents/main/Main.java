@@ -17,6 +17,7 @@ import com.dumpRents.persistence.utils.DatabaseBuilder;
 import com.dumpRents.repository.InMemoryClientDAO;
 import com.dumpRents.repository.InMemoryRentalDAO;
 import com.dumpRents.repository.InMemoryRubbleDumpsterDAO2;
+import com.dumpRents.view.HelloApplication;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -27,8 +28,8 @@ import java.util.Optional;
 public class Main {
 
     private static ActivateRubbleDumpsterUseCase activateRubbleDumpsterUseCase;
-    private static FindRubbleDumpsterUseCase findRubbleDumpsterUseCase;
-    private static InactivateRubbleDumpsterUseCase inactivateRubbleDumpsterUseCase;
+    public static FindRubbleDumpsterUseCase findRubbleDumpsterUseCase;
+    public static InactivateRubbleDumpsterUseCase inactivateRubbleDumpsterUseCase;
     private static InsertRubbleDumpsterUseCase insertRubbleDumpsterUseCase;
     private static UpdateRubbleDumpsterRentalPriceUseCase updateRubbleDumpsterRentalPriceUseCase;
 
@@ -135,7 +136,7 @@ public class Main {
         System.out.println(findRentalUseCase.findOne(rental1.getId()).toString());
         withdrawalRequestUseCase.requestWithdrawal(rental1.getId(), LocalDate.now());
         System.out.println(findRentalUseCase.findOne(rental1.getId()).toString());
-        endRentalUseCase.endRental(rental1.getId());
+//        endRentalUseCase.endRental(rental1.getId());
         System.out.println(findRentalUseCase.findOne(rental1.getId()).toString());
 
         EntryExitReportUseCase.EntryExitReport entryExitReport = entryExitReportUseCase.generateReport(LocalDate.MIN, LocalDate.MAX);
@@ -143,10 +144,10 @@ public class Main {
             System.out.println(report);
         }
 
-        IncomeReportUseCase.IncomeReport incomeReport = incomeReportUseCase.generateReport(LocalDate.MIN, LocalDate.MAX);
-        for (Report report : incomeReport.reports()) {
-            System.out.println(report);
-        }
+//        IncomeReportUseCase.IncomeReport incomeReport = incomeReportUseCase.generateReport(LocalDate.MIN, LocalDate.MAX);
+//        for (Report report : incomeReport.reports()) {
+//            System.out.println(report);
+//        }
 
         String entryExitCsvFileName = "entry_exit_report.csv";
         String[] entryExitHeaders = {"Serial Number", "Client Name", "Initial Date", "Withdrawal Date", "Final Amount"};
@@ -163,20 +164,22 @@ public class Main {
 
         String incomeCsvFileName = "income_report.csv";
         String[] incomeHeaders = {"Serial Number", "Client Name", "Initial Date", "Withdrawal Date", "Final Amount"};
-        List<String[]> incomeData = incomeReport.reports().stream()
-                .map(report -> new String[]{
-                        report.serialNumber(),
-                        report.initialDate() != null ? report.initialDate().toString() : "",
-                        report.withdrawalDate() != null ? report.withdrawalDate().toString() : "",
-                        report.finalAmount() != null ? report.finalAmount().toString() : ""
-                })
-                .toList();
-        exportCSVUseCase.export(incomeCsvFileName, incomeHeaders, incomeData);
+//        List<String[]> incomeData = incomeReport.reports().stream()
+//                .map(report -> new String[]{
+//                        report.serialNumber(),
+//                        report.initialDate() != null ? report.initialDate().toString() : "",
+//                        report.withdrawalDate() != null ? report.withdrawalDate().toString() : "",
+//                        report.finalAmount() != null ? report.finalAmount().toString() : ""
+//                })
+//                .toList();
+//        exportCSVUseCase.export(incomeCsvFileName, incomeHeaders, incomeData);
+
+        HelloApplication.main(args);
     }
 
     private static void setupDatabase() {
         DatabaseBuilder  dbBuilder = new DatabaseBuilder();
-        dbBuilder.buildDatabaseIfMissing();
+//        dbBuilder.buildDatabaseIfMissing();
     }
 
     private static void configureInjection() {
