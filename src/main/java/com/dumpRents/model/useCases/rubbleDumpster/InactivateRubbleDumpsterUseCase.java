@@ -36,4 +36,3 @@ public class InactivateRubbleDumpsterUseCase {
         return rubbleDumpsterDAO.update(rubbleDumpster);
     }
 }
-

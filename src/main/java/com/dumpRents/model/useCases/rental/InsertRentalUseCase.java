@@ -39,7 +39,6 @@ public class InsertRentalUseCase {
 
         RubbleDumpster rubbleDumpster = findRubbleDumpsterUseCase.findAll(RubbleDumpsterStatus.AVAILABLE).getFirst();
         Rental rental = new Rental(rubbleDumpster, client, LocalDate.now());
-        rental.setRentalStatus(RentalStatus.OPEN);
 
         Validator<Rental> validator = new RentalInsertValidator();
         Notification notification = validator.validate(rental);

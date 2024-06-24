@@ -1,4 +1,4 @@
-package com.dumpRents.model.useCases.rental;
+package com.dumpRents.model.useCases.report;
 
 import com.dumpRents.model.entities.Rental;
 import com.dumpRents.model.entities.Report;
