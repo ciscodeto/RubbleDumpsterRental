@@ -21,6 +21,8 @@ public class Rental {
         this.client = client;
         this.rubbleDumpster = dumpster;
         this.initialDate = initialDate;
+        this.rentalStatus = RentalStatus.OPEN;
+        this.address = address;
     }
 
     @Override
@@ -31,9 +33,6 @@ public class Rental {
                 '}';
     }
 
-    public void withdrawalRequest() {}
-    public void endRental() {}
-
     public double calculateFinalAmount() {
         double differenceInDays = ChronoUnit.DAYS.between(this.initialDate, this.endDate);
         double differenceInMonths = Math.ceil(differenceInDays/30.0);
@@ -42,83 +41,56 @@ public class Rental {
                 rubbleDumpster.getMinAmount();
     }
 
-    public Integer getId() {
-        return id;
+    public void end() {
+        this.rentalStatus = RentalStatus.CLOSED;
+        this.finalAmount = this.calculateFinalAmount();
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public RubbleDumpster getRubbleDumpster() {
+        return this.rubbleDumpster;
+    }
+
+    public Client getClient() {
+        return this.client;
     }
 
     public LocalDate getInitialDate() {
-        return initialDate;
-    }
-
-    public void setInitialDate(LocalDate initialDate) {
-        this.initialDate = initialDate;
-    }
-
-    public LocalDate getWithdrawalRequestDate() {
-        return withdrawalRequestDate;
-    }
-
-    public void setWithdrawalRequestDate(LocalDate withdrawalRequestDate) {
-        this.withdrawalRequestDate = withdrawalRequestDate;
+        return this.initialDate;
     }
 
     public LocalDate getWithdrawalDate() {
-        return withdrawalDate;
+        return this.withdrawalDate;
+    }
+
+    public double getFinalAmount() {
+        return this.finalAmount;
+    }
+
+    public LocalDate getEndDate() {
+        return this.endDate;
+    }
+
+    public void setRentalStatus(RentalStatus rentalStatus) {
+        this.rentalStatus = rentalStatus;
+    }
+
+    public void setWithdrawalRequestDate(LocalDate withdrawalRequestDateDate) {
+        this.withdrawalRequestDate = withdrawalRequestDateDate;
     }
 
     public void setWithdrawalDate(LocalDate withdrawalDate) {
         this.withdrawalDate = withdrawalDate;
     }
 
-    public LocalDate getEndDate() {
-        return endDate;
-    }
-
-    public void conclude() {
-        this.endDate = LocalDate.now();
-    }
-
-    public Double getFinalAmount() {
-        return finalAmount;
-    }
-
-    public void setFinalAmount(Double finalAmount) {
-        this.finalAmount = finalAmount;
-    }
-
     public Enum<RentalStatus> getRentalStatus() {
-        return rentalStatus;
+        return this.rentalStatus;
     }
 
-    public void setRentalStatus(Enum<RentalStatus> rentalStatus) {
-        this.rentalStatus = rentalStatus;
+    public Integer getId() {
+        return this.id;
     }
 
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
-    }
-
-    public Client getClient() {
-        return client;
-    }
-
-    public void setClient(Client client) {
-        this.client = client;
-    }
-
-    public RubbleDumpster getRubbleDumpster() {
-        return rubbleDumpster;
-    }
-
-    public void setRubbleDumpster(RubbleDumpster rubbleDumpster) {
-        this.rubbleDumpster = rubbleDumpster;
+    public void setId(int idCounter) {
+        this.id = idCounter;
     }
 }

@@ -27,4 +27,3 @@ public class RubbleDumpsterInsertValidator extends Validator<RubbleDumpster> {
         return notification;
     }
 }
-

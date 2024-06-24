@@ -1,14 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.dumpRents.controller.RentalUIController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="177.0" prefWidth="590.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dumpRents.controller.RubbleDumpsterUIController">
+   <children>
+      <AnchorPane layoutX="12.0" layoutY="52.0" prefHeight="35.0" prefWidth="576.0">
+         <children>
+            <TextField fx:id="txtMinAmount" layoutX="113.0" prefHeight="29.0" prefWidth="430.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
+            <Label layoutY="3.0" text="Valor da diária" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="12.0" layoutY="90.0" prefHeight="35.0" prefWidth="576.0">
+         <children>
+            <TextField fx:id="txtMonthlyAmount" layoutX="113.0" prefHeight="29.0" prefWidth="430.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
+            <Label layoutY="3.0" text="Valor da mensalidade" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="12.0" layoutY="14.0" prefHeight="35.0" prefWidth="576.0">
+         <children>
+            <TextField fx:id="txtSerialNumber" layoutX="113.0" prefHeight="29.0" prefWidth="430.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
+            <Label layoutY="3.0" text="Número de série" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="14.0" layoutY="128.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="576.0" AnchorPane.bottomAnchor="10.0">
+         <children>
+            <Button fx:id="btnSave" layoutX="447.0" layoutY="5.0" mnemonicParsing="false" onAction="#saveOrUpdate" prefHeight="23.0" prefWidth="114.0" text="Salvar" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
+            <Button fx:id="btnCancel" layoutY="5.0" mnemonicParsing="false" onAction="#backToPreviousScene" prefHeight="23.0" prefWidth="114.0" text="Cancelar" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="5.0" />
+         </children>
+      </AnchorPane>
+   </children>
 </AnchorPane>

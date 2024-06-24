@@ -30,14 +30,12 @@ public class EndRentalUseCase {
         Rental rental = rentalDAO.findOne(rentalId)
                 .orElseThrow(() -> new EntityNotFoundException("Cannot find Rental for ID " + rentalId));
 
-        rental.conclude();
+        rental.end();
 
         Integer serialNumber = rental.getRubbleDumpster().getSerialNumber();
         RubbleDumpster rubbleDumpster = findRubbleDumpsterUseCase.findOne(serialNumber).get();
 
-        rental.setRentalStatus(RentalStatus.CLOSED);
         rubbleDumpster.setStatus(RubbleDumpsterStatus.AVAILABLE);
-        rental.setFinalAmount(rental.calculateFinalAmount());
 
         rentalDAO.update(rental);
         rubbleDumpsterDAO.update(rubbleDumpster);
