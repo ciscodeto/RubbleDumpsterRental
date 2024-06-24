@@ -24,7 +24,7 @@ public class FindRubbleDumpsterUseCase {
         if (rubbleDumpsterDAO.findById(id).isEmpty())
             throw new EntityNotFoundException("Caçamba não localizada.");
 
-    return rubbleDumpsterDAO.findById(id);
+        return rubbleDumpsterDAO.findById(id);
     }
 
     public Optional<RubbleDumpster> findOne (Integer serialNumber) {
