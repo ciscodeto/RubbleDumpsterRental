@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="288.0" prefWidth="591.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dumpRents.controller.RubbleDumpsterUIController">
+<AnchorPane prefHeight="288.0" prefWidth="591.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dumpRents.controller.RentalUIController">
    <children>
       <AnchorPane layoutX="7.0" layoutY="52.0" prefHeight="35.0" prefWidth="576.0">
          <children>
