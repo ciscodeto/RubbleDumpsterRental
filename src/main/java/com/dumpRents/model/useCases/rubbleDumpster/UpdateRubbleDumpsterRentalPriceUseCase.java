@@ -8,6 +8,7 @@ import com.dumpRents.persistence.utils.EntityAlreadyExistsException;
 
 public class UpdateRubbleDumpsterRentalPriceUseCase {
 
+
     private RubbleDumpsterDAO rubbleDumpsterDAO;
 
     public UpdateRubbleDumpsterRentalPriceUseCase(RubbleDumpsterDAO rubbleDumpsterDAO) {
@@ -27,7 +28,7 @@ public class UpdateRubbleDumpsterRentalPriceUseCase {
         if (rubbleDumpsterDAO.findOne(serialNumber).isEmpty())
             throw new EntityAlreadyExistsException("Caçamba não localizada.");
 
-        rubbleDumpster.setMonthlyAmount(newMonthlyAmount);
+        rubbleDumpster.UpdateRentalPrice(newMonthlyAmount);
 
         return rubbleDumpsterDAO.update(rubbleDumpster);
     }
