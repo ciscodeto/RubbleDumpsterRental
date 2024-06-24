@@ -5,7 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
 
-public class RentalManagementUIController {
+public class MainUI {
     @FXML
     private TableView<Rental> tableView;
 
