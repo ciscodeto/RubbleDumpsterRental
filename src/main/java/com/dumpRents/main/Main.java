@@ -27,7 +27,7 @@ import java.util.Optional;
 
 public class Main {
 
-    private static ActivateRubbleDumpsterUseCase activateRubbleDumpsterUseCase;
+    public static ActivateRubbleDumpsterUseCase activateRubbleDumpsterUseCase;
     public static FindRubbleDumpsterUseCase findRubbleDumpsterUseCase;
     public static InactivateRubbleDumpsterUseCase inactivateRubbleDumpsterUseCase;
     private static InsertRubbleDumpsterUseCase insertRubbleDumpsterUseCase;
