@@ -26,9 +26,9 @@ public class WindowLoader extends Application {
 
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader = fxmlLoader.load(WindowLoader.class.getResource(fxml + ".fxml").openStream());
+        Parent parent = fxmlLoader.load(WindowLoader.class.getResource(fxml + ".fxml").openStream());
         controller = fxmlLoader.getController();
-        return fxmlLoader.load();
+        return parent;
     }
 
     public static void main(String[] args) {

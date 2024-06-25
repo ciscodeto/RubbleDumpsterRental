@@ -34,10 +34,7 @@ public class ClientManagementUIController {
     private TableColumn<Client, Phone> cPhone1;
     @FXML
     private TableColumn<Client, Phone> cPhone2;
-    @FXML
-    private TableColumn<Client, List<Email>> cEmails;
-    @FXML
-    private TableColumn<Client, Address> cEndereco;
+
 
     private ObservableList<Client> tableData;
 
@@ -59,8 +56,6 @@ public class ClientManagementUIController {
         cCpf.setCellValueFactory(new PropertyValueFactory<>("cpf"));
         cPhone1.setCellValueFactory(new PropertyValueFactory<>("phone1"));
         cPhone2.setCellValueFactory(new PropertyValueFactory<>("phone2"));
-        cEmails.setCellValueFactory(new PropertyValueFactory<>("email"));
-        cEndereco.setCellValueFactory(new PropertyValueFactory<>("address"));
     }
 
     private void loadDataAndShow() {
@@ -72,8 +67,8 @@ public class ClientManagementUIController {
     private void showClientInMode(UIMode mode) throws IOException {
         Client selectedItem = tableView.getSelectionModel().getSelectedItem();
         if (selectedItem != null) {
-            WindowLoader.setRoot("rubbleDumpsterUI");
-            RubbleDumpsterUIController controller = (RubbleDumpsterUIController) WindowLoader.getController();
+            WindowLoader.setRoot("clientUI");
+            ClientUIController controller = (ClientUIController) WindowLoader.getController();
             controller.setClient(selectedItem, mode);
         }
     }

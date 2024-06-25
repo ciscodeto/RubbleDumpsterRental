@@ -30,11 +30,11 @@ public class Main {
     public static ActivateRubbleDumpsterUseCase activateRubbleDumpsterUseCase;
     public static FindRubbleDumpsterUseCase findRubbleDumpsterUseCase;
     public static InactivateRubbleDumpsterUseCase inactivateRubbleDumpsterUseCase;
-    private static InsertRubbleDumpsterUseCase insertRubbleDumpsterUseCase;
-    private static UpdateRubbleDumpsterRentalPriceUseCase updateRubbleDumpsterRentalPriceUseCase;
+    public static InsertRubbleDumpsterUseCase insertRubbleDumpsterUseCase;
+    public static UpdateRubbleDumpsterRentalPriceUseCase updateRubbleDumpsterRentalPriceUseCase;
 
     public static FindClientUseCase findClientUseCase;
-    private static InsertClientUseCase insertClientUseCase;
+    public static InsertClientUseCase insertClientUseCase;
     private static UpdateClientUseCase updateClientUseCase;
 
     private static InsertRentalUseCase insertRentalUseCase;

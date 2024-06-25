@@ -8,12 +8,10 @@
    <children>
       <TableView fx:id="tableView" layoutX="13.0" layoutY="39.0" prefHeight="314.0" prefWidth="575.0">
         <columns>
-          <TableColumn fx:id="cName" prefWidth="75.0" text="Nome" />
-          <TableColumn fx:id="cCpf" prefWidth="104.0" text="Cpf" />
-            <TableColumn fx:id="cPhone1" prefWidth="90.0" text="Telefone 1" />
-            <TableColumn fx:id="cPhone2" prefWidth="103.0" text="Telefone 2" />
-            <TableColumn fx:id="cEmails" prefWidth="79.0" text="Emails" />
-            <TableColumn fx:id="cEndereco" prefWidth="123.0" text="Endereço" />
+          <TableColumn fx:id="cName" prefWidth="152.0" text="Nome" />
+          <TableColumn fx:id="cCpf" prefWidth="117.0" text="Cpf" />
+            <TableColumn fx:id="cPhone1" prefWidth="158.0" text="Telefone 1" />
+            <TableColumn fx:id="cPhone2" prefWidth="147.0" text="Telefone 2" />
         </columns>
       </TableView>
       <Pane layoutX="11.0" layoutY="353.0" prefHeight="46.0" prefWidth="581.0">

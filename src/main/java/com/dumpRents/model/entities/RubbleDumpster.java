@@ -21,6 +21,10 @@ public class RubbleDumpster {
         Id = id;
     }
 
+    public void setSerialNumber(Integer serialNumber) {
+        this.serialNumber = serialNumber;
+    }
+
     public Integer getSerialNumber() {
         return serialNumber;
     }
