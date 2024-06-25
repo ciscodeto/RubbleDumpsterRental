@@ -43,7 +43,7 @@ public class RubbleDumpsterUIController {
         WindowLoader.setRoot("rubbleDumpsterManagementUI");
     }
 
-    public void setRubbleDumpster(RubbleDumpster selectedItem, UIMode mode) {
+    public void setRubbleDumpster(RubbleDumpster rubbleDumpster, UIMode mode) {
         if(rubbleDumpster == null){
             throw new IllegalArgumentException("Rubble dumpster cannot be null");
         }

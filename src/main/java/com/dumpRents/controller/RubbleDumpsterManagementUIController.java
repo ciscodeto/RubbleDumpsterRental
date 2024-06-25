@@ -95,5 +95,4 @@ public class RubbleDumpsterManagementUIController {
         WindowLoader.setRoot("rubbleDumpsterUI");
     }
 
-
 }
