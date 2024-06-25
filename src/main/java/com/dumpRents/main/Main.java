@@ -17,7 +17,7 @@ import com.dumpRents.persistence.utils.DatabaseBuilder;
 import com.dumpRents.repository.InMemoryClientDAO;
 import com.dumpRents.repository.InMemoryRentalDAO;
 import com.dumpRents.repository.InMemoryRubbleDumpsterDAO2;
-import com.dumpRents.view.HelloApplication;
+import com.dumpRents.view.WindowLoader;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -33,7 +33,7 @@ public class Main {
     private static InsertRubbleDumpsterUseCase insertRubbleDumpsterUseCase;
     private static UpdateRubbleDumpsterRentalPriceUseCase updateRubbleDumpsterRentalPriceUseCase;
 
-    private static FindClientUseCase findClientUseCase;
+    public static FindClientUseCase findClientUseCase;
     private static InsertClientUseCase insertClientUseCase;
     private static UpdateClientUseCase updateClientUseCase;
 
@@ -174,7 +174,7 @@ public class Main {
 //                .toList();
 //        exportCSVUseCase.export(incomeCsvFileName, incomeHeaders, incomeData);
 
-        HelloApplication.main(args);
+        WindowLoader.main(args);
     }
 
     private static void setupDatabase() {

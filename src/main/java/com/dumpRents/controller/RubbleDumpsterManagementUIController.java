@@ -37,8 +37,6 @@ public class RubbleDumpsterManagementUIController {
         bindTableViewToItensList();
         bindColumsToValueSources();
         loadDataAndShow();
-        cSerialNumber.setCellValueFactory(new PropertyValueFactory<>("serialNumber"));
-
     }
 
     private void bindTableViewToItensList() {
