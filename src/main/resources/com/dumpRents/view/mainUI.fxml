@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="485.0" prefWidth="812.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dumpRents.controller.MainUIController">
+<AnchorPane prefHeight="485.0" prefWidth="812.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dumpRents.controller.MainUI">
    <children>
       <ToolBar prefHeight="40.0" prefWidth="660.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
         <items>
@@ -28,11 +28,11 @@
       </ToolBar>
       <TableView fx:id="tableView" layoutX="11.2" layoutY="96.0" prefHeight="326.0" prefWidth="790.0" AnchorPane.bottomAnchor="63.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="96.0">
         <columns>
-            <TableColumn fx:id="cStatus" prefWidth="120.79999083280563" text="Status" />
-            <TableColumn prefWidth="103.99993896484375" text="Data Inicial" />
-            <TableColumn prefWidth="235.20005798339844" text="Cliente" />
-            <TableColumn prefWidth="244.800048828125" text="Caçamba" />
-            <TableColumn prefWidth="199.199951171875" text="Endereço" />
+            <TableColumn fx:id="cRentalStatus" prefWidth="120.79999083280563" text="Status" />
+            <TableColumn fx:id="cInitialDate" prefWidth="103.99993896484375" text="Data Inicial" />
+            <TableColumn fx:id="cClient" prefWidth="235.20005798339844" text="Cliente" />
+            <TableColumn fx:id="cRubbleDumpster" prefWidth="244.800048828125" text="Caçamba" />
+            <TableColumn fx:id="cAddress" prefWidth="199.199951171875" text="Endereço" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -40,7 +40,9 @@
       </TableView>
       <AnchorPane layoutX="14.0" layoutY="435.0" prefWidth="572.0" AnchorPane.bottomAnchor="14.800000000000011" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.799999999999955">
          <children>
-            <Button fx:id="btnRentRubbleDumpster" layoutX="527.0" layoutY="5.0" mnemonicParsing="false" onAction="#setRentalStatus" text="Alugar Caçamba" AnchorPane.bottomAnchor="4.600000000000001" AnchorPane.rightAnchor="0.20000000000004547" AnchorPane.topAnchor="5.0" />
+            <Button fx:id="btnRentOr" layoutX="527.0" layoutY="5.0" mnemonicParsing="false" onAction="#setRentalStatus" text="Realizar Locação" AnchorPane.bottomAnchor="4.600000000000001" AnchorPane.rightAnchor="0.20000000000004547" AnchorPane.topAnchor="5.0" />
+            <Button fx:id="btnRentRubbleDumpster1" layoutX="480.0" layoutY="5.0" mnemonicParsing="false" onAction="#detailRental" text="Detalhar" />
+            <Button fx:id="btnRentOr1" layoutX="564.0" layoutY="5.0" mnemonicParsing="false" onAction="#withdrawal" text="Alugar Caçamba" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="13.0" layoutY="40.0" prefHeight="54.0" prefWidth="215.0">
