@@ -74,7 +74,7 @@ public class Main {
         RubbleDumpster rubbleDumpster = new RubbleDumpster(1, 50.0, 300.0, RubbleDumpsterStatus.DISABLED);
         RubbleDumpster rubbleDumpster1 = new RubbleDumpster(2, 60.0, 200.0, RubbleDumpsterStatus.DISABLED);
         RubbleDumpster rubbleDumpster4 = new RubbleDumpster(3, 70.0, 300.0, RubbleDumpsterStatus.AVAILABLE);
-        Rental rental = new Rental(rubbleDumpster, client, LocalDate.now());
+        Rental rental = new Rental(rubbleDumpster, client, LocalDate.now(),address);
 
         // DATABASE
 
@@ -131,10 +131,10 @@ public class Main {
 
         //TESTE RENTAL
         activateRubbleDumpsterUseCase.activate(rubbleDumpster);
-        Rental rental1 = insertRentalUseCase.insertRental(client.getId());
+        Rental rental1 = insertRentalUseCase.insertRental(client.getId(),address);
         System.out.println(findRentalUseCase.findRentalByClient(client).toString());
         System.out.println(findRentalUseCase.findOne(rental1.getId()).toString());
-        withdrawalRequestUseCase.requestWithdrawal(rental1.getId(), LocalDate.now());
+        withdrawalRequestUseCase.requestWithdrawal(rental1.getId());
         System.out.println(findRentalUseCase.findOne(rental1.getId()).toString());
 //        endRentalUseCase.endRental(rental1.getId());
         System.out.println(findRentalUseCase.findOne(rental1.getId()).toString());

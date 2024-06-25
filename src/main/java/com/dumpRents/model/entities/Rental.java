@@ -17,7 +17,7 @@ public class Rental {
     private Client client;
     private RubbleDumpster rubbleDumpster;
 
-    public Rental(RubbleDumpster dumpster, Client client, LocalDate initialDate) {
+    public Rental(RubbleDumpster dumpster, Client client, LocalDate initialDate, Address address) {
         this.client = client;
         this.rubbleDumpster = dumpster;
         this.initialDate = initialDate;
@@ -54,7 +54,7 @@ public class Rental {
         this.endDate = LocalDate.now();
         this.finalAmount = calculateFinalAmount();
         this.rentalStatus = RentalStatus.CLOSED;
-        this.rubbleDumpster.activateRubbleDumpster();
+        this.rubbleDumpster.activate();
     }
 
     public void requestWithdrawal(LocalDate localDate) {
@@ -70,8 +70,16 @@ public class Rental {
         return this.rubbleDumpster;
     }
 
+    public Integer getRubbleDumpsterSN() {
+        return this.rubbleDumpster.getSerialNumber();
+    }
+
     public Client getClient() {
         return this.client;
+    }
+
+    public String getClientName() {
+        return this.client.getName();
     }
 
     public LocalDate getInitialDate() {
@@ -90,6 +98,22 @@ public class Rental {
         return this.endDate;
     }
 
+    public Enum<RentalStatus> getRentalStatus() {
+        return this.rentalStatus;
+    }
+
+    public Integer getId() {
+        return this.id;
+    }
+
+    public LocalDate getWithdrawalRequestDate() {
+        return withdrawalRequestDate;
+    }
+
+    public String getAddress() {
+        return address.toString();
+    }
+
     public void setRentalStatus(RentalStatus rentalStatus) {
         this.rentalStatus = rentalStatus;
     }
@@ -100,14 +124,6 @@ public class Rental {
 
     public void setWithdrawalDate(LocalDate withdrawalDate) {
         this.withdrawalDate = withdrawalDate;
-    }
-
-    public Enum<RentalStatus> getRentalStatus() {
-        return this.rentalStatus;
-    }
-
-    public Integer getId() {
-        return this.id;
     }
 
     public void setId(int idCounter) {
