@@ -35,16 +35,16 @@ public class Main {
 
     public static FindClientUseCase findClientUseCase;
     public static InsertClientUseCase insertClientUseCase;
-    private static UpdateClientUseCase updateClientUseCase;
+    public static UpdateClientUseCase updateClientUseCase;
 
-    private static InsertRentalUseCase insertRentalUseCase;
-    private static EndRentalUseCase endRentalUseCase;
-    private static FindRentalUseCase findRentalUseCase;
-    private static WithdrawalRequestUseCase withdrawalRequestUseCase;
+    public static InsertRentalUseCase insertRentalUseCase;
+    public static EndRentalUseCase endRentalUseCase;
+    public static FindRentalUseCase findRentalUseCase;
+    public static WithdrawalRequestUseCase withdrawalRequestUseCase;
 
-    private static ExportCSVUseCase exportCSVUseCase;
-    private static IncomeReportUseCase incomeReportUseCase;
-    private static EntryExitReportUseCase entryExitReportUseCase;
+    public static ExportCSVUseCase exportCSVUseCase;
+    public static IncomeReportUseCase incomeReportUseCase;
+    public static EntryExitReportUseCase entryExitReportUseCase;
 
     public static void main(String[] args) {
         // Validação de CEP
@@ -60,7 +60,7 @@ public class Main {
 
 
         //Startando CLIENT
-        Cpf cpf = new Cpf("39501888860");
+        Cpf cpf = new Cpf("395018888-60");
         Phone phone1 = new Phone("16994580485");
         Phone phone2 = new Phone("16994580485");
         Phone phone3 = new Phone("16994580485");

@@ -7,8 +7,10 @@ import com.dumpRents.model.entities.RubbleDumpster;
 import com.dumpRents.view.WindowLoader;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 
-import java.awt.*;
+
 import java.io.IOException;
 
 import static com.dumpRents.main.Main.insertRubbleDumpsterUseCase;
@@ -28,6 +30,11 @@ public class RubbleDumpsterUIController {
     private Button btnCancel;
 
     private RubbleDumpster rubbleDumpster;
+
+    @FXML
+    private void initialize() {
+
+    }
 
 
     public void saveOrUpdate(ActionEvent actionEvent) throws IOException {
@@ -52,7 +59,7 @@ public class RubbleDumpsterUIController {
         this.rubbleDumpster = rubbleDumpster;
         setEntityIntoView();
 
-        if (mode == UIMode.VIEW){
+        if (mode == UIMode.UPDATE){
             configureViewModel();
         }
     }
@@ -74,7 +81,7 @@ public class RubbleDumpsterUIController {
     }
 
     private void configureViewModel() {
-        btnCancel.setLabel("Fechar");
-        btnSave.setVisible(false);
+        btnSave.setText("Editar");
+        txtSerialNumber.setEditable(false);
     }
 }

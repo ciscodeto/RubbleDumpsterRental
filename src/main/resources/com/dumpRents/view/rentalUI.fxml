@@ -1,54 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="288.0" prefWidth="591.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dumpRents.controller.RentalUIController">
+<AnchorPane prefHeight="405.0" prefWidth="591.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dumpRents.controller.RentalUIController">
    <children>
-      <AnchorPane layoutX="7.0" layoutY="52.0" prefHeight="35.0" prefWidth="576.0">
+      <AnchorPane layoutX="7.0" layoutY="133.0" prefHeight="35.0" prefWidth="576.0">
          <children>
-            <Label layoutY="3.0" text="Data Inicial" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
-            <DatePicker layoutX="103.0" layoutY="8.0" prefWidth="200.0" />
-            <Label layoutX="321.0" layoutY="10.0" text="Hoje se estiver vazio*" />
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="7.0" layoutY="90.0" prefHeight="35.0" prefWidth="576.0">
-         <children>
-            <TextField fx:id="txtStreet" layoutX="113.0" prefHeight="29.0" prefWidth="464.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
+            <TextField fx:id="txtStreet" layoutX="113.0" prefHeight="29.0" prefWidth="464.0" promptText="Rua" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
             <Label layoutY="3.0" text="Rua" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="7.0" layoutY="14.0" prefHeight="35.0" prefWidth="576.0">
-         <children>
-            <Label layoutY="3.0" text="Caçamba N/S" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
-            <Label fx:id="labelRubbleDumpsterSerialNumber" layoutX="104.0" layoutY="10.0" text="null" />
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="13.0" layoutY="242.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="565.0" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="12.599999999999909">
+      <AnchorPane layoutX="12.0" layoutY="355.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="565.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="13.600000000000023">
          <children>
             <Button fx:id="btnSave" layoutX="450.0" layoutY="6.0" mnemonicParsing="false" onAction="#saveOrUpdate" prefHeight="23.0" prefWidth="114.0" text="Salvar" AnchorPane.rightAnchor="0.0" />
             <Button fx:id="btnCancel" layoutY="5.0" mnemonicParsing="false" onAction="#backToPreviousScene" prefHeight="23.0" prefWidth="114.0" text="Cancelar" AnchorPane.leftAnchor="0.0" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="7.0" layoutY="128.0" prefHeight="35.0" prefWidth="576.0">
+      <AnchorPane layoutX="7.0" layoutY="171.0" prefHeight="35.0" prefWidth="576.0">
          <children>
-            <TextField fx:id="txtNumber" layoutX="113.0" prefHeight="29.0" prefWidth="464.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
+            <TextField fx:id="txtNumber" layoutX="113.0" prefHeight="29.0" prefWidth="464.0" promptText="Número" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
             <Label layoutY="3.0" text="Número" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="7.0" layoutY="166.0" prefHeight="35.0" prefWidth="576.0">
+      <AnchorPane layoutX="7.0" layoutY="209.0" prefHeight="35.0" prefWidth="576.0">
          <children>
-            <TextField fx:id="txtCity" layoutX="113.0" prefHeight="29.0" prefWidth="464.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
+            <TextField fx:id="txtCity" layoutX="113.0" prefHeight="29.0" prefWidth="464.0" promptText="Cidade" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
             <Label layoutY="3.0" text="Cidade" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="7.0" layoutY="204.0" prefHeight="35.0" prefWidth="576.0">
+      <AnchorPane layoutX="7.0" layoutY="247.0" prefHeight="35.0" prefWidth="576.0">
          <children>
-            <TextField fx:id="txtDisctrict" layoutX="113.0" prefHeight="29.0" prefWidth="464.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
+            <TextField fx:id="txtDisctrict" layoutX="113.0" prefHeight="29.0" prefWidth="464.0" promptText="Distrito" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
             <Label layoutY="3.0" text="Distrito" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="7.0" layoutY="14.0" prefHeight="35.0" prefWidth="576.0">
+         <children>
+            <TextField fx:id="txtStreet1" layoutX="113.0" prefHeight="29.0" prefWidth="156.0" promptText="CPF" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="318.0" AnchorPane.topAnchor="5.0" />
+            <Label layoutY="3.0" text="Buscar Cliente" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
+            <Button fx:id="btnFindClient" layoutX="280.0" layoutY="6.0" mnemonicParsing="false" onAction="#findClient" prefHeight="23.0" prefWidth="114.0" text="Buscar" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="7.0" layoutY="93.0" prefHeight="35.0" prefWidth="576.0">
+         <children>
+            <Label layoutY="3.0" text="Caçamba N/S" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
+            <Label fx:id="lbDumpsterSerialNumber" layoutX="104.0" layoutY="10.0" text="--" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="7.0" layoutY="54.0" prefHeight="35.0" prefWidth="576.0">
+         <children>
+            <Label layoutY="3.0" text="Cliente" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
+            <Label fx:id="lbClientName" layoutX="104.0" layoutY="10.0" text="--" />
          </children>
       </AnchorPane>
    </children>

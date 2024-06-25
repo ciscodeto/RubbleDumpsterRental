@@ -24,8 +24,6 @@ public class FindClientUseCase {
     }
 
     public Optional<Client> findClientByCpf(Cpf cpf) {
-        if (Validator.nullOrEmpty((Collection) cpf))
-            throw new IllegalArgumentException("CPF cannot be null or empty");
         return clientDAO.findByCpf(cpf);
     }
 

@@ -5,6 +5,9 @@ public class Cpf {
 
     public Cpf(String cpf) {
         this.cpf = cpf;
+        if (!isValid()){
+            throw new IllegalArgumentException("Invalid CPF");
+        }
     }
 
     public boolean isValid() {
