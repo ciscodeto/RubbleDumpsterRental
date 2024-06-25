@@ -54,7 +54,7 @@ public class Main {
 
     private static void setupDatabase() {
         DatabaseBuilder dbBuilder = new DatabaseBuilder();
-        //dbBuilder.buildDatabaseIfMissing();
+        dbBuilder.buildDatabaseIfMissing();
     }
 
     private static void configureInjection() {
