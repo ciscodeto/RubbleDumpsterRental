@@ -6,8 +6,10 @@ import com.dumpRents.model.entities.valueObjects.*;
 import com.dumpRents.view.WindowLoader;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 
-import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -117,7 +119,7 @@ public class ClientUIController {
     }
 
     private void configureViewModel(){
-        btnCancel.setLabel("Fechar");
+        btnCancel.setText("Fechar");
 
         btnSaveOrUpdate.setVisible(false);
     }

@@ -94,7 +94,7 @@ public class RubbleDumpsterManagementUIController {
     }
 
     public void comeBack(ActionEvent actionEvent) throws IOException {
-        WindowLoader.setRoot("rubbleDumpsterUI");
+        WindowLoader.setRoot("mainUI");
     }
 
 }

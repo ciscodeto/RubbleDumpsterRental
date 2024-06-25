@@ -74,6 +74,10 @@ public class Rental {
         return this.client;
     }
 
+    public String getClientName() {
+        return this.client.getName();
+    }
+
     public LocalDate getInitialDate() {
         return this.initialDate;
     }
@@ -90,6 +94,22 @@ public class Rental {
         return this.endDate;
     }
 
+    public Enum<RentalStatus> getRentalStatus() {
+        return this.rentalStatus;
+    }
+
+    public Integer getId() {
+        return this.id;
+    }
+
+    public LocalDate getWithdrawalRequestDate() {
+        return withdrawalRequestDate;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
     public void setRentalStatus(RentalStatus rentalStatus) {
         this.rentalStatus = rentalStatus;
     }
@@ -100,14 +120,6 @@ public class Rental {
 
     public void setWithdrawalDate(LocalDate withdrawalDate) {
         this.withdrawalDate = withdrawalDate;
-    }
-
-    public Enum<RentalStatus> getRentalStatus() {
-        return this.rentalStatus;
-    }
-
-    public Integer getId() {
-        return this.id;
     }
 
     public void setId(int idCounter) {
