@@ -80,6 +80,9 @@ public class ClientUIController {
         if (mode == UIMode.VIEW){
             configureViewModel();
         }
+        if (mode == UIMode.UPDATE){
+            txtCpf.setEditable(false);
+        }
     }
 
     private void getEntityToView(){
@@ -125,7 +128,17 @@ public class ClientUIController {
 
     private void configureViewModel(){
         btnCancel.setText("Fechar");
-
         btnSaveOrUpdate.setVisible(false);
+
+        txtName.setEditable(false);
+        txtCpf.setEditable(false);
+        txtTelephone1.setEditable(false);
+        txtTelephone2.setEditable(false);
+        txtEmails.setEditable(false);
+        txtStreet.setEditable(false);
+        txtDistrict.setEditable(false);
+        txtNumber.setEditable(false);
+        txtCity.setEditable(false);
+        txtCep.setEditable(false);
     }
 }
