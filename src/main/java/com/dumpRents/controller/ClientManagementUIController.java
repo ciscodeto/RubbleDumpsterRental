@@ -79,7 +79,7 @@ public class ClientManagementUIController {
 
 
     public void comeBack(javafx.event.ActionEvent actionEvent) throws IOException {
-        WindowLoader.setRoot("clientUI");
+        WindowLoader.setRoot("mainUI");
     }
 
     public void addClient(javafx.event.ActionEvent actionEvent) throws IOException {
