@@ -64,7 +64,7 @@ public class ClientUIController {
     }
 
     public void backToPreviousScene(ActionEvent actionEvent) throws IOException {
-        WindowLoader.setRoot("mainUI");
+        WindowLoader.setRoot("clientManagementUI");
     }
 
     public void setClient(Client client, UIMode mode) {
