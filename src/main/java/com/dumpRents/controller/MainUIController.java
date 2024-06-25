@@ -66,7 +66,7 @@ public class MainUIController {
         cRentalStatus.setCellValueFactory(new PropertyValueFactory<>("rentalStatus"));
         cInitialDate.setCellValueFactory(new PropertyValueFactory<>("initialDate"));
         cClient.setCellValueFactory(new PropertyValueFactory<>("clientName"));
-        cRubbleDumpsterSN.setCellValueFactory(new PropertyValueFactory<>("rubbleDumpster"));
+        cRubbleDumpsterSN.setCellValueFactory(new PropertyValueFactory<>("rubbleDumpsterSN"));
         cAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
     }
 

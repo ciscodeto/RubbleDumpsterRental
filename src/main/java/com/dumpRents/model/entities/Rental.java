@@ -17,7 +17,7 @@ public class Rental {
     private Client client;
     private RubbleDumpster rubbleDumpster;
 
-    public Rental(RubbleDumpster dumpster, Client client, LocalDate initialDate) {
+    public Rental(RubbleDumpster dumpster, Client client, LocalDate initialDate, Address address) {
         this.client = client;
         this.rubbleDumpster = dumpster;
         this.initialDate = initialDate;
@@ -70,6 +70,10 @@ public class Rental {
         return this.rubbleDumpster;
     }
 
+    public Integer getRubbleDumpsterSN() {
+        return this.rubbleDumpster.getSerialNumber();
+    }
+
     public Client getClient() {
         return this.client;
     }
@@ -106,8 +110,8 @@ public class Rental {
         return withdrawalRequestDate;
     }
 
-    public Address getAddress() {
-        return address;
+    public String getAddress() {
+        return address.toString();
     }
 
     public void setRentalStatus(RentalStatus rentalStatus) {

@@ -30,9 +30,9 @@
         <columns>
             <TableColumn fx:id="cRentalStatus" prefWidth="120.79999083280563" text="Status" />
             <TableColumn fx:id="cInitialDate" prefWidth="103.99993896484375" text="Data Inicial" />
-            <TableColumn fx:id="cClient" prefWidth="235.20005798339844" text="Cliente" />
-            <TableColumn fx:id="cRubbleDumpsterSN" prefWidth="244.800048828125" text="Caçamba" />
-            <TableColumn fx:id="cAddress" prefWidth="199.199951171875" text="Endereço" />
+            <TableColumn fx:id="cClient" prefWidth="174.3999481201172" text="Cliente" />
+            <TableColumn fx:id="cRubbleDumpsterSN" prefWidth="91.20001220703125" text="Caçamba N/S" />
+            <TableColumn fx:id="cAddress" prefWidth="309.6000061035156" text="Endereço" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
