@@ -60,7 +60,7 @@ public class Main {
 
 
         //Startando CLIENT
-        Cpf cpf = new Cpf("39501888860");
+        Cpf cpf = new Cpf("395018888-60");
         Phone phone1 = new Phone("16994580485");
         Phone phone2 = new Phone("16994580485");
         Phone phone3 = new Phone("16994580485");
