@@ -26,24 +26,24 @@ import java.util.Optional;
 
 public class Main {
 
-    private static ActivateRubbleDumpsterUseCase activateRubbleDumpsterUseCase;
-    private static FindRubbleDumpsterUseCase findRubbleDumpsterUseCase;
-    private static InactivateRubbleDumpsterUseCase inactivateRubbleDumpsterUseCase;
-    private static InsertRubbleDumpsterUseCase insertRubbleDumpsterUseCase;
-    private static UpdateRubbleDumpsterRentalPriceUseCase updateRubbleDumpsterRentalPriceUseCase;
+    public static ActivateRubbleDumpsterUseCase activateRubbleDumpsterUseCase;
+    public static FindRubbleDumpsterUseCase findRubbleDumpsterUseCase;
+    public static InactivateRubbleDumpsterUseCase inactivateRubbleDumpsterUseCase;
+    public static InsertRubbleDumpsterUseCase insertRubbleDumpsterUseCase;
+    public static UpdateRubbleDumpsterRentalPriceUseCase updateRubbleDumpsterRentalPriceUseCase;
 
-    private static FindClientUseCase findClientUseCase;
-    private static InsertClientUseCase insertClientUseCase;
-    private static UpdateClientUseCase updateClientUseCase;
+    public static FindClientUseCase findClientUseCase;
+    public static InsertClientUseCase insertClientUseCase;
+    public static UpdateClientUseCase updateClientUseCase;
 
-    private static InsertRentalUseCase insertRentalUseCase;
-    private static EndRentalUseCase endRentalUseCase;
-    private static FindRentalUseCase findRentalUseCase;
-    private static WithdrawalRequestUseCase withdrawalRequestUseCase;
+    public static InsertRentalUseCase insertRentalUseCase;
+    public static EndRentalUseCase endRentalUseCase;
+    public static FindRentalUseCase findRentalUseCase;
+    public static WithdrawalRequestUseCase withdrawalRequestUseCase;
 
-    private static ExportCSVUseCase exportCSVUseCase;
-    private static IncomeReportUseCase incomeReportUseCase;
-    private static EntryExitReportUseCase entryExitReportUseCase;
+    public static ExportCSVUseCase exportCSVUseCase;
+    public static IncomeReportUseCase incomeReportUseCase;
+    public static EntryExitReportUseCase entryExitReportUseCase;
 
     public static void main(String[] args) {
         // Validação de CEP

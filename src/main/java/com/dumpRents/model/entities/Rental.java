@@ -49,6 +49,9 @@ public class Rental {
         this.finalAmount = this.calculateFinalAmount();
     }
 
+    public void requestWithdrawal(LocalDate localDate) {
+    }
+
     public RubbleDumpster getRubbleDumpster() {
         return this.rubbleDumpster;
     }
