@@ -5,27 +5,27 @@
 <?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="400.0" prefWidth="602.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dumpRents.controller.ClientManagementUIController">
-   <children>
-      <TableView fx:id="tableView" layoutX="13.0" layoutY="39.0" prefHeight="314.0" prefWidth="575.0">
-        <columns>
-          <TableColumn fx:id="cName" prefWidth="152.0" text="Nome" />
-          <TableColumn fx:id="cCpf" prefWidth="117.0" text="Cpf" />
-            <TableColumn fx:id="cPhone1" prefWidth="158.0" text="Telefone 1" />
-            <TableColumn fx:id="cPhone2" prefWidth="147.0" text="Telefone 2" />
-        </columns>
-      </TableView>
-      <Pane layoutX="11.0" layoutY="353.0" prefHeight="46.0" prefWidth="581.0">
-         <children>
-            <Button layoutX="425.0" layoutY="11.0" mnemonicParsing="false" onAction="#updateClient" text="Editar" />
-            <Button layoutY="11.0" mnemonicParsing="false" onAction="#comeBack" text="Voltar" />
-            <Button layoutX="324.0" layoutY="11.0" mnemonicParsing="false" onAction="#addClient" text="Adicionar" />
-            <Button layoutX="500.0" layoutY="11.0" mnemonicParsing="false" onAction="#showClient" text="Detalhar" />
-         </children>
-      </Pane>
-      <Label layoutX="250.0" layoutY="8.0" text="Clientes">
-         <font>
-            <Font name="System Bold" size="22.0" />
-         </font>
-      </Label>
-   </children>
+    <children>
+        <Label layoutX="250.0" layoutY="8.0" text="Clientes" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+            <font>
+                <Font name="System Bold" size="22.0" />
+            </font>
+        </Label>
+        <TableView fx:id="tableView" layoutX="13.0" layoutY="39.0" prefHeight="314.0" prefWidth="575.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="40.0">
+            <columns>
+                <TableColumn fx:id="cName" prefWidth="182.0" text="Nome" />
+                <TableColumn fx:id="cCpf" prefWidth="87.0" text="Cpf" />
+                <TableColumn fx:id="cPhone1" prefWidth="158.0" text="Telefone 1" />
+                <TableColumn fx:id="cPhone2" prefWidth="154.0" text="Telefone 2" />
+            </columns>
+        </TableView>
+        <HBox layoutX="11.0" layoutY="353.0" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+            <children>
+                <Button mnemonicParsing="false" onAction="#comeBack" text="Voltar" />
+                <Button mnemonicParsing="false" onAction="#addClient" text="Adicionar" />
+                <Button mnemonicParsing="false" onAction="#updateClient" text="Editar" />
+                <Button mnemonicParsing="false" onAction="#showClient" text="Detalhar" />
+            </children>
+        </HBox>
+    </children>
 </AnchorPane>

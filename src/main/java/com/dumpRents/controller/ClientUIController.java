@@ -46,6 +46,10 @@ public class ClientUIController {
 
     private Client client;
 
+    @FXML
+    private void initialize() {
+
+    }
 
     public void saveOrUpdate(ActionEvent actionEvent) throws IOException {
         getEntityToView();
@@ -59,7 +63,7 @@ public class ClientUIController {
     }
 
     public void backToPreviousScene(ActionEvent actionEvent) throws IOException {
-        WindowLoader.setRoot("mainUI");
+        WindowLoader.setRoot("clientManagementUI");
     }
 
     public void setClient(Client client, UIMode mode) {
@@ -74,6 +78,9 @@ public class ClientUIController {
 
         if (mode == UIMode.VIEW){
             configureViewModel();
+        }
+        if (mode == UIMode.UPDATE){
+            txtCpf.setEditable(false);
         }
     }
 
@@ -120,7 +127,17 @@ public class ClientUIController {
 
     private void configureViewModel(){
         btnCancel.setText("Fechar");
-
         btnSaveOrUpdate.setVisible(false);
+
+        txtName.setEditable(false);
+        txtCpf.setEditable(false);
+        txtTelephone1.setEditable(false);
+        txtTelephone2.setEditable(false);
+        txtEmails.setEditable(false);
+        txtStreet.setEditable(false);
+        txtDistrict.setEditable(false);
+        txtNumber.setEditable(false);
+        txtCity.setEditable(false);
+        txtCep.setEditable(false);
     }
 }

@@ -40,9 +40,10 @@
       </TableView>
       <AnchorPane layoutX="14.0" layoutY="435.0" prefWidth="572.0" AnchorPane.bottomAnchor="14.800000000000011" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.799999999999955">
          <children>
-            <Button fx:id="btnRent" layoutX="527.0" layoutY="5.0" mnemonicParsing="false" onAction="#addRent" text="Realizar Locação" AnchorPane.bottomAnchor="4.600000000000001" AnchorPane.rightAnchor="0.20000000000004547" AnchorPane.topAnchor="5.0" />
-            <Button fx:id="btnDetail" layoutX="525.0" layoutY="5.0" mnemonicParsing="false" onAction="#detailRental" text="Detalhar" />
-            <Button fx:id="btnEndOrWithdrawal" layoutX="603.0" layoutY="5.0" mnemonicParsing="false" onAction="#endOrWithdrawal" text="Finalizar" />
+            <Button fx:id="btnRent" layoutX="527.0" layoutY="5.0" mnemonicParsing="false" onAction="#addRent" text="Alugar" AnchorPane.bottomAnchor="4.600000000000001" AnchorPane.rightAnchor="0.20000000000004547" AnchorPane.topAnchor="5.0" />
+            <Button fx:id="btnDetail" layoutX="477.0" layoutY="5.0" mnemonicParsing="false" onAction="#detailRental" text="Detalhar" />
+            <Button fx:id="btnEnd" layoutX="658.0" layoutY="5.0" mnemonicParsing="false" onAction="#endRent" text="Finalizar" />
+            <Button fx:id="btnWithdrawal" layoutX="554.0" layoutY="5.0" mnemonicParsing="false" onAction="#requestWithdrawal" text="Pedir Retirada" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="13.0" layoutY="40.0" prefHeight="54.0" prefWidth="215.0">

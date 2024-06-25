@@ -30,6 +30,11 @@ public class RubbleDumpsterUIController {
 
     private RubbleDumpster rubbleDumpster;
 
+    @FXML
+    private void initialize() {
+
+    }
+
 
     public void saveOrUpdate(ActionEvent actionEvent) throws IOException {
         getEntityToView();
@@ -43,7 +48,7 @@ public class RubbleDumpsterUIController {
     }
 
     public void backToPreviousScene(ActionEvent actionEvent) throws IOException {
-        WindowLoader.setRoot("mainUI");
+        WindowLoader.setRoot("rubbleDumpsterManagementUI");
     }
 
     public void setRubbleDumpster(RubbleDumpster rubbleDumpster, UIMode mode) {
@@ -53,7 +58,7 @@ public class RubbleDumpsterUIController {
         this.rubbleDumpster = rubbleDumpster;
         setEntityIntoView();
 
-        if (mode == UIMode.VIEW){
+        if (mode == UIMode.UPDATE){
             configureViewModel();
         }
     }
@@ -75,7 +80,7 @@ public class RubbleDumpsterUIController {
     }
 
     private void configureViewModel() {
-        btnCancel.setText("Fechar");
-        btnSave.setVisible(false);
+        btnSave.setText("Editar");
+        txtSerialNumber.setEditable(false);
     }
 }

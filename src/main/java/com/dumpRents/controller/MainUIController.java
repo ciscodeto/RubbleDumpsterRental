@@ -27,7 +27,8 @@ public class MainUIController {
 
     @FXML private Button btnClient;
     @FXML private Button btnDetail;
-    @FXML private Button btnEndOrWithdrawal;
+    @FXML private Button btnEnd;
+    @FXML private Button btnWithdrawal;
     @FXML private Button btnRent;
     @FXML private Button btnReport;
     @FXML private Button btnRubbleDumpster;
@@ -76,27 +77,32 @@ public class MainUIController {
         tableData.addAll(rentals);
     }
 
-    public void endOrWithdrawal(ActionEvent actionEvent) {
+    public void endRent(ActionEvent actionEvent) {
         Rental selectedItem = tableView.getSelectionModel().getSelectedItem();
         if(selectedItem != null) {
             Enum<RentalStatus> rentalStatus = selectedItem.getRentalStatus();
             if (rentalStatus == WITHDRAWAL_ORDER) {
                 endRentalUseCase.endRental(selectedItem.getId());
-            }
-            if (rentalStatus == OPEN) {
-                withdrawalRequestUseCase.requestWithdrawal(selectedItem.getId());
-            }
-            if (rentalStatus == CLOSED) {
-                showAlert("Erro!", "Não é possível alterar locações encerradas!", Alert.AlertType.ERROR);
+                loadDataAndShow();
             }
         }
-        loadDataAndShow();
     }
 
-    public void detailRental(ActionEvent actionEvent) {
+    public void requestWithdrawal(ActionEvent actionEvent) {
+        Rental selectedItem = tableView.getSelectionModel().getSelectedItem();
+        if(selectedItem != null) {
+            Enum<RentalStatus> rentalStatus = selectedItem.getRentalStatus();
+            if (rentalStatus == OPEN) {
+                withdrawalRequestUseCase.requestWithdrawal(selectedItem.getId());
+                loadDataAndShow();
+            }
+        }
     }
 
     public void addRent(ActionEvent actionEvent) {
+    }
+
+    public void detailRental(ActionEvent actionEvent) {
     }
 
     public void findByClient(ActionEvent actionEvent) {
@@ -159,13 +165,4 @@ public class MainUIController {
         alert.showAndWait();
     }
 
-    private void getSelectedAndSetButton(MouseEvent mouseEvent) {
-        Rental selectedRental = tableView.getSelectionModel().getSelectedItem();
-        if (selectedRental != null && selectedRental.getRentalStatus() == WITHDRAWAL_ORDER) {
-            MainUIController controller = (MainUIController) WindowLoader.getController();
-            btnEndOrWithdrawal.setText(END_RENTAL_TEXT);
-        } else {
-            btnEndOrWithdrawal.setText(WITHDRAWAL_ORDER_TEXT);
-        }
-    }
 }
