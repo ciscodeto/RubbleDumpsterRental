@@ -27,6 +27,46 @@ public class Address {
         return field != null && !field.trim().isEmpty();
     }
 
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(String district) {
+        this.district = district;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public Cep getCep() {
+        return cep;
+    }
+
+    public void setCep(Cep cep) {
+        this.cep = cep;
+    }
+
     @Override
     public String toString() {
         return "Address{" +
