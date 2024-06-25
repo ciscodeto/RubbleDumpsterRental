@@ -134,7 +134,7 @@ public class Main {
         Rental rental1 = insertRentalUseCase.insertRental(client.getId(),address);
         System.out.println(findRentalUseCase.findRentalByClient(client).toString());
         System.out.println(findRentalUseCase.findOne(rental1.getId()).toString());
-        withdrawalRequestUseCase.requestWithdrawal(rental1.getId(), LocalDate.now());
+        withdrawalRequestUseCase.requestWithdrawal(rental1.getId());
         System.out.println(findRentalUseCase.findOne(rental1.getId()).toString());
 //        endRentalUseCase.endRental(rental1.getId());
         System.out.println(findRentalUseCase.findOne(rental1.getId()).toString());

@@ -56,10 +56,9 @@ public class MainUIController {
         loadDataAndShow();
     }
 
-    private void loadDataAndShow() {
-        List<Rental> rentals = findRentalUseCase.findAll();
-        tableData.clear();
-        tableData.addAll(rentals);
+    private void bindTableViewToItemsList() {
+        tableData = FXCollections.observableArrayList();
+        tableView.setItems(tableData);
     }
 
     private void bindColumnsToValueSources() {
@@ -70,12 +69,22 @@ public class MainUIController {
         cAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
     }
 
-    private void bindTableViewToItemsList() {
-        tableData = FXCollections.observableArrayList();
-        tableView.setItems(tableData);
+    private void loadDataAndShow() {
+        List<Rental> rentals = findRentalUseCase.findAll();
+        tableData.clear();
+        tableData.addAll(rentals);
     }
 
     public void endOrWithdrawal(ActionEvent actionEvent) {
+        if(selectedRental != null) {
+            if (selectedRental.getRentalStatus() == RentalStatus.WITHDRAWAL_ORDER) {
+                endRentalUseCase.endRental(selectedRental.getId());
+                System.out.println(selectedRental);
+            } else {
+                withdrawalRequestUseCase.requestWithdrawal(selectedRental.getId());
+            }
+        }
+        loadDataAndShow();
     }
 
     public void detailRental(ActionEvent actionEvent) {
@@ -142,5 +151,14 @@ public class MainUIController {
         alert.setContentText(message);
         alert.setHeaderText(null);
         alert.showAndWait();
+    }
+
+    private void getSelectedAndSetButton(MouseEvent mouseEvent) {
+        selectedRental = tableView.getSelectionModel().getSelectedItem();
+        if (selectedRental != null && selectedRental.getRentalStatus() == RentalStatus.WITHDRAWAL_ORDER) {
+            btnEndOrWithdrawal.setText(END_RENTAL_TEXT);
+        } else {
+            btnEndOrWithdrawal.setText(WITHDRAWAL_ORDER_TEXT);
+        }
     }
 }

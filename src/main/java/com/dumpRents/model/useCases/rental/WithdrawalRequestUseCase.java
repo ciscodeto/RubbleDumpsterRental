@@ -25,14 +25,12 @@ public class WithdrawalRequestUseCase {
         this.findRentalUseCase = findRentalUseCase;
     }
 
-    public void requestWithdrawal(Integer rentalId, LocalDate withdrawalDate) {
+    public void requestWithdrawal(Integer rentalId) {
         if (rentalId == null) {
             throw new IllegalArgumentException("Rental ID cannot be null.");
         }
 
-        if (withdrawalDate == null) {
-            throw new IllegalArgumentException("Withdrawal date cannot be null.");
-        }
+        LocalDate withdrawalDate = LocalDate.now();
 
         if (withdrawalDate.isBefore(LocalDate.now())) {
             throw new IllegalArgumentException("Withdrawal date cannot be in the past.");
