@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static com.dumpRents.main.Main.*;
+import static com.dumpRents.model.entities.RentalStatus.*;
 
 
 public class MainUIController {
@@ -76,12 +77,17 @@ public class MainUIController {
     }
 
     public void endOrWithdrawal(ActionEvent actionEvent) {
-        if(selectedRental != null) {
-            if (selectedRental.getRentalStatus() == RentalStatus.WITHDRAWAL_ORDER) {
-                endRentalUseCase.endRental(selectedRental.getId());
-                System.out.println(selectedRental);
-            } else {
-                withdrawalRequestUseCase.requestWithdrawal(selectedRental.getId());
+        Rental selectedItem = tableView.getSelectionModel().getSelectedItem();
+        if(selectedItem != null) {
+            Enum<RentalStatus> rentalStatus = selectedItem.getRentalStatus();
+            if (rentalStatus == WITHDRAWAL_ORDER) {
+                endRentalUseCase.endRental(selectedItem.getId());
+            }
+            if (rentalStatus == OPEN) {
+                withdrawalRequestUseCase.requestWithdrawal(selectedItem.getId());
+            }
+            if (rentalStatus == CLOSED) {
+                showAlert("Erro!", "Não é possível alterar locações encerradas!", Alert.AlertType.ERROR);
             }
         }
         loadDataAndShow();
@@ -154,8 +160,9 @@ public class MainUIController {
     }
 
     private void getSelectedAndSetButton(MouseEvent mouseEvent) {
-        selectedRental = tableView.getSelectionModel().getSelectedItem();
-        if (selectedRental != null && selectedRental.getRentalStatus() == RentalStatus.WITHDRAWAL_ORDER) {
+        Rental selectedRental = tableView.getSelectionModel().getSelectedItem();
+        if (selectedRental != null && selectedRental.getRentalStatus() == WITHDRAWAL_ORDER) {
+            MainUIController controller = (MainUIController) WindowLoader.getController();
             btnEndOrWithdrawal.setText(END_RENTAL_TEXT);
         } else {
             btnEndOrWithdrawal.setText(WITHDRAWAL_ORDER_TEXT);

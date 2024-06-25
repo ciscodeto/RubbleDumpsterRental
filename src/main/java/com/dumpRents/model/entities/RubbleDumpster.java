@@ -1,8 +1,5 @@
 package com.dumpRents.model.entities;
 
-import javax.naming.InsufficientResourcesException;
-import java.time.LocalDate;
-
 import static com.dumpRents.model.entities.RubbleDumpsterStatus.*;
 
 public class RubbleDumpster {
@@ -109,8 +106,8 @@ public class RubbleDumpster {
         this.setMonthlyAmount(monthlyAmount);
 
     }
-    public void activateNewRubbleDumpster(){
-        this.setStatus(AVAILABLE);
+    public void activate(){
+        this.status = AVAILABLE;
     }
 }
 

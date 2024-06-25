@@ -54,7 +54,7 @@ public class Rental {
         this.endDate = LocalDate.now();
         this.finalAmount = calculateFinalAmount();
         this.rentalStatus = RentalStatus.CLOSED;
-        this.rubbleDumpster.activateRubbleDumpster();
+        this.rubbleDumpster.activate();
     }
 
     public void requestWithdrawal(LocalDate localDate) {
