@@ -11,6 +11,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
+import java.io.IOException;
+
 
 public class MainUIController {
     @FXML private TableView<Rental> tableView;
@@ -39,8 +41,8 @@ public class MainUIController {
         tableView.setItems(tableData);
     }
 
-    public void goToRubbleDumpsterManagement(ActionEvent actionEvent) {
-        WindowLoader.setRoot();
+    public void goToRubbleDumpsterManagement(ActionEvent actionEvent) throws IOException {
+        WindowLoader.setRoot("rubbleDumpsterManagementUI");
     }
 
     public void goToClientManagement(ActionEvent actionEvent) {
@@ -69,5 +71,11 @@ public class MainUIController {
     }
 
     public void setRentalStatus(ActionEvent actionEvent) {
+    }
+
+    public void detailRental(ActionEvent actionEvent) {
+    }
+
+    public void withdrawal(ActionEvent actionEvent) {
     }
 }
