@@ -1,5 +1,7 @@
 package com.dumpRents.controller;
 
+import javafx.event.ActionEvent;
+
 import com.dumpRents.model.entities.Client;
 import com.dumpRents.model.entities.RubbleDumpster;
 import com.dumpRents.view.WindowLoader;

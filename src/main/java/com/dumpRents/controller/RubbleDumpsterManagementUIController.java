@@ -17,6 +17,8 @@ import java.util.List;
 
 import static com.dumpRents.main.Main.*;
 
+import javafx.event.ActionEvent;
+
 public class RubbleDumpsterManagementUIController {
 
     @FXML

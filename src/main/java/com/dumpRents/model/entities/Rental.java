@@ -1,6 +1,9 @@
 package com.dumpRents.model.entities;
 
+import com.dumpRents.model.Notification;
+import com.dumpRents.model.Validator;
 import com.dumpRents.model.entities.valueObjects.Address;
+import com.dumpRents.model.useCases.rental.RentalInsertValidator;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;

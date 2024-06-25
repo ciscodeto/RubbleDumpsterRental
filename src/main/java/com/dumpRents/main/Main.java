@@ -16,7 +16,7 @@ import com.dumpRents.persistence.dao.RubbleDumpsterDAO;
 import com.dumpRents.persistence.utils.DatabaseBuilder;
 import com.dumpRents.repository.InMemoryClientDAO;
 import com.dumpRents.repository.InMemoryRentalDAO;
-import com.dumpRents.repository.InMemoryRubbleDumpsterDAO2;
+import com.dumpRents.repository.InMemoryRubbleDumpsterDAO;
 import com.dumpRents.view.WindowLoader;
 
 import java.time.LocalDate;
@@ -184,7 +184,7 @@ public class Main {
 
     private static void configureInjection() {
 
-        RubbleDumpsterDAO rubbleDumpsterDAO =    new InMemoryRubbleDumpsterDAO2();
+        RubbleDumpsterDAO rubbleDumpsterDAO =    new InMemoryRubbleDumpsterDAO();
         activateRubbleDumpsterUseCase =          new ActivateRubbleDumpsterUseCase(rubbleDumpsterDAO);
         findRubbleDumpsterUseCase =              new FindRubbleDumpsterUseCase(rubbleDumpsterDAO);
         inactivateRubbleDumpsterUseCase =        new InactivateRubbleDumpsterUseCase(rubbleDumpsterDAO);
