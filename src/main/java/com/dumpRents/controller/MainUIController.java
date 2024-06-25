@@ -3,7 +3,6 @@ package com.dumpRents.controller;
 import com.dumpRents.model.entities.Client;
 import com.dumpRents.model.entities.Rental;
 import com.dumpRents.model.entities.RentalStatus;
-import com.dumpRents.model.entities.RubbleDumpster;
 import com.dumpRents.model.entities.valueObjects.Cpf;
 import com.dumpRents.view.WindowLoader;
 import javafx.collections.FXCollections;
@@ -34,7 +33,7 @@ public class MainUIController {
     @FXML private DatePicker dpInitialDate;
     @FXML private DatePicker dpEndDate;
     @FXML private Label lbName;
-    @FXML private Button btnRentOr;
+    @FXML private Button btnEndOrOrderWithdrawal;
 
     private ObservableList<Rental> tableData;
     private Client client;
@@ -120,18 +119,7 @@ public class MainUIController {
     }
 
     public void rentRubbleDumpster(ActionEvent actionEvent) {
-        if (client == null) {
-            showAlert("Erro!", "Selecione um cliente para realizar a locação", Alert.AlertType.ERROR);
-            return;
-        }
 
-        try {
-            Rental rental = insertRentalUseCase.insertRental(client.getId());
-            loadDataAndShow();
-            showAlert("Sucesso", "Caçamba alugada com sucesso", Alert.AlertType.INFORMATION);
-        } catch (Exception e) {
-            showAlert("Erro!", e.getMessage(), Alert.AlertType.ERROR);
-        }
     }
 
     public void goToReportUI(ActionEvent actionEvent) throws IOException {
@@ -163,10 +151,10 @@ public class MainUIController {
         }
     }
 
-    public void withdrawal(ActionEvent actionEvent) {
+    public void endOrWithdrawal(ActionEvent actionEvent) {
         if (selectedRental != null) {
             try {
-                withdrawalRequestUseCase.requestWithdrawal(selectedRental.getId(), LocalDate.now().plusDays(1));
+                withdrawalRequestUseCase.requestWithdrawal(selectedRental.getId(), LocalDate.now());
                 loadDataAndShow();
                 showAlert("Sucesso", "Ordem de retirada criada com sucesso", Alert.AlertType.INFORMATION);
             } catch (Exception e) {
@@ -189,9 +177,9 @@ public class MainUIController {
     private void getSelectedAndSetButton(MouseEvent mouseEvent) {
         selectedRental = tableView.getSelectionModel().getSelectedItem();
         if (selectedRental != null && selectedRental.getRentalStatus() == RentalStatus.WITHDRAWAL_ORDER) {
-            btnRentOr.setText(END_RENTAL_TEXT);
+            btnEndOrOrderWithdrawal.setText(END_RENTAL_TEXT);
         } else {
-            btnRentOr.setText(WITHDRAWAL_ORDER_TEXT);
+            btnEndOrOrderWithdrawal.setText(WITHDRAWAL_ORDER_TEXT);
         }
     }
 }
