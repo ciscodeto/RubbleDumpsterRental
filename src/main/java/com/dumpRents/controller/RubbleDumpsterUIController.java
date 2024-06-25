@@ -42,7 +42,7 @@ public class RubbleDumpsterUIController {
     }
 
     public void backToPreviousScene(ActionEvent actionEvent) throws IOException {
-        WindowLoader.setRoot("rubbleDumpsterManagementUI");
+        WindowLoader.setRoot("mainUI");
     }
 
     public void setRubbleDumpster(RubbleDumpster rubbleDumpster, UIMode mode) {
