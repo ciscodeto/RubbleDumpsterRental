@@ -59,7 +59,7 @@ public class RubbleDumpsterUIController {
         this.rubbleDumpster = rubbleDumpster;
         setEntityIntoView();
 
-        if (mode == UIMode.VIEW){
+        if (mode == UIMode.UPDATE){
             configureViewModel();
         }
     }
@@ -81,7 +81,7 @@ public class RubbleDumpsterUIController {
     }
 
     private void configureViewModel() {
-        btnCancel.setText("Fechar");
-        btnSave.setVisible(false);
+        btnSave.setText("Editar");
+        txtSerialNumber.setEditable(false);
     }
 }
