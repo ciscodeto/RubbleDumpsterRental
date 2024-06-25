@@ -1,9 +1,6 @@
 package com.dumpRents.model.entities;
 
-import com.dumpRents.model.Notification;
-import com.dumpRents.model.Validator;
 import com.dumpRents.model.entities.valueObjects.Address;
-import com.dumpRents.model.useCases.rental.RentalInsertValidator;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
@@ -33,10 +30,19 @@ public class Rental {
         return "Rental{" +
                 "id=" + id +
                 ", rentalStatus=" + rentalStatus +
+                ", client=" + client +
+                ", rubbleDumpster=" + rubbleDumpster +
+                ", initialDate=" + initialDate +
+                ", withdrawalDate=" + withdrawalDate +
+                ", endDate=" + endDate +
+                ", finalAmount=" + finalAmount +
                 '}';
     }
 
     public double calculateFinalAmount() {
+        if (this.endDate == null) {
+            throw new IllegalStateException("End date is not set");
+        }
         double differenceInDays = ChronoUnit.DAYS.between(this.initialDate, this.endDate);
         double differenceInMonths = Math.ceil(differenceInDays/30.0);
         return differenceInMonths > 1 ?
@@ -44,12 +50,20 @@ public class Rental {
                 rubbleDumpster.getMinAmount();
     }
 
-    public void end() {
+    public void endRental() {
+        this.endDate = LocalDate.now();
+        this.finalAmount = calculateFinalAmount();
         this.rentalStatus = RentalStatus.CLOSED;
-        this.finalAmount = this.calculateFinalAmount();
+        this.rubbleDumpster.activateRubbleDumpster();
     }
 
     public void requestWithdrawal(LocalDate localDate) {
+        if (withdrawalDate == null || withdrawalDate.isBefore(LocalDate.now())) {
+            throw new IllegalArgumentException("Invalid withdrawal date.");
+        }
+        this.withdrawalRequestDate = LocalDate.now();
+        this.rentalStatus = RentalStatus.WITHDRAWAL_ORDER;
+        this.rubbleDumpster.withdrawalRequest(1);
     }
 
     public RubbleDumpster getRubbleDumpster() {

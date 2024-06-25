@@ -80,18 +80,12 @@ public class RubbleDumpster {
     }
 
     public void rentRubbleDumpster() {
-        this.setStatus(RENTED);
-        System.out.println("O status da caçamba foi alterado e a caçamba foi alugada!");
+        this.status = RENTED;
     }
 
 
     public void withdrawalRequest( double withdrawalAmount)  {
-        if (withdrawalAmount <= 0){
-            throw new IllegalArgumentException("O valor da ordem de retirada deve ser um valor positivo!");
-        }
-        this.setStatus(WITHDRAWAL_ORDER);
-
-        System.out.println("\n E o status atual da caçamba é: " + this.getStatus());
+        this.status = WITHDRAWAL_ORDER;
     }
 
     public void inactivateRubbleDumpster() {

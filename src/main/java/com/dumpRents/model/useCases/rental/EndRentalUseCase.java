@@ -1,7 +1,6 @@
 package com.dumpRents.model.useCases.rental;
 
 import com.dumpRents.model.entities.Rental;
-import com.dumpRents.model.entities.RentalStatus;
 import com.dumpRents.model.entities.RubbleDumpster;
 import com.dumpRents.model.entities.RubbleDumpsterStatus;
 import com.dumpRents.model.useCases.rubbleDumpster.FindRubbleDumpsterUseCase;
@@ -30,7 +29,7 @@ public class EndRentalUseCase {
         Rental rental = rentalDAO.findOne(rentalId)
                 .orElseThrow(() -> new EntityNotFoundException("Cannot find Rental for ID " + rentalId));
 
-        rental.end();
+        rental.endRental();
 
         Integer serialNumber = rental.getRubbleDumpster().getSerialNumber();
         RubbleDumpster rubbleDumpster = findRubbleDumpsterUseCase.findOne(serialNumber).get();

@@ -142,7 +142,7 @@ public class MainUIController {
         if (selectedRental != null) {
             try {
                 if (selectedRental.getRentalStatus() == RentalStatus.OPEN) {
-                    selectedRental.requestWithdrawal(LocalDate.now().plusDays(1));
+                    selectedRental.requestWithdrawal(LocalDate.now());
                 } else if (selectedRental.getRentalStatus() == RentalStatus.WITHDRAWAL_ORDER) {
                     endRentalUseCase.endRental(selectedRental.getId());
                 }

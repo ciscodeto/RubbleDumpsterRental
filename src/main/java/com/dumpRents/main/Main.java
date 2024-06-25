@@ -48,13 +48,52 @@ public class Main {
 
     public static void main(String[] args) {
         configureInjection();
-        setupDatabase();
+        //setupDatabase();
         WindowLoader.main(args);
     }
 
     private static void setupDatabase() {
-        DatabaseBuilder dbBuilder = new DatabaseBuilder();
-        dbBuilder.buildDatabaseIfMissing();
+        Cep cep = new Cep("12345-678");
+        Address address = new Address("Rua Exemplo", "Bairro Exemplo", "123", "Cidade Exemplo", cep);
+
+        Cpf cpf1 = new Cpf("39501888860");
+        Cpf cpf2 = new Cpf("39501888862");
+
+        Phone phone1 = new Phone("16994580485");
+        Phone phone2 = new Phone("16994580485");
+        Phone phone3 = new Phone("16994580485");
+        Phone phone4 = new Phone("16994580485");
+
+        List<Email> emails1 = new ArrayList<>();
+        emails1.add(new Email("neguito.juvenal@gmail.com"));
+
+        List<Email> emails2 = new ArrayList<>();
+        emails2.add(new Email("example.pedro@gmail.com"));
+
+        Client client1 = new Client("Kayky", address, cpf1, phone1, phone2, emails1, 1);
+        Client client2 = new Client("Pedro", address, cpf2, phone3, phone4, emails2, 2);
+
+        RubbleDumpster rubbleDumpster1 = new RubbleDumpster(1, 50.0, 300.0, RubbleDumpsterStatus.AVAILABLE);
+        RubbleDumpster rubbleDumpster2 = new RubbleDumpster(2, 60.0, 200.0, RubbleDumpsterStatus.AVAILABLE);
+        RubbleDumpster rubbleDumpster3 = new RubbleDumpster(3, 70.0, 300.0, RubbleDumpsterStatus.AVAILABLE);
+
+        // Inserindo clientes no banco de dados
+        insertClientUseCase.insert(client1);
+        insertClientUseCase.insert(client2);
+
+        // Inserindo caçambas no banco de dados
+        insertRubbleDumpsterUseCase.insert(rubbleDumpster1);
+        insertRubbleDumpsterUseCase.insert(rubbleDumpster2);
+        insertRubbleDumpsterUseCase.insert(rubbleDumpster3);
+
+        System.out.println("Setup database completed.");
+        System.out.println("Inserted clients:");
+        System.out.println(client1);
+        System.out.println(client2);
+        System.out.println("Inserted rubble dumpsters:");
+        System.out.println(rubbleDumpster1);
+        System.out.println(rubbleDumpster2);
+        System.out.println(rubbleDumpster3);
     }
 
     private static void configureInjection() {
