@@ -23,7 +23,10 @@ public class RubbleDumpsterInsertValidator extends Validator<RubbleDumpster> {
         if (nullOrEmpty(rubbleDumpster.getStatus()))
             notification.addError("RubbleDumpsterStatus não pode ser nulo ou vazio!");
 
+        if (nullOrEmpty(rubbleDumpster.getRental()))
+            notification.addError("Rental não pode ser nulo ou vazio!");
 
         return notification;
     }
 }
+

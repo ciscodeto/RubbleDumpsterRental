@@ -8,6 +8,7 @@ package com.dumpRents.model.useCases.rubbleDumpster;
 import com.dumpRents.model.Notification;
 import com.dumpRents.model.Validator;
 import com.dumpRents.model.entities.RubbleDumpster;
+import com.dumpRents.model.entities.RubbleDumpsterStatus;
 import com.dumpRents.persistence.dao.RubbleDumpsterDAO;
 import com.dumpRents.persistence.utils.EntityAlreadyExistsException;
 
@@ -32,7 +33,7 @@ public class InsertRubbleDumpsterUseCase {
         if (rubbleDumpsterDAO.findOne(serialNumber).isPresent())
             throw new EntityAlreadyExistsException("Este Serial Number já existe");
 
-        rubbleDumpster.activate();
+        rubbleDumpster.setStatus(RubbleDumpsterStatus.AVAILABLE);
 
         return rubbleDumpsterDAO.create(rubbleDumpster);
     }

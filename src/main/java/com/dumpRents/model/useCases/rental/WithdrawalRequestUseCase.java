@@ -13,9 +13,9 @@ import com.dumpRents.persistence.utils.EntityNotFoundException;
 import java.time.LocalDate;
 
 public class WithdrawalRequestUseCase {
-    private final RentalDAO rentalDAO;
-    private final RubbleDumpsterDAO rubbleDumpsterDAO;
-    private final FindRentalUseCase findRentalUseCase;
+    private RentalDAO rentalDAO;
+    private RubbleDumpsterDAO rubbleDumpsterDAO;
+    private FindRentalUseCase findRentalUseCase;
 
     public WithdrawalRequestUseCase(RentalDAO rentalDAO,
                                     RubbleDumpsterDAO rubbleDumpsterDAO,
@@ -25,31 +25,29 @@ public class WithdrawalRequestUseCase {
         this.findRentalUseCase = findRentalUseCase;
     }
 
-    public void requestWithdrawal(Integer rentalId) {
+    public void requestWithdrawal(Integer rentalId, LocalDate withdrawalDate) {
         if (rentalId == null) {
-            throw new IllegalArgumentException("Rental ID cannot be null.");
+            throw new IllegalArgumentException("Rental ID is null.");
         }
 
-        LocalDate withdrawalDate = LocalDate.now();
-
-        if (withdrawalDate.isBefore(LocalDate.now())) {
-            throw new IllegalArgumentException("Withdrawal date cannot be in the past.");
+        if (withdrawalDate == null || withdrawalDate.isBefore(LocalDate.now())) {
+            throw new IllegalArgumentException("Invalid withdrawal date.");
         }
 
         Rental rental = findRentalUseCase.findOne(rentalId)
-                .orElseThrow(() -> new EntityNotFoundException("Cannot find Rental with ID " + rentalId));
+                .orElseThrow(() -> new EntityNotFoundException("Cannot find Rental with id " + rentalId));
 
         rental.setWithdrawalRequestDate(LocalDate.now());
 
         Validator<Rental> validator = new RentalInsertValidator();
         Notification notification = validator.validate(rental);
-        if (notification.hasErrors()) {
+        if (notification.hasErrors())
             throw new IllegalArgumentException(notification.errorMessage());
-        }
-
         RubbleDumpster rubbleDumpster = rental.getRubbleDumpster();
+
         rental.setRentalStatus(RentalStatus.WITHDRAWAL_ORDER);
         rubbleDumpster.setStatus(RubbleDumpsterStatus.WITHDRAWAL_ORDER);
+
         rental.setWithdrawalDate(withdrawalDate);
 
         rentalDAO.update(rental);

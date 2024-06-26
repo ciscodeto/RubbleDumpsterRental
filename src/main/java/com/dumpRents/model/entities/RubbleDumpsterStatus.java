@@ -9,11 +9,7 @@ public enum RubbleDumpsterStatus {
     DISABLED("Desabilitado");
 
     private String label;
-
     RubbleDumpsterStatus(String label) {
         this.label = label;
     }
-
-    @Override
-    public String toString() {return label;}
 }

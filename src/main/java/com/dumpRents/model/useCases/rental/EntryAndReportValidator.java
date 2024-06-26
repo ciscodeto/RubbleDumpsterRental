@@ -1,4 +1,4 @@
-package com.dumpRents.model.useCases.report;
+package com.dumpRents.model.useCases.rental;
 
 import com.dumpRents.model.Notification;
 import com.dumpRents.model.Validator;

@@ -26,13 +26,17 @@ public class InactivateRubbleDumpsterUseCase {
 
         Integer serialNumber = rubbleDumpster.getSerialNumber();
 
-        if (rubbleDumpsterDAO.findOne(serialNumber).isEmpty())
+        if (rubbleDumpsterDAO.findOne(serialNumber).isEmpty()
+                && rubbleDumpster.getRental().getEndDate().isBefore(LocalDate.now()))
             throw new EntityAlreadyExistsException("Caçamba não localizada ou fora das condições necessárias para inativação!");
-        if  (rubbleDumpster.getStatus() != RubbleDumpsterStatus.AVAILABLE)
+        if  (rubbleDumpster.getStatus() != RubbleDumpsterStatus.RENTED)
             throw new IllegalArgumentException("Campo invalido");
+        if (rubbleDumpster.getRental().getEndDate().isAfter(LocalDate.now()))
+            throw new IllegalArgumentException("A data do término da locação foi atingida!");
 
-        rubbleDumpster.inactivateRubbleDumpster();
+        rubbleDumpster.setStatus(RubbleDumpsterStatus.DISABLED);
 
         return rubbleDumpsterDAO.update(rubbleDumpster);
     }
 }
+
