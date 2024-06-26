@@ -1,4 +1,4 @@
 package com.dumpRents.controller;
 
-public class RentalUIController {
+public class ReportUIControler {
 }

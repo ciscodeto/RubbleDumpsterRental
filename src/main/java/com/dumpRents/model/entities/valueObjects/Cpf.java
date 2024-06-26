@@ -1,15 +1,10 @@
 package com.dumpRents.model.entities.valueObjects;
 
-import java.util.Objects;
-
 public class Cpf {
     private String cpf;
 
     public Cpf(String cpf) {
         this.cpf = cpf;
-        if (!isValid()){
-            throw new IllegalArgumentException("Invalid CPF");
-        }
     }
 
     public boolean isValid() {
@@ -55,17 +50,8 @@ public class Cpf {
                 cpfNumeros.charAt(10) - '0' == segundoDigitoVerificador;
     }
 
-
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Cpf cpf1 = (Cpf) o;
-        return Objects.equals(cpf, cpf1.cpf);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(cpf);
+    public String toString() {
+        return cpf;
     }
 }
