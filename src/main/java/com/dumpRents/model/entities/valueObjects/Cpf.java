@@ -56,19 +56,6 @@ public class Cpf {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Cpf cpf1 = (Cpf) o;
-        return Objects.equals(cpf, cpf1.cpf);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(cpf);
-    }
-
-    @Override
     public String toString() {
         return cpf;
     }

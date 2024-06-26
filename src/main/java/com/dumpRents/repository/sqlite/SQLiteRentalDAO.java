@@ -131,16 +131,14 @@ public class  SQLiteRentalDAO implements RentalDAO {
         String  withdrawalDate = rs.getString("withdrawalDate");
         String endDate = rs.getString("endDate");
 
-
-        return  new Rental(LocalDate.parse(rs.getString("initialDate")),
-                RentalStatus.toEnum(rs.getString("rentalStatus")),
+        Rental rental = new Rental(rubbleDumpster.get(),client.get(),LocalDate.parse(rs.getString("initialDate")),
                 new Address(rs.getString("street"),
                         rs.getString("district"),
                         rs.getString("number"),
                         rs.getString("city"),
-                        new Cep(rs.getString("cep"))),
-                client.get(),
-                rubbleDumpster.get(),rs.getInt("ID"));
+                        new Cep(rs.getString("cep"))));
+        rental.setId(rs.getInt("ID"));
+        return rental;
     }
 
 

@@ -112,7 +112,11 @@ public class Rental {
         return withdrawalRequestDate;
     }
 
-    public String getAddress() {
+    public Address getAddress() {
+        return address;
+    }
+
+    public String getAddressString() {
         return address.toString();
     }
 

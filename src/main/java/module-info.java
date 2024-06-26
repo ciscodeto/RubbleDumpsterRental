@@ -6,6 +6,8 @@ module com.view.rubbledumpsterrental {
     requires java.management;
     requires jdk.sctp;
     requires org.apache.commons.csv;
+    requires java.sql;
+    requires org.xerial.sqlitejdbc;
 
 
     opens com.dumpRents.view to javafx.fxml;

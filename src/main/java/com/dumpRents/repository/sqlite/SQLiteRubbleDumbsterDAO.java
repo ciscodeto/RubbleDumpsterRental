@@ -50,7 +50,6 @@ public class SQLiteRubbleDumbsterDAO implements RubbleDumpsterDAO {
         return Optional.ofNullable(rubbleDumpster);
     }
 
-    @Override
     public Optional<RubbleDumpster> findOneBySerialNumber(int serialNumber) {
         String sql = "SELECT * from RubbleDumpster where serialNumber = ?";
         RubbleDumpster rubbleDumpster= null;
