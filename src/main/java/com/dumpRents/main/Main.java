@@ -72,7 +72,7 @@ public class Main {
 
         Address address = new Address("Rua Exemplo", "Bairro Exemplo", "123", "Cidade Exemplo", cep);
         Client client1 = new Client("Caboquinho",address, cpf1, phone1, phone2, emails,1);
-        Client client2 = new Client("Caboco",address, cpf3, phone3, phone4, emails,2);
+        Client client2 = new Client("Caboco",address, cpf2, phone3, phone4, emails,2);
 
         RubbleDumpster rubbleDumpster1 = new RubbleDumpster(1,50.0, 300.0, AVAILABLE);
         RubbleDumpster rubbleDumpster2 = new RubbleDumpster(2,60.0, 200.0, AVAILABLE);
