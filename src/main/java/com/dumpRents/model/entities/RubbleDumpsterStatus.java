@@ -1,6 +1,7 @@
 package com.dumpRents.model.entities;
 
 import javax.swing.*;
+import java.util.Arrays;
 
 public enum RubbleDumpsterStatus {
     AVAILABLE("Disponível"),
@@ -16,4 +17,11 @@ public enum RubbleDumpsterStatus {
 
     @Override
     public String toString() {return label;}
+
+    public static RubbleDumpsterStatus toEnum(String value) {
+        return Arrays.stream(RubbleDumpsterStatus.values())
+                .filter(c->value.equals(c.toString()))
+                .findAny()
+                .orElseThrow(IllegalArgumentException::new);
+    }
 }
