@@ -13,16 +13,17 @@ import com.dumpRents.model.useCases.rubbleDumpster.*;
 import com.dumpRents.persistence.dao.ClientDAO;
 import com.dumpRents.persistence.dao.RentalDAO;
 import com.dumpRents.persistence.dao.RubbleDumpsterDAO;
-import com.dumpRents.persistence.utils.DatabaseBuilder;
-import com.dumpRents.repository.InMemoryClientDAO;
-import com.dumpRents.repository.InMemoryRentalDAO;
-import com.dumpRents.repository.InMemoryRubbleDumpsterDAO;
+import com.dumpRents.repository.inMemory.InMemoryClientDAO;
+import com.dumpRents.repository.inMemory.InMemoryRentalDAO;
+import com.dumpRents.repository.inMemory.InMemoryRubbleDumpsterDAO;
+import com.dumpRents.repository.sqlite.DatabaseBuilder;
+import com.dumpRents.repository.sqlite.SQLiteClientDAO;
+import com.dumpRents.repository.sqlite.SQLiteRentalDAO;
+import com.dumpRents.repository.sqlite.SQLiteRubbleDumbsterDAO;
 import com.dumpRents.view.WindowLoader;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import static com.dumpRents.model.entities.RubbleDumpsterStatus.*;
 
@@ -50,7 +51,8 @@ public class Main {
 
     public static void main(String[] args) {
         configureInjection();
-        populateFakeDatabase();
+        //populateFakeDatabase();
+        setupDatabase();
         WindowLoader.main(args);
     }
 
@@ -92,25 +94,25 @@ public class Main {
     }
 
     private static void setupDatabase() {
-        DatabaseBuilder  dbBuilder = new DatabaseBuilder();
-//        dbBuilder.buildDatabaseIfMissing();
+        DatabaseBuilder dbBuilder = new DatabaseBuilder();
+        dbBuilder.buildDatabaseIfMissing();
     }
 
     private static void configureInjection() {
 
-        RubbleDumpsterDAO rubbleDumpsterDAO =    new InMemoryRubbleDumpsterDAO();
+        RubbleDumpsterDAO rubbleDumpsterDAO =    new SQLiteRubbleDumbsterDAO();
         activateRubbleDumpsterUseCase =          new ActivateRubbleDumpsterUseCase(rubbleDumpsterDAO);
         findRubbleDumpsterUseCase =              new FindRubbleDumpsterUseCase(rubbleDumpsterDAO);
         inactivateRubbleDumpsterUseCase =        new InactivateRubbleDumpsterUseCase(rubbleDumpsterDAO);
         insertRubbleDumpsterUseCase =            new InsertRubbleDumpsterUseCase(rubbleDumpsterDAO);
         updateRubbleDumpsterRentalPriceUseCase = new UpdateRubbleDumpsterRentalPriceUseCase(rubbleDumpsterDAO);
 
-        ClientDAO clientDAO =   new InMemoryClientDAO();
+        ClientDAO clientDAO =   new SQLiteClientDAO();
         insertClientUseCase =   new InsertClientUseCase(clientDAO);
         findClientUseCase =     new FindClientUseCase(clientDAO);
         updateClientUseCase =   new UpdateClientUseCase(clientDAO);
 
-        RentalDAO rentalDAO = (RentalDAO) new InMemoryRentalDAO();
+        RentalDAO rentalDAO = new SQLiteRentalDAO();
         insertRentalUseCase = new InsertRentalUseCase(rentalDAO,findRubbleDumpsterUseCase,findClientUseCase,rubbleDumpsterDAO);
         findRentalUseCase =   new FindRentalUseCase(rentalDAO);
         endRentalUseCase =    new EndRentalUseCase(rentalDAO,rubbleDumpsterDAO,findRubbleDumpsterUseCase);

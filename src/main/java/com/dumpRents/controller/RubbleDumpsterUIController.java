@@ -32,29 +32,20 @@ public class RubbleDumpsterUIController {
 
     private RubbleDumpster rubbleDumpster;
 
-    @FXML
-    private void initialize() {
-
-    }
-
 
     public void saveOrUpdate(ActionEvent actionEvent) throws IOException {
-        getEntityToView();
+        getEntityFromView();
         if(rubbleDumpster.getId() == null){
-            // TERRIVEL
-            rubbleDumpster.setStatus(RubbleDumpsterStatus.DISABLED);
-            activateRubbleDumpsterUseCase.activate(rubbleDumpster);
             try {
                 insertRubbleDumpsterUseCase.insert(rubbleDumpster);
             } catch (EntityAlreadyExistsException e) {
                 showAlert("Erro!", "ATENÇÃO!" + e.getMessage(), Alert.AlertType.ERROR);
+                return;
             }
-
         }else {
             updateRubbleDumpsterRentalPriceUseCase.update(rubbleDumpster, Double.valueOf(txtMonthlyAmount.getText()));
         }
         WindowLoader.setRoot("rubbleDumpsterManagementUI");
-
     }
 
     public void backToPreviousScene(ActionEvent actionEvent) throws IOException {
@@ -63,7 +54,7 @@ public class RubbleDumpsterUIController {
 
     public void setRubbleDumpster(RubbleDumpster rubbleDumpster, UIMode mode) {
         if(rubbleDumpster == null){
-            throw new IllegalArgumentException("Rubble dumpster cannot be null");
+            showAlert("Erro!", "ATENÇÃO!" + "A caçamba não pode ser nula", Alert.AlertType.ERROR);
         }
         this.rubbleDumpster = rubbleDumpster;
         setEntityIntoView();
@@ -73,13 +64,15 @@ public class RubbleDumpsterUIController {
         }
     }
 
-    private void getEntityToView(){
+    private void getEntityFromView(){
         if(rubbleDumpster == null){
-            rubbleDumpster = new RubbleDumpster();
+            rubbleDumpster = new RubbleDumpster(
+                    Integer.valueOf(txtSerialNumber.getText()),
+                    Double.valueOf(txtMinAmount.getText()),
+                    Double.valueOf(txtMonthlyAmount.getText()),
+                    RubbleDumpsterStatus.AVAILABLE
+            );
         }
-        rubbleDumpster.setSerialNumber(Integer.valueOf(txtSerialNumber.getText()));
-        rubbleDumpster.setMinAmount(Double.valueOf(txtMinAmount.getText()));
-        rubbleDumpster.setMonthlyAmount(Double.valueOf(txtMonthlyAmount.getText()));
     }
 
 
@@ -91,7 +84,7 @@ public class RubbleDumpsterUIController {
 
     private void configureViewModel() {
         btnSave.setText("Editar");
-        txtSerialNumber.setEditable(false);
+        txtSerialNumber.setDisable(true);
     }
 
     private void showAlert(String title, String message, Alert.AlertType type) {

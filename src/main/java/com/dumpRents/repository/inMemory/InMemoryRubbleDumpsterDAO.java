@@ -1,4 +1,4 @@
-package com.dumpRents.repository;
+package com.dumpRents.repository.inMemory;
 
 import com.dumpRents.model.entities.RubbleDumpster;
 import com.dumpRents.model.entities.RubbleDumpsterStatus;
@@ -25,6 +25,7 @@ public class InMemoryRubbleDumpsterDAO implements RubbleDumpsterDAO {
         return Optional.empty();
     }
 
+
     @Override
     public Integer create(RubbleDumpster rubbleDumpster) {
         idcounter ++;
@@ -40,7 +41,8 @@ public class InMemoryRubbleDumpsterDAO implements RubbleDumpsterDAO {
         return Optional.empty();
     }
 
-    public Optional<RubbleDumpster> findOneBySerialNumber(Integer serialNumber) {
+    @Override
+    public Optional<RubbleDumpster> findOneBySerialNumber(int serialNumber) {
         return db.values().stream()
                 .filter(rubbleDumpster -> rubbleDumpster.getSerialNumber().equals(serialNumber))
                 .findAny();

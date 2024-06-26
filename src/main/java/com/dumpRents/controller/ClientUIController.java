@@ -3,9 +3,11 @@ package com.dumpRents.controller;
 import com.dumpRents.model.entities.Client;
 import com.dumpRents.model.entities.RubbleDumpster;
 import com.dumpRents.model.entities.valueObjects.*;
+import com.dumpRents.persistence.utils.EntityAlreadyExistsException;
 import com.dumpRents.view.WindowLoader;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -51,14 +53,25 @@ public class ClientUIController {
     }
 
     public void saveOrUpdate(ActionEvent actionEvent) throws IOException {
-        getEntityToView();
-        boolean newClient = findClientUseCase.findClientByCpf(client.getCpf()).isEmpty();
+        getEntityFromView();
 
-        if (newClient) {
-            insertClientUseCase.insert(client);
+        if (client.getId() == null) {
+            try {
+                insertClientUseCase.insert(client);
+            } catch (EntityAlreadyExistsException e) {
+                e.printStackTrace();
+                showAlert("ERRO!", "ATENÇÃO!\n" + e.getMessage(), Alert.AlertType.ERROR);
+                return;
+            }
         }
         else {
-            updateClientUseCase.updateClient(client);
+            try {
+                updateClientUseCase.updateClient(client);
+            } catch (IllegalArgumentException e) {
+                showAlert("ERRO!", "ATENÇÃO!\n" + e.getMessage(), Alert.AlertType.ERROR);
+                return;
+            }
+
         }
         WindowLoader.setRoot("clientManagementUI");
 
@@ -76,42 +89,70 @@ public class ClientUIController {
         this.client = client;
         setEntityIntoView();
 
-        txtCep.setEditable(false);
 
         if (mode == UIMode.VIEW){
             configureViewModel();
         }
         if (mode == UIMode.UPDATE){
-            txtCpf.setEditable(false);
+            txtCpf.setDisable(true);
         }
     }
 
-    private void getEntityToView(){
+    private void getEntityFromView(){
         if(client == null){
             client = new Client();
         }
+
         client.setName(txtName.getText());
-        client.setCpf(new Cpf(txtCpf.getText()));
-        client.setPhone1(new Phone(txtTelephone1.getText()));
-        client.setPhone2(new Phone(txtTelephone2.getText()));
 
-        String emailsText = txtEmails.getText();
-        String[] emailsArray = emailsText.split("[ ,;]+");
-        List<Email> emails = new ArrayList<>();
-        for (String email : emailsArray) {
-            emails.add(new Email(email));
+        try {
+            client.setCpf(new Cpf(txtCpf.getText()));
+        } catch (IllegalArgumentException e) {
+            showAlert("ERRO!", "ATENÇÃO!\n" + e.getMessage(), Alert.AlertType.ERROR);
+            return;
         }
-        client.setEmailList(emails);
 
-        Address address = new Address(
-                txtStreet.getText(),
-                txtDistrict.getText(),
-                txtNumber.getText(),
-                txtCity.getText(),
-                new Cep(txtCep.getText())
-        );
+        try {
+            client.setPhone1(new Phone(txtTelephone1.getText()));
+        } catch (IllegalArgumentException e) {
+            showAlert("ERRO!", "ATENÇÃO!\n" + e.getMessage(), Alert.AlertType.ERROR);
+            return;
+        }
 
-        client.setAddress(address);
+        try {
+            client.setPhone2(new Phone(txtTelephone2.getText()));
+        } catch (IllegalArgumentException e) {
+            showAlert("ERRO!", "ATENÇÃO!\n" + e.getMessage(), Alert.AlertType.ERROR);
+            return;
+        }
+
+        try {
+            String emailsText = txtEmails.getText();
+            String[] emailsArray = emailsText.split("[ ,;]+");
+            List<Email> emails = new ArrayList<>();
+            for (String email : emailsArray) {
+                emails.add(new Email(email));
+            }
+            client.setEmailList(emails);
+        } catch (IllegalArgumentException e) {
+            showAlert("ERRO!", "ATENÇÃO!\n" + e.getMessage(), Alert.AlertType.ERROR);
+            return;
+        }
+
+
+        try {
+            Address address = new Address(
+                    txtStreet.getText(),
+                    txtDistrict.getText(),
+                    txtNumber.getText(),
+                    txtCity.getText(),
+                    new Cep(txtCep.getText())
+            );
+            client.setAddress(address);
+        } catch (IllegalArgumentException e) {
+            showAlert("ERRO!", "ATENÇÃO!\n" + e.getMessage(), Alert.AlertType.ERROR);
+            return;
+        }
     }
 
     private void setEntityIntoView(){
@@ -119,7 +160,10 @@ public class ClientUIController {
         txtCpf.setText(client.getCpf().toString());
         txtTelephone1.setText(client.getPhone1().toString());
         txtTelephone2.setText(client.getPhone2().toString());
-        txtEmails.setText(client.getEmailList().toString());
+
+        String emailsWithoutBrackets = client.getEmailList().toString().replace("[", "").replace("]", "");
+        txtEmails.setText(emailsWithoutBrackets);
+
         txtStreet.setText(client.getAddress().getStreet());
         txtDistrict.setText(client.getAddress().getDistrict());
         txtNumber.setText(client.getAddress().getNumber());
@@ -127,19 +171,28 @@ public class ClientUIController {
         txtCep.setText(client.getAddress().getCep().toString());
     }
 
+
     private void configureViewModel(){
         btnCancel.setText("Fechar");
         btnSaveOrUpdate.setVisible(false);
 
-        txtName.setEditable(false);
-        txtCpf.setEditable(false);
-        txtTelephone1.setEditable(false);
-        txtTelephone2.setEditable(false);
-        txtEmails.setEditable(false);
-        txtStreet.setEditable(false);
-        txtDistrict.setEditable(false);
-        txtNumber.setEditable(false);
-        txtCity.setEditable(false);
-        txtCep.setEditable(false);
+        txtName.setDisable(true);
+        txtCpf.setDisable(true);
+        txtTelephone1.setDisable(true);
+        txtTelephone2.setDisable(true);
+        txtEmails.setDisable(true);
+        txtStreet.setDisable(true);
+        txtDistrict.setDisable(true);
+        txtNumber.setDisable(true);
+        txtCity.setDisable(true);
+        txtCep.setDisable(true);
+    }
+
+    private void showAlert(String title, String message, Alert.AlertType type) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setContentText(message);
+        alert.setHeaderText(null);
+        alert.showAndWait();
     }
 }

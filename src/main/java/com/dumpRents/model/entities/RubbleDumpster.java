@@ -12,15 +12,18 @@ public class RubbleDumpster {
 
     public RubbleDumpster() {
     }
+
     public RubbleDumpster(Double minAmount, Double monthlyAmount, RubbleDumpsterStatus status) {
         this( null, minAmount,monthlyAmount, status);
     }
+
     public RubbleDumpster(Integer serialNumber, Double minAmount, Double monthlyAmount, RubbleDumpsterStatus status) {
         this.serialNumber = serialNumber;
         this.minAmount = minAmount;
         this.monthlyAmount = monthlyAmount;
         this.status = status;
     }
+
     public RubbleDumpster(Integer serialNumber, Double minAmount, Double monthlyAmount, RubbleDumpsterStatus status, Integer id) {
         this.serialNumber = serialNumber;
         this.minAmount = minAmount;
