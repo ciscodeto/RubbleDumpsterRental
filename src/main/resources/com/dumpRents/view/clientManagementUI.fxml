@@ -14,10 +14,13 @@
         <TableView fx:id="tableView" layoutX="13.0" layoutY="39.0" prefHeight="314.0" prefWidth="575.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="40.0">
             <columns>
                 <TableColumn fx:id="cName" prefWidth="182.0" text="Nome" />
-                <TableColumn fx:id="cCpf" prefWidth="87.0" text="Cpf" />
-                <TableColumn fx:id="cPhone1" prefWidth="158.0" text="Telefone 1" />
-                <TableColumn fx:id="cPhone2" prefWidth="154.0" text="Telefone 2" />
+                <TableColumn fx:id="cCpf" prefWidth="137.0" text="Cpf" />
+                <TableColumn fx:id="cPhone1" prefWidth="124.0" text="Telefone 1" />
+                <TableColumn fx:id="cPhone2" prefWidth="138.0" text="Telefone 2" />
             </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
         </TableView>
         <HBox layoutX="11.0" layoutY="353.0" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
             <children>
