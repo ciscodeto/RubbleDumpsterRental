@@ -55,6 +55,7 @@ public class Cpf {
                 cpfNumeros.charAt(10) - '0' == segundoDigitoVerificador;
     }
 
+
     @Override
     public String toString() {
         return cpf;
