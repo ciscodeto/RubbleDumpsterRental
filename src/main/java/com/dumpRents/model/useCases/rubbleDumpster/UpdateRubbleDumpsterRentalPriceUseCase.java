@@ -25,7 +25,7 @@ public class UpdateRubbleDumpsterRentalPriceUseCase {
 
         Integer serialNumber = rubbleDumpster.getSerialNumber();
 
-        if (rubbleDumpsterDAO.findOne(serialNumber).isEmpty())
+        if (rubbleDumpsterDAO.findOneBySerialNumber(serialNumber).isEmpty())
             throw new EntityAlreadyExistsException("Caçamba não localizada.");
 
         rubbleDumpster.UpdateRentalPrice(newMonthlyAmount);

@@ -52,6 +52,10 @@ public class Rental {
                 rubbleDumpster.getMinAmount();
     }
 
+    public void setEndDate(LocalDate endDate) {
+        this.endDate = endDate;
+    }
+
     public void endRental() {
         this.endDate = LocalDate.now();
         this.finalAmount = calculateFinalAmount();
