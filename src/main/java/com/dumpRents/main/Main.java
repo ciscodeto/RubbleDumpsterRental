@@ -124,7 +124,7 @@ public class Main {
 
         System.out.println(findClientUseCase.findOne(1).toString());
 
-        client.setName("Caboquinho");
+
         updateClientUseCase.updateClient(client);
         System.out.println(client.toString());
         rubbleDumpster.setStatus(RubbleDumpsterStatus.DISABLED);
