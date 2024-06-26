@@ -93,7 +93,7 @@ public class Rental {
     }
 
     public double getFinalAmount() {
-        return this.finalAmount;
+        return this.finalAmount != null ? this.finalAmount : 0.0;
     }
 
     public LocalDate getEndDate() {
