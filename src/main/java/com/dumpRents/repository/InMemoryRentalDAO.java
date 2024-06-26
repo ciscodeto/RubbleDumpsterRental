@@ -39,7 +39,7 @@ public class InMemoryRentalDAO implements RentalDAO {
     @Override
     public List<Rental> findRentalByPeriod(LocalDate initialDate, LocalDate endDate) {
         return db.values().stream()
-                .filter(rental -> !rental.getInitialDate().isBefore(initialDate) && !rental.getWithdrawalDate().isAfter(endDate))
+                .filter(rental -> !rental.getInitialDate().isBefore(initialDate) && !rental.getInitialDate().isAfter(endDate))
                 .collect(Collectors.toList());
     }
 

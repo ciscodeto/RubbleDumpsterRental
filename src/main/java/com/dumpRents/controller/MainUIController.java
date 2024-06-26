@@ -10,9 +10,10 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
@@ -99,7 +100,17 @@ public class MainUIController {
         }
     }
 
-    public void addRent(ActionEvent actionEvent) {
+    public void addRent(ActionEvent actionEvent) throws IOException {
+        WindowLoader.setRoot("rentalUI");
+    }
+
+    public void showRentalInMode(UIMode mode) throws IOException {
+        Rental selectedItem = tableView.getSelectionModel().getSelectedItem();
+        if(selectedItem != null) {
+            WindowLoader.setRoot("rentalUI");
+            RentalUIController controller = (RentalUIController) WindowLoader.getController();
+            controller.setRental(selectedItem, mode);
+        }
     }
 
     public void detailRental(ActionEvent actionEvent) {
@@ -112,22 +123,18 @@ public class MainUIController {
             return;
         }
 
-        try {
-            Cpf cpf = new Cpf(cpfText);
-            if (!cpf.isValid()) {
-                showAlert("Erro!", "CPF inválido", Alert.AlertType.ERROR);
-                return;
-            }
-            Optional<Client> client = findClientUseCase.findClientByCpf(cpf);
-            if (client.isPresent()) {
-                List<Rental> rentals = findRentalUseCase.findRentalByClient(client.get());
-                tableData.clear();
-                tableData.addAll(rentals);
-            } else {
-                showAlert("Erro!", "Cliente não encontrado", Alert.AlertType.ERROR);
-            }
-        } catch (IllegalArgumentException e) {
-            showAlert("Erro!", "CPF inválido: " + e.getMessage(), Alert.AlertType.ERROR);
+        Cpf cpf = new Cpf(cpfText);
+        if (!cpf.isValid()) {
+            showAlert("Erro!", "CPF inválido", Alert.AlertType.ERROR);
+            return;
+        }
+        Optional<Client> client = findClientUseCase.findClientByCpf(cpf);
+        if (client.isPresent()) {
+            List<Rental> rentals = findRentalUseCase.findRentalByClient(client.get());
+            tableData.clear();
+            tableData.addAll(rentals);
+        } else {
+            showAlert("Erro!", "Cliente não encontrado", Alert.AlertType.ERROR);
         }
     }
 
@@ -164,5 +171,4 @@ public class MainUIController {
         alert.setHeaderText(null);
         alert.showAndWait();
     }
-
 }
