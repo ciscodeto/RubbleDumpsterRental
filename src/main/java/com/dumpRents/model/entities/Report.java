@@ -26,4 +26,23 @@ public record Report (String serialNumber, String clientName, LocalDate initialD
 
         return sb.toString();
     }
+    public String getSerialNumber() {
+        return serialNumber;
+    }
+
+    public String getClientName() {
+        return clientName;
+    }
+
+    public LocalDate getInitialDate() {
+        return initialDate;
+    }
+
+    public LocalDate getWithdrawalDate() {
+        return withdrawalDate;
+    }
+
+    public Double getFinalAmount() {
+        return finalAmount;
+    }
 }
