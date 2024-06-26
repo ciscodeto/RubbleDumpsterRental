@@ -5,6 +5,10 @@ public class Email {
 
     public Email(String email) {
         this.email = email;
+
+        if (!isValid()){
+            throw new IllegalArgumentException("Invalid Email");
+        }
     }
 
     public boolean isValid() {

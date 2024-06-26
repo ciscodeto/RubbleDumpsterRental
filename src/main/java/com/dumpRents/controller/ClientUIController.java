@@ -3,9 +3,11 @@ package com.dumpRents.controller;
 import com.dumpRents.model.entities.Client;
 import com.dumpRents.model.entities.RubbleDumpster;
 import com.dumpRents.model.entities.valueObjects.*;
+import com.dumpRents.persistence.utils.EntityAlreadyExistsException;
 import com.dumpRents.view.WindowLoader;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -51,14 +53,24 @@ public class ClientUIController {
     }
 
     public void saveOrUpdate(ActionEvent actionEvent) throws IOException {
-        getEntityToView();
+        getEntityFromView();
         boolean newClient = findClientUseCase.findClientByCpf(client.getCpf()).isEmpty();
 
-        if (newClient) {
-            insertClientUseCase.insert(client);
+        if (client.getId() == null) {
+            try {
+                insertClientUseCase.insert(client);
+            } catch (EntityAlreadyExistsException e) {
+                e.printStackTrace();
+                showAlert("ERRO!", "ATENÇÃO!" + e.getMessage(), Alert.AlertType.ERROR);
+            }
         }
         else {
-            updateClientUseCase.updateClient(client);
+            try {
+                updateClientUseCase.updateClient(client);
+            } catch (IllegalArgumentException e) {
+                showAlert("ERRO!", "ATENÇÃO!" + e.getMessage(), Alert.AlertType.ERROR);
+            }
+
         }
         WindowLoader.setRoot("clientManagementUI");
 
@@ -86,32 +98,56 @@ public class ClientUIController {
         }
     }
 
-    private void getEntityToView(){
+    private void getEntityFromView(){
         if(client == null){
             client = new Client();
         }
+
         client.setName(txtName.getText());
-        client.setCpf(new Cpf(txtCpf.getText()));
-        client.setPhone1(new Phone(txtTelephone1.getText()));
-        client.setPhone2(new Phone(txtTelephone2.getText()));
 
-        String emailsText = txtEmails.getText();
-        String[] emailsArray = emailsText.split("[ ,;]+");
-        List<Email> emails = new ArrayList<>();
-        for (String email : emailsArray) {
-            emails.add(new Email(email));
+        try {
+            client.setCpf(new Cpf(txtCpf.getText()));
+        } catch (IllegalArgumentException e) {
+            showAlert("ERRO!", "ATENÇÃO!" + e.getMessage(), Alert.AlertType.ERROR);
         }
-        client.setEmailList(emails);
 
-        Address address = new Address(
-                txtStreet.getText(),
-                txtDistrict.getText(),
-                txtNumber.getText(),
-                txtCity.getText(),
-                new Cep(txtCep.getText())
-        );
+        try {
+            client.setPhone1(new Phone(txtTelephone1.getText()));
+        } catch (IllegalArgumentException e) {
+            showAlert("ERRO!", "ATENÇÃO!" + e.getMessage(), Alert.AlertType.ERROR);
+        }
 
-        client.setAddress(address);
+        try {
+            client.setPhone2(new Phone(txtTelephone2.getText()));
+        } catch (IllegalArgumentException e) {
+            showAlert("ERRO!", "ATENÇÃO!" + e.getMessage(), Alert.AlertType.ERROR);
+        }
+
+        try {
+            String emailsText = txtEmails.getText();
+            String[] emailsArray = emailsText.split("[ ,;]+");
+            List<Email> emails = new ArrayList<>();
+            for (String email : emailsArray) {
+                emails.add(new Email(email));
+            }
+            client.setEmailList(emails);
+        } catch (IllegalArgumentException e) {
+            showAlert("ERRO!", "ATENÇÃO!" + e.getMessage(), Alert.AlertType.ERROR);
+        }
+
+
+        try {
+            Address address = new Address(
+                    txtStreet.getText(),
+                    txtDistrict.getText(),
+                    txtNumber.getText(),
+                    txtCity.getText(),
+                    new Cep(txtCep.getText())
+            );
+            client.setAddress(address);
+        } catch (IllegalArgumentException e) {
+            showAlert("ERRO!", "ATENÇÃO!" + e.getMessage(), Alert.AlertType.ERROR);
+        }
     }
 
     private void setEntityIntoView(){
@@ -141,5 +177,13 @@ public class ClientUIController {
         txtNumber.setEditable(false);
         txtCity.setEditable(false);
         txtCep.setEditable(false);
+    }
+
+    private void showAlert(String title, String message, Alert.AlertType type) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setContentText(message);
+        alert.setHeaderText(null);
+        alert.showAndWait();
     }
 }

@@ -13,6 +13,10 @@ public class Address {
         this.number = number;
         this.city = city;
         this.cep = cep;
+
+        if (!isValid()){
+            throw new IllegalArgumentException("Invalid Address");
+        }
     }
 
     public boolean isValid() {

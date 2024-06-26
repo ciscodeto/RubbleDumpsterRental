@@ -5,6 +5,9 @@ public class Phone {
 
     public Phone(String phone) {
         this.phone = phone;
+        if (!isValid()){
+            throw new IllegalArgumentException("Invalid Phone Number");
+        }
     }
 
     public boolean isValid() {
