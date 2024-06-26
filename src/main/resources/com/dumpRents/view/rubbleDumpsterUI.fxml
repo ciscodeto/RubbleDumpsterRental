@@ -1,14 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.dumpRents.controller.RubbleDumpsterUIController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<?import javafx.scene.text.Font?>
+<AnchorPane prefHeight="178.0" prefWidth="619.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dumpRents.controller.RubbleDumpsterUIController">
+   <children>
+      <StackPane layoutX="0.0" layoutY="8.0" prefWidth="628.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Label text="Nova K-Samba">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+         </children>
+      </StackPane>
+      <HBox alignment="CENTER" layoutX="50.0" layoutY="52.0" prefHeight="35.0" prefWidth="519.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+         <children>
+            <Label text="Número de série" />
+            <TextField fx:id="txtSerialNumber" prefHeight="29.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.topAnchor="5.0" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="50.0" layoutY="90.0" prefHeight="35.0" prefWidth="519.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+         <children>
+            <Label text="Valor da diária" />
+            <TextField fx:id="txtMinAmount" prefHeight="29.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.topAnchor="5.0" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="50.0" layoutY="128.0" prefHeight="35.0" prefWidth="519.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+         <children>
+            <Label text="Valor da mensalidade" />
+            <TextField fx:id="txtMonthlyAmount" prefHeight="29.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.topAnchor="5.0" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="50.0" layoutY="166.0" prefHeight="35.0" prefWidth="519.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+         <children>
+            <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#backToPreviousScene" prefHeight="44.0" prefWidth="114.0" text="Cancelar" />
+            <Button fx:id="btnSave" mnemonicParsing="false" onAction="#saveOrUpdate" prefHeight="44.0" prefWidth="114.0" text="Salvar" />
+         </children>
+      </HBox>
+   </children>
 </AnchorPane>
+

@@ -9,4 +9,9 @@ public enum RentalStatus {
     RentalStatus(String label) {
         this.label = label;
     }
+
+    @Override
+    public String toString() {
+        return label;
+    }
 }

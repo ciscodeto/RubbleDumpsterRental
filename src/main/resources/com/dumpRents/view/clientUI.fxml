@@ -1,14 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.dumpRents.controller.ClientUIController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="496.0" prefWidth="646.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dumpRents.controller.ClientUIController">
+   <children>
+      <StackPane layoutX="0.0" layoutY="8.0" prefWidth="628.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Label text="Novo cliente">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+         </children>
+      </StackPane>
+      <VBox layoutX="5.0" layoutY="1.0" prefHeight="502.0" prefWidth="638.0" spacing="10.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="1.0">
+         <children>
+            <Label prefHeight="28.0" prefWidth="131.0">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label text="Informações pessoais">
+               <font>
+                  <Font name="Annapurna SIL Bold" size="20.0" />
+               </font>
+            </Label>
+            <HBox spacing="10.0">
+               <children>
+                  <Label text="Nome:" />
+                  <TextField fx:id="txtName" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <HBox spacing="10.0">
+               <children>
+                  <Label text="CPF:" />
+                  <TextField fx:id="txtCpf" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <Label text="Contato">
+               <font>
+                  <Font name="Annapurna SIL Bold" size="20.0" />
+               </font>
+            </Label>
+            <HBox spacing="10.0">
+               <children>
+                  <Label text="Telefone 1:" />
+                  <TextField fx:id="txtTelephone1" HBox.hgrow="ALWAYS" />
+                  <Label text="Telefone 2:" />
+                  <TextField fx:id="txtTelephone2" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <HBox spacing="10.0">
+               <children>
+                  <Label text="Emails (separar por vírgula):" />
+                  <TextArea fx:id="txtEmails" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <Label text="Endereço">
+               <font>
+                  <Font name="Annapurna SIL Bold" size="20.0" />
+               </font>
+            </Label>
+            <HBox spacing="10.0">
+               <children>
+                  <Label text="Cidade:" />
+                  <TextField fx:id="txtCity" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <HBox spacing="10.0">
+               <children>
+                  <Label text="Distrito:" />
+                  <TextField fx:id="txtDistrict" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <HBox spacing="10.0">
+               <children>
+                  <Label text="Rua:" />
+                  <TextField fx:id="txtStreet" HBox.hgrow="ALWAYS" />
+                  <Label text="Número:" />
+                  <TextField fx:id="txtNumber" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <HBox spacing="10.0">
+               <children>
+                  <Label text="CEP:" />
+                  <TextField fx:id="txtCep" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <HBox VBox.vgrow="ALWAYS" />
+            <HBox alignment="CENTER_RIGHT" spacing="5.0">
+               <children>
+                  <Button fx:id="btnCancel" minHeight="40.0" minWidth="100.0" onAction="#backToPreviousScene" prefHeight="40.0" prefWidth="100.0" text="Cancelar" />
+                  <Button fx:id="btnSaveOrUpdate" minHeight="40.0" minWidth="100.0" onAction="#saveOrUpdate" prefHeight="40.0" prefWidth="100.0" text="Salvar" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
 </AnchorPane>

@@ -1,4 +1,4 @@
-package com.dumpRents.model.useCases.export;
+package com.dumpRents.model.useCases.report;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
