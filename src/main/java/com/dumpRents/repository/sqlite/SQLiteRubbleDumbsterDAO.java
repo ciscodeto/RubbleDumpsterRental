@@ -139,7 +139,7 @@ public class SQLiteRubbleDumbsterDAO implements RubbleDumpsterDAO {
 
     @Override
     public boolean update(RubbleDumpster rubbleDumpster) {
-        String sql = "Update RubbleDumpster set serialNumber = ? , minAmountm = ?, "+
+        String sql = "Update RubbleDumpster set serialNumber = ? , minAmount = ?, "+
                 "MonthlyAmount = ? ,rubbleDumpsterStatus = ? where id = ?";
 
 
