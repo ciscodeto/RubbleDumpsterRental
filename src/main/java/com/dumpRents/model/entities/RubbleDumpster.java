@@ -10,6 +10,25 @@ public class RubbleDumpster {
 
     private Integer Id;
 
+    public RubbleDumpster() {
+    }
+    public RubbleDumpster(Double minAmount, Double monthlyAmount, RubbleDumpsterStatus status) {
+        this( null, minAmount,monthlyAmount, status);
+    }
+    public RubbleDumpster(Integer serialNumber, Double minAmount, Double monthlyAmount, RubbleDumpsterStatus status) {
+        this.serialNumber = serialNumber;
+        this.minAmount = minAmount;
+        this.monthlyAmount = monthlyAmount;
+        this.status = status;
+    }
+    public RubbleDumpster(Integer serialNumber, Double minAmount, Double monthlyAmount, RubbleDumpsterStatus status, Integer id) {
+        this.serialNumber = serialNumber;
+        this.minAmount = minAmount;
+        this.monthlyAmount = monthlyAmount;
+        this.status = status;
+        this.Id = id;
+    }
+
     public Integer getId() {
         return Id;
     }
@@ -51,35 +70,6 @@ public class RubbleDumpster {
     }
 
 
-
-
-    public RubbleDumpster() {
-    }
-    public RubbleDumpster(Double minAmount, Double monthlyAmount, RubbleDumpsterStatus status) {
-        this( null, minAmount,monthlyAmount, status);
-    }
-    public RubbleDumpster(Integer serialNumber, Double minAmount, Double monthlyAmount, RubbleDumpsterStatus status) {
-        this.serialNumber = serialNumber;
-        this.minAmount = minAmount;
-        this.monthlyAmount = monthlyAmount;
-        this.status = status;
-    }
-    public RubbleDumpster(Integer serialNumber, Double minAmount, Double monthlyAmount, RubbleDumpsterStatus status, Integer id) {
-        this.serialNumber = serialNumber;
-        this.minAmount = minAmount;
-        this.monthlyAmount = monthlyAmount;
-        this.status = status;
-        this.Id = id;
-    }
-
-    @Override
-    public String toString() {
-        return "RubbleDumpster serialNumber: " + this.getSerialNumber() +
-                ", minAmount: " + this.getMinAmount() +
-                ", monthlyAmount: " + this.getMonthlyAmount() +
-                ", status: " + this.getStatus();
-    }
-
     public void rentRubbleDumpster() {
         this.status = RENTED;
     }
@@ -108,6 +98,14 @@ public class RubbleDumpster {
     }
     public void activate(){
         this.status = AVAILABLE;
+    }
+
+    @Override
+    public String toString() {
+        return "RubbleDumpster serialNumber: " + this.getSerialNumber() +
+                ", minAmount: " + this.getMinAmount() +
+                ", monthlyAmount: " + this.getMonthlyAmount() +
+                ", status: " + this.getStatus();
     }
 }
 

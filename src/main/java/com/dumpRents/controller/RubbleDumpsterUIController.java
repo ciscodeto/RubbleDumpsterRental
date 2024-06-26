@@ -1,5 +1,6 @@
 package com.dumpRents.controller;
 
+import com.dumpRents.model.entities.RubbleDumpsterStatus;
 import javafx.event.ActionEvent;
 
 import com.dumpRents.model.entities.Client;
@@ -12,8 +13,7 @@ import javafx.scene.control.TextField;
 
 import java.io.IOException;
 
-import static com.dumpRents.main.Main.insertRubbleDumpsterUseCase;
-import static com.dumpRents.main.Main.updateRubbleDumpsterRentalPriceUseCase;
+import static com.dumpRents.main.Main.*;
 
 public class RubbleDumpsterUIController {
 
@@ -39,6 +39,9 @@ public class RubbleDumpsterUIController {
     public void saveOrUpdate(ActionEvent actionEvent) throws IOException {
         getEntityToView();
         if(rubbleDumpster.getId() == null){
+            // TERRIVEL
+            rubbleDumpster.setStatus(RubbleDumpsterStatus.DISABLED);
+            activateRubbleDumpsterUseCase.activate(rubbleDumpster);
             insertRubbleDumpsterUseCase.insert(rubbleDumpster);
         }else {
             updateRubbleDumpsterRentalPriceUseCase.update(rubbleDumpster, Double.valueOf(txtMonthlyAmount.getText()));
