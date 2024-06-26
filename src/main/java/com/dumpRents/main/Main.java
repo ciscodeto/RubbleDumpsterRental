@@ -100,19 +100,19 @@ public class Main {
 
     private static void configureInjection() {
 
-        RubbleDumpsterDAO rubbleDumpsterDAO =    new SQLiteRubbleDumbsterDAO();
+        RubbleDumpsterDAO rubbleDumpsterDAO =    new InMemoryRubbleDumpsterDAO();
         activateRubbleDumpsterUseCase =          new ActivateRubbleDumpsterUseCase(rubbleDumpsterDAO);
         findRubbleDumpsterUseCase =              new FindRubbleDumpsterUseCase(rubbleDumpsterDAO);
         inactivateRubbleDumpsterUseCase =        new InactivateRubbleDumpsterUseCase(rubbleDumpsterDAO);
         insertRubbleDumpsterUseCase =            new InsertRubbleDumpsterUseCase(rubbleDumpsterDAO);
         updateRubbleDumpsterRentalPriceUseCase = new UpdateRubbleDumpsterRentalPriceUseCase(rubbleDumpsterDAO);
 
-        ClientDAO clientDAO =   new SQLiteClientDAO();
+        ClientDAO clientDAO =   new InMemoryClientDAO();
         insertClientUseCase =   new InsertClientUseCase(clientDAO);
         findClientUseCase =     new FindClientUseCase(clientDAO);
         updateClientUseCase =   new UpdateClientUseCase(clientDAO);
 
-        RentalDAO rentalDAO = new SQLiteRentalDAO();
+        RentalDAO rentalDAO = new InMemoryRentalDAO();
         insertRentalUseCase = new InsertRentalUseCase(rentalDAO,findRubbleDumpsterUseCase,findClientUseCase,rubbleDumpsterDAO);
         findRentalUseCase =   new FindRentalUseCase(rentalDAO);
         endRentalUseCase =    new EndRentalUseCase(rentalDAO,rubbleDumpsterDAO,findRubbleDumpsterUseCase);
