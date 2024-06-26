@@ -25,6 +25,8 @@ public class Rental {
         this.address = address;
     }
 
+    public Rental() {};
+
     @Override
     public String toString() {
         return "Rental{" +
