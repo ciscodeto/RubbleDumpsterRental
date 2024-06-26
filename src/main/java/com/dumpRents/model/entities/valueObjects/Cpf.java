@@ -1,5 +1,7 @@
 package com.dumpRents.model.entities.valueObjects;
 
+import java.util.Objects;
+
 public class Cpf {
     private String cpf;
 
@@ -56,5 +58,18 @@ public class Cpf {
     @Override
     public String toString() {
         return cpf;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Cpf cpf1 = (Cpf) o;
+        return Objects.equals(cpf, cpf1.cpf);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(cpf);
     }
 }
