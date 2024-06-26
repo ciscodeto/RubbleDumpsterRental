@@ -2,6 +2,7 @@ package com.dumpRents.controller;
 
 import com.dumpRents.model.entities.RubbleDumpster;
 import com.dumpRents.model.entities.RubbleDumpsterStatus;
+import com.dumpRents.persistence.utils.EntityAlreadyExistsException;
 import com.dumpRents.view.WindowLoader;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -75,8 +76,8 @@ public class RubbleDumpsterManagementUIController {
         if (selectedItem != null) {
             try {
                 inactivateRubbleDumpsterUseCase.inactivate(selectedItem);
-            } catch (IllegalArgumentException e) {
-                showAlert("Erro!", "ATENÇÃO!" + e.getMessage(), Alert.AlertType.ERROR);
+            } catch (IllegalArgumentException | EntityAlreadyExistsException e) {
+                showAlert("Erro!", "ATENÇÃO!\n" + e.getMessage(), Alert.AlertType.ERROR);
             }
             loadDataAndShow();
         }
@@ -87,10 +88,9 @@ public class RubbleDumpsterManagementUIController {
         if (selectedItem != null) {
             try {
                 activateRubbleDumpsterUseCase.activate(selectedItem);
-            } catch (IllegalArgumentException e) {
+            } catch (IllegalArgumentException | EntityAlreadyExistsException e) {
                 showAlert("Erro!", "ATENÇÃO!" + e.getMessage(), Alert.AlertType.ERROR);
             }
-
             loadDataAndShow();
         }
     }

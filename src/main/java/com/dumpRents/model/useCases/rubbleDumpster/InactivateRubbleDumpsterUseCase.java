@@ -29,7 +29,7 @@ public class InactivateRubbleDumpsterUseCase {
         if (rubbleDumpsterDAO.findOne(serialNumber).isEmpty())
             throw new EntityAlreadyExistsException("Caçamba não localizada ou fora das condições necessárias para inativação!");
         if  (rubbleDumpster.getStatus() != RubbleDumpsterStatus.AVAILABLE)
-            throw new IllegalArgumentException("Campo invalido");
+            throw new IllegalArgumentException("Caçamba não disponivel");
 
         rubbleDumpster.inactivateRubbleDumpster();
 
