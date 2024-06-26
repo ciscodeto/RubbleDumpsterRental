@@ -89,13 +89,12 @@ public class ClientUIController {
         this.client = client;
         setEntityIntoView();
 
-        txtCep.setEditable(false);
 
         if (mode == UIMode.VIEW){
             configureViewModel();
         }
         if (mode == UIMode.UPDATE){
-            txtCpf.setEditable(false);
+            txtCpf.setDisable(true);
         }
     }
 
@@ -177,16 +176,16 @@ public class ClientUIController {
         btnCancel.setText("Fechar");
         btnSaveOrUpdate.setVisible(false);
 
-        txtName.setEditable(false);
-        txtCpf.setEditable(false);
-        txtTelephone1.setEditable(false);
-        txtTelephone2.setEditable(false);
-        txtEmails.setEditable(false);
-        txtStreet.setEditable(false);
-        txtDistrict.setEditable(false);
-        txtNumber.setEditable(false);
-        txtCity.setEditable(false);
-        txtCep.setEditable(false);
+        txtName.setDisable(true);
+        txtCpf.setDisable(true);
+        txtTelephone1.setDisable(true);
+        txtTelephone2.setDisable(true);
+        txtEmails.setDisable(true);
+        txtStreet.setDisable(true);
+        txtDistrict.setDisable(true);
+        txtNumber.setDisable(true);
+        txtCity.setDisable(true);
+        txtCep.setDisable(true);
     }
 
     private void showAlert(String title, String message, Alert.AlertType type) {
