@@ -51,8 +51,8 @@ public class Main {
 
     public static void main(String[] args) {
         configureInjection();
-        //populateFakeDatabase();
-        setupDatabase();
+        populateFakeDatabase();
+        //setupDatabase();
         WindowLoader.main(args);
     }
 
