@@ -75,8 +75,8 @@ public class SQLiteRubbleDumbsterDAO implements RubbleDumpsterDAO {
 
         return new RubbleDumpster(
                 rs.getInt("serialNumber"),
-                monthlyAmount,
                 minAmount,
+                monthlyAmount,
                 RubbleDumpsterStatus.toEnum(rs.getString("rubbleDumpsterStatus")),
                 rs.getInt("ID"));
 
@@ -140,7 +140,7 @@ public class SQLiteRubbleDumbsterDAO implements RubbleDumpsterDAO {
 
     @Override
     public boolean update(RubbleDumpster rubbleDumpster) {
-        String sql = "Update RubbleDumpster set serialNumber = ? , minAmount = ?, "+
+        String sql = "Update RubbleDumpster set serialNumber = ? , minAmount = ?,"+
                 "MonthlyAmount = ? ,rubbleDumpsterStatus = ? where id = ?";
 
 
