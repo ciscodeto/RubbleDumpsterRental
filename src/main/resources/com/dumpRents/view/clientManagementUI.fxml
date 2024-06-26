@@ -28,10 +28,10 @@
         </TableView>
         <HBox layoutX="11.0" layoutY="353.0" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
             <children>
-                <Button mnemonicParsing="false" onAction="#comeBack" prefHeight="45.0" prefWidth="77.0" text="Voltar" />
+                <Button mnemonicParsing="false" onAction="#comeBack" prefHeight="35.0" prefWidth="77.0" text="Voltar" />
                 <Pane HBox.hgrow="ALWAYS" />
-                <Button mnemonicParsing="false" onAction="#updateClient" prefHeight="36.0" prefWidth="76.0" text="Editar" />
                 <Button mnemonicParsing="false" onAction="#addClient" prefHeight="37.0" prefWidth="82.0" text="Adicionar" />
+                <Button mnemonicParsing="false" onAction="#updateClient" prefHeight="36.0" prefWidth="76.0" text="Editar" />
                 <Button mnemonicParsing="false" onAction="#showClient" prefHeight="37.0" prefWidth="89.0" text="Detalhar" />
             </children>
         </HBox>
