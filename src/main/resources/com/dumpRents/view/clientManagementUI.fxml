@@ -4,13 +4,17 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="602.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dumpRents.controller.ClientManagementUIController">
+<AnchorPane prefHeight="428.0" prefWidth="628.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dumpRents.controller.ClientManagementUIController">
     <children>
-        <Label layoutX="250.0" layoutY="8.0" text="Clientes" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
-            <font>
-                <Font name="System Bold" size="22.0" />
-            </font>
-        </Label>
+        <StackPane layoutX="0.0" layoutY="8.0" prefWidth="628.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <children>
+                <Label text="Clientes">
+                    <font>
+                        <Font name="System Bold" size="22.0" />
+                    </font>
+                </Label>
+            </children>
+        </StackPane>
         <TableView fx:id="tableView" layoutX="13.0" layoutY="39.0" prefHeight="314.0" prefWidth="575.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="40.0">
             <columns>
                 <TableColumn fx:id="cName" prefWidth="182.0" text="Nome" />
@@ -18,16 +22,17 @@
                 <TableColumn fx:id="cPhone1" prefWidth="124.0" text="Telefone 1" />
                 <TableColumn fx:id="cPhone2" prefWidth="138.0" text="Telefone 2" />
             </columns>
-         <columnResizePolicy>
-            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-         </columnResizePolicy>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+            </columnResizePolicy>
         </TableView>
         <HBox layoutX="11.0" layoutY="353.0" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
             <children>
-                <Button mnemonicParsing="false" onAction="#comeBack" text="Voltar" />
-                <Button mnemonicParsing="false" onAction="#addClient" text="Adicionar" />
-                <Button mnemonicParsing="false" onAction="#updateClient" text="Editar" />
-                <Button mnemonicParsing="false" onAction="#showClient" text="Detalhar" />
+                <Button mnemonicParsing="false" onAction="#comeBack" prefHeight="35.0" prefWidth="77.0" text="Voltar" />
+                <Pane HBox.hgrow="ALWAYS" />
+                <Button mnemonicParsing="false" onAction="#addClient" prefHeight="37.0" prefWidth="82.0" text="Adicionar" />
+                <Button mnemonicParsing="false" onAction="#updateClient" prefHeight="36.0" prefWidth="76.0" text="Editar" />
+                <Button mnemonicParsing="false" onAction="#showClient" prefHeight="37.0" prefWidth="89.0" text="Detalhar" />
             </children>
         </HBox>
     </children>

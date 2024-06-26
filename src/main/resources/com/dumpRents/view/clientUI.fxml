@@ -4,11 +4,20 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="452.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dumpRents.controller.ClientUIController">
+<AnchorPane prefHeight="496.0" prefWidth="646.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dumpRents.controller.ClientUIController">
    <children>
-      <VBox layoutX="20.0" layoutY="20.0" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+      <StackPane layoutX="0.0" layoutY="8.0" prefWidth="628.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Label text="CLIENTE">
+            <Label text="Novo cliente">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+         </children>
+      </StackPane>
+      <VBox layoutX="5.0" layoutY="1.0" prefHeight="502.0" prefWidth="638.0" spacing="10.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="1.0">
+         <children>
+            <Label prefHeight="28.0" prefWidth="131.0">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
@@ -80,10 +89,11 @@
                   <TextField fx:id="txtCep" HBox.hgrow="ALWAYS" />
                </children>
             </HBox>
-            <HBox alignment="CENTER_RIGHT" prefHeight="55.0" prefWidth="581.0" spacing="10.0">
+            <HBox VBox.vgrow="ALWAYS" />
+            <HBox alignment="CENTER_RIGHT" spacing="5.0">
                <children>
-                  <Button fx:id="btnSaveOrUpdate" onAction="#saveOrUpdate" text="Salvar" />
-                  <Button fx:id="btnCancel" onAction="#backToPreviousScene" text="Cancelar" />
+                  <Button fx:id="btnCancel" minHeight="40.0" minWidth="100.0" onAction="#backToPreviousScene" prefHeight="40.0" prefWidth="100.0" text="Cancelar" />
+                  <Button fx:id="btnSaveOrUpdate" minHeight="40.0" minWidth="100.0" onAction="#saveOrUpdate" prefHeight="40.0" prefWidth="100.0" text="Salvar" />
                </children>
             </HBox>
          </children>

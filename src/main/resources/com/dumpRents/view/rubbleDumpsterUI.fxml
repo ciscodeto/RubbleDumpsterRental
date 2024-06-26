@@ -3,31 +3,42 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="177.0" prefWidth="619.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dumpRents.controller.RubbleDumpsterUIController">
+<?import javafx.scene.text.Font?>
+<AnchorPane prefHeight="178.0" prefWidth="619.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dumpRents.controller.RubbleDumpsterUIController">
    <children>
-      <AnchorPane layoutX="12.0" layoutY="52.0" prefHeight="35.0" prefWidth="576.0">
+      <StackPane layoutX="0.0" layoutY="8.0" prefWidth="628.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <TextField fx:id="txtMinAmount" layoutX="160.0" layoutY="5.0" prefHeight="29.0" prefWidth="430.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="-14.0" AnchorPane.topAnchor="5.0" />
-            <Label layoutY="3.0" text="Valor da diária" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
+            <Label text="Nova K-Samba">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
          </children>
-      </AnchorPane>
-      <AnchorPane layoutX="12.0" layoutY="90.0" prefHeight="35.0" prefWidth="576.0">
+      </StackPane>
+      <HBox alignment="CENTER" layoutX="50.0" layoutY="52.0" prefHeight="35.0" prefWidth="519.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
          <children>
-            <TextField fx:id="txtMonthlyAmount" layoutX="160.0" layoutY="5.0" prefHeight="29.0" prefWidth="430.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="-14.0" AnchorPane.topAnchor="5.0" />
-            <Label layoutY="3.0" text="Valor da mensalidade" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
+            <Label text="Número de série" />
+            <TextField fx:id="txtSerialNumber" prefHeight="29.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.topAnchor="5.0" />
          </children>
-      </AnchorPane>
-      <AnchorPane layoutX="12.0" layoutY="14.0" prefHeight="35.0" prefWidth="576.0">
+      </HBox>
+      <HBox alignment="CENTER" layoutX="50.0" layoutY="90.0" prefHeight="35.0" prefWidth="519.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
          <children>
-            <TextField fx:id="txtSerialNumber" layoutX="160.0" layoutY="5.0" prefHeight="29.0" prefWidth="430.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="-14.0" AnchorPane.topAnchor="5.0" />
-            <Label layoutY="3.0" text="Número de série" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
+            <Label text="Valor da diária" />
+            <TextField fx:id="txtMinAmount" prefHeight="29.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.topAnchor="5.0" />
          </children>
-      </AnchorPane>
-      <AnchorPane layoutX="14.0" layoutY="128.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="576.0" AnchorPane.bottomAnchor="10.0">
+      </HBox>
+      <HBox alignment="CENTER" layoutX="50.0" layoutY="128.0" prefHeight="35.0" prefWidth="519.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
          <children>
-            <Button fx:id="btnSave" layoutX="474.0" layoutY="5.0" mnemonicParsing="false" onAction="#saveOrUpdate" prefHeight="23.0" prefWidth="114.0" text="Salvar" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="-12.0" AnchorPane.topAnchor="5.0" />
-            <Button fx:id="btnCancel" layoutY="5.0" mnemonicParsing="false" onAction="#backToPreviousScene" prefHeight="23.0" prefWidth="114.0" text="Cancelar" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="5.0" />
+            <Label text="Valor da mensalidade" />
+            <TextField fx:id="txtMonthlyAmount" prefHeight="29.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.topAnchor="5.0" />
          </children>
-      </AnchorPane>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="50.0" layoutY="166.0" prefHeight="35.0" prefWidth="519.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+         <children>
+            <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#backToPreviousScene" prefHeight="44.0" prefWidth="114.0" text="Cancelar" />
+            <Button fx:id="btnSave" mnemonicParsing="false" onAction="#saveOrUpdate" prefHeight="44.0" prefWidth="114.0" text="Salvar" />
+         </children>
+      </HBox>
    </children>
 </AnchorPane>
+
