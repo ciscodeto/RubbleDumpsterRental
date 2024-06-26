@@ -59,6 +59,7 @@ public class Main {
 
         Cpf cpf1 = new Cpf("960.647.320-16");
         Cpf cpf2 = new Cpf("605.647.070-90");
+        Cpf cpf3 = new Cpf("960.647.320-16");
 
         Phone phone1 = new Phone("16994580485");
         Phone phone2 = new Phone("16994580485");

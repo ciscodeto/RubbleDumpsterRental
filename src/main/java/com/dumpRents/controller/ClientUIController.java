@@ -14,8 +14,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.dumpRents.main.Main.findClientUseCase;
-import static com.dumpRents.main.Main.insertClientUseCase;
+import static com.dumpRents.main.Main.*;
 
 public class ClientUIController {
 
@@ -57,6 +56,9 @@ public class ClientUIController {
 
         if (newClient) {
             insertClientUseCase.insert(client);
+        }
+        else {
+            updateClientUseCase.updateClient(client);
         }
         WindowLoader.setRoot("clientManagementUI");
 

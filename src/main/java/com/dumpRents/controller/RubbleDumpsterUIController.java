@@ -1,5 +1,7 @@
 package com.dumpRents.controller;
 
+import com.dumpRents.model.entities.RubbleDumpsterStatus;
+import com.dumpRents.persistence.utils.EntityAlreadyExistsException;
 import javafx.event.ActionEvent;
 
 import com.dumpRents.model.entities.Client;
@@ -7,13 +9,13 @@ import com.dumpRents.model.entities.RubbleDumpster;
 import com.dumpRents.view.WindowLoader;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
 
-import static com.dumpRents.main.Main.insertRubbleDumpsterUseCase;
-import static com.dumpRents.main.Main.updateRubbleDumpsterRentalPriceUseCase;
+import static com.dumpRents.main.Main.*;
 
 public class RubbleDumpsterUIController {
 
@@ -39,7 +41,15 @@ public class RubbleDumpsterUIController {
     public void saveOrUpdate(ActionEvent actionEvent) throws IOException {
         getEntityToView();
         if(rubbleDumpster.getId() == null){
-            insertRubbleDumpsterUseCase.insert(rubbleDumpster);
+            // TERRIVEL
+            rubbleDumpster.setStatus(RubbleDumpsterStatus.DISABLED);
+            activateRubbleDumpsterUseCase.activate(rubbleDumpster);
+            try {
+                insertRubbleDumpsterUseCase.insert(rubbleDumpster);
+            } catch (EntityAlreadyExistsException e) {
+                showAlert("Erro!", "ATENÇÃO!" + e.getMessage(), Alert.AlertType.ERROR);
+            }
+
         }else {
             updateRubbleDumpsterRentalPriceUseCase.update(rubbleDumpster, Double.valueOf(txtMonthlyAmount.getText()));
         }
@@ -82,5 +92,13 @@ public class RubbleDumpsterUIController {
     private void configureViewModel() {
         btnSave.setText("Editar");
         txtSerialNumber.setEditable(false);
+    }
+
+    private void showAlert(String title, String message, Alert.AlertType type) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setContentText(message);
+        alert.setHeaderText(null);
+        alert.showAndWait();
     }
 }

@@ -5,31 +5,35 @@
 <?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dumpRents.controller.RubbleDumpsterManagementUIController">
-   <children>
-      <TableView fx:id="tableView" layoutX="11.2" layoutY="41.0" prefHeight="289.0" prefWidth="578.0" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="40.0">
-        <columns>
-          <TableColumn fx:id="cSerialNumber" prefWidth="118.40002286434174" text="Número de Série" />
-          <TableColumn fx:id="cMinAmount" prefWidth="109.59998321533203" text="Valor da Diária" />
-            <TableColumn fx:id="cMonthlyAmount" prefWidth="141.5999755859375" text="Valor da Mensalidade" />
-            <TableColumn fx:id="cStatus" prefWidth="126.4000244140625" text="Estado da caçamba" />
-        </columns>
-         <columnResizePolicy>
-            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-         </columnResizePolicy>
-      </TableView>
-      <Label layoutX="246.0" layoutY="9.0" prefHeight="27.0" prefWidth="109.0" text="Caçambas" textAlignment="CENTER">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Label>
-      <AnchorPane layoutX="14.0" layoutY="346.0" prefWidth="572.0" AnchorPane.bottomAnchor="18.799999999999997" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
-         <children>
-            <Button fx:id="btnInactivateRubbleDumpster" layoutX="245.0" layoutY="5.0" mnemonicParsing="false" onAction="#inactivateRubbleDumpster" text="Desabilitar" textFill="#ff0606" AnchorPane.bottomAnchor="5.0" AnchorPane.topAnchor="5.0" />
-            <Button fx:id="btnInsertRubbleDumpster" layoutX="429.0" layoutY="5.0" mnemonicParsing="false" onAction="#insertRubbleDumpster" text="Adicionar Caçamba" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="5.0" />
-            <Button fx:id="btnComeBack" layoutX="-1.0" layoutY="5.0" mnemonicParsing="false" onAction="#comeBack" text="Voltar" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="-1.0" AnchorPane.topAnchor="5.0" />
-            <Button fx:id="btnUpdateRubbleDumpster" layoutX="354.0" layoutY="5.0" mnemonicParsing="false" onAction="#updateRubbleDumbster" text="Editar" AnchorPane.bottomAnchor="5.0" AnchorPane.topAnchor="5.0" />
-            <Button layoutX="176.0" layoutY="5.0" mnemonicParsing="false" onAction="#activateRubbleDumpster" text="Ativar" textFill="#42c63b" />
-         </children>
-      </AnchorPane>
-   </children>
+    <children>
+        <StackPane layoutX="0.0" layoutY="8.0" prefWidth="628.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <children>
+                <Label text="K-Samba">
+                    <font>
+                        <Font name="System Bold" size="22.0" />
+                    </font>
+                </Label>
+            </children>
+        </StackPane>
+        <TableView fx:id="tableView" layoutX="11.2" layoutY="41.0" prefHeight="289.0" prefWidth="578.0" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="40.0">
+            <columns>
+                <TableColumn fx:id="cSerialNumber" prefWidth="118.40002286434174" text="Número de Série" />
+                <TableColumn fx:id="cMinAmount" prefWidth="109.59998321533203" text="Valor da Diária" />
+                <TableColumn fx:id="cMonthlyAmount" prefWidth="141.5999755859375" text="Valor da Mensalidade" />
+                <TableColumn fx:id="cStatus" prefWidth="126.4000244140625" text="Estado da Caçamba" />
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+            </columnResizePolicy>
+        </TableView>
+        <HBox alignment="CENTER" layoutX="14.0" layoutY="346.0" prefWidth="572.0" spacing="10.0" AnchorPane.bottomAnchor="18.799999999999997" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
+            <children>
+                <Button fx:id="btnActivateRubbleDumpster" mnemonicParsing="false" onAction="#activateRubbleDumpster" prefHeight="34.0" prefWidth="89.0" text="Ativar" textFill="#42c63b" />
+                <Button fx:id="btnUpdateRubbleDumpster" mnemonicParsing="false" onAction="#updateRubbleDumbster" prefHeight="32.0" prefWidth="95.0" text="Editar" />
+                <Button fx:id="btnInactivateRubbleDumpster" mnemonicParsing="false" onAction="#inactivateRubbleDumpster" prefHeight="33.0" prefWidth="89.0" text="Desabilitar" textFill="#ff0606" />
+            </children>
+        </HBox>
+        <Button fx:id="btnInsertRubbleDumpster" layoutX="449.0" layoutY="348.0" onAction="#insertRubbleDumpster" prefHeight="32.0" prefWidth="145.0" text="Adicionar Caçamba" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="6.0" />
+        <Button fx:id="btnComeBack" layoutX="12.0" layoutY="341.0" onAction="#comeBack" prefHeight="40.0" prefWidth="74.0" text="Voltar" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="12.0" />
+    </children>
 </AnchorPane>

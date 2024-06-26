@@ -7,6 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -72,7 +73,11 @@ public class RubbleDumpsterManagementUIController {
     public void inactivateRubbleDumpster(ActionEvent actionEvent) {
         RubbleDumpster selectedItem = (RubbleDumpster) tableView.getSelectionModel().getSelectedItem();
         if (selectedItem != null) {
-            inactivateRubbleDumpsterUseCase.inactivate(selectedItem);
+            try {
+                inactivateRubbleDumpsterUseCase.inactivate(selectedItem);
+            } catch (IllegalArgumentException e) {
+                showAlert("Erro!", "ATENÇÃO!" + e.getMessage(), Alert.AlertType.ERROR);
+            }
             loadDataAndShow();
         }
     }
@@ -80,7 +85,12 @@ public class RubbleDumpsterManagementUIController {
     public void activateRubbleDumpster(ActionEvent actionEvent) {
         RubbleDumpster selectedItem = (RubbleDumpster) tableView.getSelectionModel().getSelectedItem();
         if (selectedItem != null) {
-            activateRubbleDumpsterUseCase.activate(selectedItem);
+            try {
+                activateRubbleDumpsterUseCase.activate(selectedItem);
+            } catch (IllegalArgumentException e) {
+                showAlert("Erro!", "ATENÇÃO!" + e.getMessage(), Alert.AlertType.ERROR);
+            }
+
             loadDataAndShow();
         }
     }
@@ -95,6 +105,14 @@ public class RubbleDumpsterManagementUIController {
 
     public void comeBack(ActionEvent actionEvent) throws IOException {
         WindowLoader.setRoot("mainUI");
+    }
+
+    private void showAlert(String title, String message, Alert.AlertType type) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setContentText(message);
+        alert.setHeaderText(null);
+        alert.showAndWait();
     }
 
 }
