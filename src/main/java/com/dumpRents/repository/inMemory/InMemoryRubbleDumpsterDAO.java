@@ -1,4 +1,4 @@
-package com.dumpRents.repository;
+package com.dumpRents.repository.inMemory;
 
 import com.dumpRents.model.entities.RubbleDumpster;
 import com.dumpRents.model.entities.RubbleDumpsterStatus;
