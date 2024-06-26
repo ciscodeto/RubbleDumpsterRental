@@ -5,7 +5,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="405.0" prefWidth="591.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dumpRents.controller.RentalUIController">
+<AnchorPane prefHeight="405.0" prefWidth="591.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dumpRents.controller.RentalUIController">
    <children>
       <AnchorPane layoutX="7.0" layoutY="133.0" prefHeight="35.0" prefWidth="576.0">
          <children>
@@ -33,13 +33,13 @@
       </AnchorPane>
       <AnchorPane layoutX="7.0" layoutY="247.0" prefHeight="35.0" prefWidth="576.0">
          <children>
-            <TextField fx:id="txtDisctrict" layoutX="113.0" prefHeight="29.0" prefWidth="464.0" promptText="Distrito" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
+            <TextField fx:id="txtDistrict" layoutX="113.0" prefHeight="29.0" prefWidth="464.0" promptText="Distrito" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
             <Label layoutY="3.0" text="Distrito" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="7.0" layoutY="14.0" prefHeight="35.0" prefWidth="576.0">
          <children>
-            <TextField fx:id="txtStreet1" layoutX="113.0" prefHeight="29.0" prefWidth="156.0" promptText="CPF" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="318.0" AnchorPane.topAnchor="5.0" />
+            <TextField fx:id="txtCpf" layoutX="113.0" prefHeight="29.0" prefWidth="156.0" promptText="CPF" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="318.0" AnchorPane.topAnchor="5.0" />
             <Label layoutY="3.0" text="Buscar Cliente" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
             <Button fx:id="btnFindClient" layoutX="280.0" layoutY="6.0" mnemonicParsing="false" onAction="#findClient" prefHeight="23.0" prefWidth="114.0" text="Buscar" />
          </children>
@@ -54,6 +54,12 @@
          <children>
             <Label layoutY="3.0" text="Cliente" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
             <Label fx:id="lbClientName" layoutX="104.0" layoutY="10.0" text="--" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="8.0" layoutY="285.0" prefHeight="35.0" prefWidth="576.0">
+         <children>
+            <TextField fx:id="txtcCep" layoutX="113.0" prefHeight="29.0" prefWidth="464.0" promptText="CEP" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
+            <Label layoutY="3.0" text="CEP" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
          </children>
       </AnchorPane>
    </children>

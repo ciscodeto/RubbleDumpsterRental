@@ -24,6 +24,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import static com.dumpRents.model.entities.RubbleDumpsterStatus.*;
+
 
 public class Main {
 
@@ -47,134 +49,45 @@ public class Main {
     public static EntryExitReportUseCase entryExitReportUseCase;
 
     public static void main(String[] args) {
-        // Validação de CEP
-        Cep cep = new Cep("12345-678");
-        Address address = new Address("Rua Exemplo", "Bairro Exemplo", "123", "Cidade Exemplo", cep);
+        configureInjection();
+        populateFakeDatabase();
+        WindowLoader.main(args);
+    }
 
-        if (address.isValid()) {
-            System.out.println("O endereço é válido.");
-        } else {
-            System.out.println("O endereço é inválido.");
-        }
+    private static void populateFakeDatabase() {
+        Cep cep = new Cep("12345-673");
 
+        Cpf cpf1 = new Cpf("960.647.320-16");
+        Cpf cpf2 = new Cpf("605.647.070-90");
 
-
-        //Startando CLIENT
-        Cpf cpf = new Cpf("395018888-60");
         Phone phone1 = new Phone("16994580485");
         Phone phone2 = new Phone("16994580485");
         Phone phone3 = new Phone("16994580485");
         Phone phone4 = new Phone("16994580485");
+
         List<Email> emails = new ArrayList<>();
-        Email email = new Email("neguito.juvenal@gmail.com");
-        emails.add(email);
-        Client client = new Client("Kayky", address, cpf, phone2, phone1, emails, 1);
-        Client client2 = new Client("Pedro", address, cpf, phone3, phone4, emails, 2);
+        Email email1 = new Email("neguito.juvenal@gmail.com");
+        emails.add(email1);
 
-        RubbleDumpster rubbleDumpster = new RubbleDumpster(1, 50.0, 300.0, RubbleDumpsterStatus.DISABLED);
-        RubbleDumpster rubbleDumpster1 = new RubbleDumpster(2, 60.0, 200.0, RubbleDumpsterStatus.DISABLED);
-        RubbleDumpster rubbleDumpster4 = new RubbleDumpster(3, 70.0, 300.0, RubbleDumpsterStatus.AVAILABLE);
-        Rental rental = new Rental(rubbleDumpster, client, LocalDate.now(),address);
+        Address address = new Address("Rua Exemplo", "Bairro Exemplo", "123", "Cidade Exemplo", cep);
+        Client client1 = new Client("Caboquinho",address, cpf1, phone1, phone2, emails,1);
+        Client client2 = new Client("Caboco",address, cpf2, phone3, phone4, emails,2);
 
-        // DATABASE
+        RubbleDumpster rubbleDumpster1 = new RubbleDumpster(1,50.0, 300.0, AVAILABLE);
+        RubbleDumpster rubbleDumpster2 = new RubbleDumpster(2,60.0, 200.0, AVAILABLE);
+        RubbleDumpster rubbleDumpster3 = new RubbleDumpster(3,70.0, 300.0, AVAILABLE);
 
-        configureInjection();
-        setupDatabase();
-        //WindowLoader.main(args);
 
-        activateRubbleDumpsterUseCase.activate(rubbleDumpster);
-        //activateRubbleDumpsterUseCase.activate(rubbleDumpster1);
-        System.out.println("Activates\n");
-        System.out.println(rubbleDumpster);
-
-        System.out.println("INSERTS\n");
-        insertRubbleDumpsterUseCase.insert(rubbleDumpster);
         insertRubbleDumpsterUseCase.insert(rubbleDumpster1);
+        insertRubbleDumpsterUseCase.insert(rubbleDumpster2);
+        insertRubbleDumpsterUseCase.insert(rubbleDumpster3);
 
-        System.out.println("FINDS\n");
-        Optional<RubbleDumpster> rubbleDumpster2 = findRubbleDumpsterUseCase.findOne(1);
-        Optional<RubbleDumpster> rubbleDumpster3 = findRubbleDumpsterUseCase.findOne(2);
+        insertClientUseCase.insert(client1);
+        insertClientUseCase.insert(client2);
 
-
-        System.out.println(rubbleDumpster2);
-        System.out.println(rubbleDumpster3);
-
-        System.out.println("Disabled\n");
-
-
-        //inactivateRubbleDumpsterUseCase.inactivate(rubbleDumpster);
-        inactivateRubbleDumpsterUseCase.inactivate(rubbleDumpster1);
-
-        updateRubbleDumpsterRentalPriceUseCase.update(rubbleDumpster, 240.0);
-        updateRubbleDumpsterRentalPriceUseCase.update(rubbleDumpster1, 280.0);
-        System.out.println(rubbleDumpster);
-        System.out.println(rubbleDumpster1);
-
-        //rubbleDumpster.activateRubbleDumpster();
-        System.out.println(rubbleDumpster);
-
-        rubbleDumpster.withdrawalRequest(120);
-
-
-        System.out.println(client.toString());
-        System.out.println(client2.toString());
-
-        //TESTE CLIENT
-        insertClientUseCase.insert(client);
-
-        System.out.println(findClientUseCase.findOne(1).toString());
-
-
-        updateClientUseCase.updateClient(client);
-        System.out.println(client.toString());
-        rubbleDumpster.setStatus(RubbleDumpsterStatus.DISABLED);
-
-        //TESTE RENTAL
-        activateRubbleDumpsterUseCase.activate(rubbleDumpster);
-        Rental rental1 = insertRentalUseCase.insertRental(client.getId(),address);
-        System.out.println(findRentalUseCase.findRentalByClient(client).toString());
-        System.out.println(findRentalUseCase.findOne(rental1.getId()).toString());
-        withdrawalRequestUseCase.requestWithdrawal(rental1.getId());
-        System.out.println(findRentalUseCase.findOne(rental1.getId()).toString());
-//        endRentalUseCase.endRental(rental1.getId());
-        System.out.println(findRentalUseCase.findOne(rental1.getId()).toString());
-
-        EntryExitReportUseCase.EntryExitReport entryExitReport = entryExitReportUseCase.generateReport(LocalDate.MIN, LocalDate.MAX);
-        for (Report report : entryExitReport.reports()) {
-            System.out.println(report);
-        }
-
-//        IncomeReportUseCase.IncomeReport incomeReport = incomeReportUseCase.generateReport(LocalDate.MIN, LocalDate.MAX);
-//        for (Report report : incomeReport.reports()) {
-//            System.out.println(report);
-//        }
-
-        String entryExitCsvFileName = "entry_exit_report.csv";
-        String[] entryExitHeaders = {"Serial Number", "Client Name", "Initial Date", "Withdrawal Date", "Final Amount"};
-        List<String[]> entryExitData = entryExitReport.reports().stream()
-                .map(report -> new String[]{
-                        report.serialNumber(),
-                        report.clientName() != null ? report.clientName() : "",
-                        report.initialDate() != null ? report.initialDate().toString() : "",
-                        report.withdrawalDate() != null ? report.withdrawalDate().toString() : "",
-                        report.finalAmount() != null ? report.finalAmount().toString() : ""
-                })
-                .toList();
-        exportCSVUseCase.export(entryExitCsvFileName, entryExitHeaders, entryExitData);
-
-        String incomeCsvFileName = "income_report.csv";
-        String[] incomeHeaders = {"Serial Number", "Client Name", "Initial Date", "Withdrawal Date", "Final Amount"};
-//        List<String[]> incomeData = incomeReport.reports().stream()
-//                .map(report -> new String[]{
-//                        report.serialNumber(),
-//                        report.initialDate() != null ? report.initialDate().toString() : "",
-//                        report.withdrawalDate() != null ? report.withdrawalDate().toString() : "",
-//                        report.finalAmount() != null ? report.finalAmount().toString() : ""
-//                })
-//                .toList();
-//        exportCSVUseCase.export(incomeCsvFileName, incomeHeaders, incomeData);
-
-        WindowLoader.main(args);
+        insertRentalUseCase.insertRental(client1.getId(),address);
+        insertRentalUseCase.insertRental(client2.getId(),address);
+        insertRentalUseCase.insertRental(client2.getId(),address);
     }
 
     private static void setupDatabase() {
