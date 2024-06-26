@@ -16,7 +16,7 @@ public class SQLiteRubbleDumbsterDAO implements RubbleDumpsterDAO {
     @Override
     public List<RubbleDumpster> findAll(RubbleDumpsterStatus status) {
             String rubbleDumpsterStatus = status.toString();
-            String sql = "SELECT * from RubbleDumpster where status=?";
+            String sql = "SELECT * from RubbleDumpster where rubbleDumpsterStatus=?";
             List<RubbleDumpster> rubbleDumpsters= new ArrayList<>();
 
             try(PreparedStatement stmt = ConnectionFactory.createPreparedStatement(sql)) {
