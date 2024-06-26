@@ -58,7 +58,7 @@
       </AnchorPane>
       <AnchorPane layoutX="8.0" layoutY="285.0" prefHeight="35.0" prefWidth="576.0">
          <children>
-            <TextField fx:id="txtcCep" layoutX="113.0" prefHeight="29.0" prefWidth="464.0" promptText="CEP" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
+            <TextField fx:id="txtCep" layoutX="113.0" prefHeight="29.0" prefWidth="464.0" promptText="CEP" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
             <Label layoutY="3.0" text="CEP" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
          </children>
       </AnchorPane>
