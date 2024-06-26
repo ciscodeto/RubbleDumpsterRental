@@ -81,6 +81,7 @@ public class ReportUIController {
 
 
     public void generateIncomeReport(ActionEvent actionEvent) {
+        reportType = ReportType.INCOME;
         LocalDate initialDate = dpInitialDate.getValue();
         LocalDate endDate = dpEndDate.getValue();
         cFinalAmount.setVisible(true);
@@ -96,6 +97,7 @@ public class ReportUIController {
     }
 
     public void generateEntryAndExitReport(ActionEvent actionEvent) {
+        reportType = ReportType.ENTRY_EXIT;
         cFinalAmount.setVisible(false);
         cClient.setVisible(true);
         LocalDate initialDate = dpInitialDate.getValue();
