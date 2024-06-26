@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="496.0" prefWidth="646.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dumpRents.controller.ClientUIController">
+<AnchorPane prefHeight="485.0" prefWidth="812.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dumpRents.controller.ClientUIController">
    <children>
       <StackPane layoutX="0.0" layoutY="8.0" prefWidth="628.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
@@ -15,7 +15,7 @@
             </Label>
          </children>
       </StackPane>
-      <VBox layoutX="5.0" layoutY="1.0" prefHeight="502.0" prefWidth="638.0" spacing="10.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="1.0">
+      <VBox layoutX="5.0" layoutY="1.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="502.0" prefWidth="638.0" spacing="10.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="1.0">
          <children>
             <Label prefHeight="28.0" prefWidth="131.0">
                <font>
