@@ -7,7 +7,7 @@ public class Email {
         this.email = email;
 
         if (!isValid()){
-            throw new IllegalArgumentException("Invalid Email");
+            throw new IllegalArgumentException("Email inválido");
         }
     }
 

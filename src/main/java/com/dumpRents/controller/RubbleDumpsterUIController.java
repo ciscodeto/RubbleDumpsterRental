@@ -48,6 +48,7 @@ public class RubbleDumpsterUIController {
                 insertRubbleDumpsterUseCase.insert(rubbleDumpster);
             } catch (EntityAlreadyExistsException e) {
                 showAlert("Erro!", "ATENÇÃO!" + e.getMessage(), Alert.AlertType.ERROR);
+                return;
             }
 
         }else {

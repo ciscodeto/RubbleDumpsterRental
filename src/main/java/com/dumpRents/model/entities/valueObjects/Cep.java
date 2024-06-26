@@ -5,6 +5,10 @@ public class Cep {
 
     public Cep(String cep) {
         this.cep = cep;
+
+        if (!isValid()){
+            throw new IllegalArgumentException("Cep inválido");
+        }
     }
 
     public boolean isValid() {

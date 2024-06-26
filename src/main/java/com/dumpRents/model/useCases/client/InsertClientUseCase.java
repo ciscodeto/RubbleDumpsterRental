@@ -25,7 +25,7 @@ public class InsertClientUseCase {
 
         Cpf cpf = client.getCpf();
         if (clientDAO.findByCpf(cpf).isPresent())
-            throw new EntityAlreadyExistsException("This CPF already exists");
+            throw new EntityAlreadyExistsException("CPF já cadastrado");
 
         return clientDAO.create(client);
     }

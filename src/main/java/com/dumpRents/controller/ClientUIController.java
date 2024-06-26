@@ -54,21 +54,22 @@ public class ClientUIController {
 
     public void saveOrUpdate(ActionEvent actionEvent) throws IOException {
         getEntityFromView();
-        boolean newClient = findClientUseCase.findClientByCpf(client.getCpf()).isEmpty();
 
         if (client.getId() == null) {
             try {
                 insertClientUseCase.insert(client);
             } catch (EntityAlreadyExistsException e) {
                 e.printStackTrace();
-                showAlert("ERRO!", "ATENÇÃO!" + e.getMessage(), Alert.AlertType.ERROR);
+                showAlert("ERRO!", "ATENÇÃO!\n" + e.getMessage(), Alert.AlertType.ERROR);
+                return;
             }
         }
         else {
             try {
                 updateClientUseCase.updateClient(client);
             } catch (IllegalArgumentException e) {
-                showAlert("ERRO!", "ATENÇÃO!" + e.getMessage(), Alert.AlertType.ERROR);
+                showAlert("ERRO!", "ATENÇÃO!\n" + e.getMessage(), Alert.AlertType.ERROR);
+                return;
             }
 
         }
@@ -108,19 +109,22 @@ public class ClientUIController {
         try {
             client.setCpf(new Cpf(txtCpf.getText()));
         } catch (IllegalArgumentException e) {
-            showAlert("ERRO!", "ATENÇÃO!" + e.getMessage(), Alert.AlertType.ERROR);
+            showAlert("ERRO!", "ATENÇÃO!\n" + e.getMessage(), Alert.AlertType.ERROR);
+            return;
         }
 
         try {
             client.setPhone1(new Phone(txtTelephone1.getText()));
         } catch (IllegalArgumentException e) {
-            showAlert("ERRO!", "ATENÇÃO!" + e.getMessage(), Alert.AlertType.ERROR);
+            showAlert("ERRO!", "ATENÇÃO!\n" + e.getMessage(), Alert.AlertType.ERROR);
+            return;
         }
 
         try {
             client.setPhone2(new Phone(txtTelephone2.getText()));
         } catch (IllegalArgumentException e) {
-            showAlert("ERRO!", "ATENÇÃO!" + e.getMessage(), Alert.AlertType.ERROR);
+            showAlert("ERRO!", "ATENÇÃO!\n" + e.getMessage(), Alert.AlertType.ERROR);
+            return;
         }
 
         try {
@@ -132,7 +136,8 @@ public class ClientUIController {
             }
             client.setEmailList(emails);
         } catch (IllegalArgumentException e) {
-            showAlert("ERRO!", "ATENÇÃO!" + e.getMessage(), Alert.AlertType.ERROR);
+            showAlert("ERRO!", "ATENÇÃO!\n" + e.getMessage(), Alert.AlertType.ERROR);
+            return;
         }
 
 
@@ -146,7 +151,8 @@ public class ClientUIController {
             );
             client.setAddress(address);
         } catch (IllegalArgumentException e) {
-            showAlert("ERRO!", "ATENÇÃO!" + e.getMessage(), Alert.AlertType.ERROR);
+            showAlert("ERRO!", "ATENÇÃO!\n" + e.getMessage(), Alert.AlertType.ERROR);
+            return;
         }
     }
 
@@ -155,13 +161,17 @@ public class ClientUIController {
         txtCpf.setText(client.getCpf().toString());
         txtTelephone1.setText(client.getPhone1().toString());
         txtTelephone2.setText(client.getPhone2().toString());
-        txtEmails.setText(client.getEmailList().toString());
+
+        String emailsWithoutBrackets = client.getEmailList().toString().replace("[", "").replace("]", "");
+        txtEmails.setText(emailsWithoutBrackets);
+
         txtStreet.setText(client.getAddress().getStreet());
         txtDistrict.setText(client.getAddress().getDistrict());
         txtNumber.setText(client.getAddress().getNumber());
         txtCity.setText(client.getAddress().getCity());
         txtCep.setText(client.getAddress().getCep().toString());
     }
+
 
     private void configureViewModel(){
         btnCancel.setText("Fechar");
