@@ -36,8 +36,6 @@ public class RubbleDumpsterUIController {
     public void saveOrUpdate(ActionEvent actionEvent) throws IOException {
         getEntityFromView();
         if(rubbleDumpster.getId() == null){
-            // TERRIVEL
-            activateRubbleDumpsterUseCase.activate(rubbleDumpster);
             try {
                 insertRubbleDumpsterUseCase.insert(rubbleDumpster);
             } catch (EntityAlreadyExistsException e) {
@@ -72,7 +70,7 @@ public class RubbleDumpsterUIController {
                     Integer.valueOf(txtSerialNumber.getText()),
                     Double.valueOf(txtMinAmount.getText()),
                     Double.valueOf(txtMonthlyAmount.getText()),
-                    RubbleDumpsterStatus.DISABLED
+                    RubbleDumpsterStatus.AVAILABLE
             );
         }
     }

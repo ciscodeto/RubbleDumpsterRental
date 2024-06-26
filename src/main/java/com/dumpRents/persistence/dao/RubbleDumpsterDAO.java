@@ -10,7 +10,8 @@ import java.util.Optional;
 public interface RubbleDumpsterDAO extends DAO<RubbleDumpster, Integer> {
     List<RubbleDumpster> findAll(RubbleDumpsterStatus status);
     Optional<RubbleDumpster> findById(Integer id);
-    Optional<RubbleDumpster> findOneBySerialNumber(Integer serialNumber);
+    Optional<RubbleDumpster> findOneBySerialNumber(int serialNumber);
+
 }
 
 
