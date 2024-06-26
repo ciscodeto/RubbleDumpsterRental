@@ -35,29 +35,39 @@ public class RentalUIController {
     @FXML private TextField txtCep;
 
     private ObservableList<Rental> tableData;
-    private Client client;
+    private Client client = null;
     private Rental rental;
     private Address address;
-
-    private void getEntityFromView() {
-        if(rental == null){
-            rental = new Rental();
-        }
-        address = new Address(
-                txtStreet.getText(),
-                txtDistrict.getText(),
-                txtNumber.getText(),
-                txtCity.getText(),
-                new Cep(txtCep.getText())
-        );
-    }
 
     public void backToPreviousScene(ActionEvent actionEvent) throws IOException {
         WindowLoader.setRoot("mainUI");
     }
 
-    public void saveOrUpdate(ActionEvent actionEvent) {
-        insertRentalUseCase.insertRental(rental.getClient().getId(),address);
+    public void saveOrUpdate(ActionEvent actionEvent) throws IOException {
+        try {
+            address = new Address(
+                    txtStreet.getText(),
+                    txtDistrict.getText(),
+                    txtNumber.getText(),
+                    txtCity.getText(),
+                    new Cep(txtCep.getText())
+            );
+        } catch (Exception e){
+            e.printStackTrace();
+            showAlert("Erro!", "Preencha todos os campos!", Alert.AlertType.ERROR);
+            return;
+        }
+        if (client == null) {
+            showAlert("Erro!", "Realize a busca pelo CPF do cliente!", Alert.AlertType.ERROR);
+            return;
+        }
+        try {
+            insertRentalUseCase.insertRental(client.getId(), address);
+            showAlert("Sucesso!", "Locação realizada com sucesso!", Alert.AlertType.INFORMATION);
+        } catch (IllegalArgumentException e) {
+            showAlert("Erro!", "Não foi possível realizar aluguel " + e.getMessage(), Alert.AlertType.ERROR);
+        }
+        WindowLoader.setRoot("mainUI");
     }
 
     public void setRental(Rental selectedItem, UIMode mode) {
@@ -80,6 +90,7 @@ public class RentalUIController {
             Optional<Client> newClient = findClientUseCase.findClientByCpf(cpf);
             if (newClient.isPresent()) {
                 this.client = newClient.get();
+                lbClientName.setText(client.getName());
             } else {
                 showAlert("Erro!", "Cliente não encontrado", Alert.AlertType.ERROR);
             }
