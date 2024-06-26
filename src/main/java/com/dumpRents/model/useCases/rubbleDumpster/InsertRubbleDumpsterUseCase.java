@@ -29,7 +29,7 @@ public class InsertRubbleDumpsterUseCase {
 
         Integer serialNumber = rubbleDumpster.getSerialNumber();
 
-        if (rubbleDumpsterDAO.findOne(serialNumber).isPresent())
+        if (rubbleDumpsterDAO.findOneBySerialNumber(serialNumber).isPresent())
             throw new EntityAlreadyExistsException("Este Serial Number já existe");
 
         rubbleDumpster.activate();
