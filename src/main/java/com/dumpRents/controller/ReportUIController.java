@@ -30,6 +30,7 @@ public class ReportUIController {
     @FXML private TableView<Report> tableView;
 
     private ObservableList<Report> tableData;
+    private Enum<ReportType> reportType;
 
     @FXML
     private void initialize() {
@@ -47,19 +48,35 @@ public class ReportUIController {
     }
 
     public void exportReport(ActionEvent actionEvent) {
-        String[] headers = {"Serial Number", "Client Name", "Start Date", "End Date", "Amount"};
-        List<String[]> data = tableData.stream()
-                .map(report -> new String[]{
-                        report.getSerialNumber(),
-                        report.getClientName(),
-                        report.getInitialDate().toString(),
-                        report.getWithdrawalDate() != null ? report.getWithdrawalDate().toString() : "",
-                        report.getFinalAmount() != null ? report.getFinalAmount().toString() : ""
-                })
-                .toList();
+        String csvFileName = LocalDate.now() + "_" + reportType.toString() + "_report.csv";
 
-        exportCSVUseCase.export("report.csv", headers, data);
-        showAlert("Success", "Report exported successfully.", Alert.AlertType.INFORMATION);
+        if (reportType == ReportType.ENTRY_EXIT) {
+            String[] headers = {"Serial Number", "Client Name", "Initial Date", "Withdrawal Date", "Final Amount"};
+            List<String[]> data = tableData.stream()
+                    .map(report -> new String[]{
+                            report.serialNumber(),
+                            report.clientName() != null ? report.clientName() : "",
+                            report.initialDate() != null ? report.initialDate().toString() : "",
+                            report.withdrawalDate() != null ? report.withdrawalDate().toString() : "",
+                            report.finalAmount() != null ? report.finalAmount().toString() : ""
+                    })
+                    .toList();
+            exportCSVUseCase.export(csvFileName, headers, data);
+            showAlert("Success", "Report exported successfully.", Alert.AlertType.INFORMATION);
+        }
+        if (reportType == ReportType.INCOME) {
+            String[] headers = {"Serial Number", "Client Name", "Initial Date", "Withdrawal Date", "Final Amount"};
+            List<String[]> data = tableData.stream()
+                    .map(report -> new String[]{
+                            report.serialNumber(),
+                            report.initialDate() != null ? report.initialDate().toString() : "",
+                            report.withdrawalDate() != null ? report.withdrawalDate().toString() : "",
+                            report.finalAmount() != null ? report.finalAmount().toString() : ""
+                    })
+                    .toList();
+            exportCSVUseCase.export(csvFileName, headers, data);
+            showAlert("Success", "Report exported successfully.", Alert.AlertType.INFORMATION);
+        }
     }
 
 
